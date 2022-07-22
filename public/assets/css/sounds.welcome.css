@@ -1,0 +1,21 @@
+/* style headline */
+.carousel {
+    width: 100%;
+    margin: 1em auto 0 auto;
+}
+
+.carousel-item {
+}
+.carousel-item > .carousel-data {
+    margin: 0 auto;
+    width: 100%;
+    height: 35em;
+}
+
+.carousel-item > .carousel-data > img {
+    width: 100%;
+    height: 40em;
+    margin: 0 auto;
+}
+
+/* end style headline */
