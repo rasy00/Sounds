@@ -249,19 +249,6 @@ function togglePlayPause() {
 
 // if document loaded
 $(document).ready(function () {
-    $("audio").bind("canplay", () => {
-        if (($("audio")[0].volume = 0.5)) {
-            $("audio")[0].isPlayed = true;
-        }
-
-        $(".duration-notation > #currentTime")[0].innerHTML = getMinutes(
-            $("audio")[0].currentTime
-        );
-
-        $(".duration-notation > #duration")[0].innerHTML = getMinutes(
-            $("audio")[0].duration
-        );
-    });
     volumeLineControl(
         $(
             ".audio-controller > .right > #volume-controller > .volume-bar > .volume-line"
@@ -270,4 +257,15 @@ $(document).ready(function () {
     trackIntervalControl($(".audio-controller > .center > button"));
     addBarProgresEv();
     addTogglePlayPause();
+
+    // const judulRuleMargin = $(".judul-rule")[0].style.margin;
+
+    // if ($(window).innerWidth() <= 700) {
+    //     $("button#share_btn").addClass("hidden");
+    //     $(".judul-rule")[0].style.margin = "5px 0px 15px 9.2em";
+    //     $(".detail-item.fg-2 > div")[0].style.textAlign = "center";
+    //     $(".detail-item.fg-2 > div").removeClass(["ms-5", "ps-2"]);
+    // }else{
+
+    // }
 });

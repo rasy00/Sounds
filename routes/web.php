@@ -33,7 +33,6 @@ Route::get('/sounds/{id}', function($param){
 Route::get("/sounds",function(){
     return view("sub.welcome",["id" =>" "]);
 });
-
-Route::get('/nitod', function(){
-    return view("mo");
+Route::get("/sounds/ ",function(){
+    return view("sub.welcome",["id" =>" "]);
 });

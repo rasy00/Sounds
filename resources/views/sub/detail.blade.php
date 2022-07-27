@@ -3,7 +3,7 @@
 @section("konten")
       {{-- section audio-player  --}}
       <section class="audio-player">
-        <audio autoplay hidden ontimeupdate="onTimeUpdate()">
+        <audio hidden ontimeupdate="onTimeUpdate()">
            {{-- <source src="horse.ogg" type="audio/ogg" />  --}}
           <source src="../assets/resources/coba.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
@@ -26,7 +26,7 @@
               <p class="fs-6">Introducing Gangster: The Story of Curtis Warren</p>
             </div>
 
-          </div><button class="share-btn position-absolute d-flex justify-content-center align-items-center" style="border-radius:50%; margin-left:95%; font-size:1.5em; width:1.8em;height:1.8em; border:1px solid transparent"><i class="icofont-share position-absolute"></i></button>
+          </div><button id='share_btn' class="share-btn position-absolute d-flex justify-content-center align-items-center" style="border-radius:50%; margin-left:95%; font-size:1.5em; width:1.8em;height:1.8em; border:1px solid transparent"><i class="icofont-share position-absolute"></i></button>
         </div>
         <div class="canva-player py-5 my-3">
           <div class="track-duration">
@@ -172,7 +172,9 @@
       <section class="recommended-container">
         <div class="header d-flex justify-content-between align-items-end">
             <h1>Recommended</h1>
-            <a>more recomends</a>
+            <a href="#" class="d-flex align-items-center justify-content-evenly">
+                <span class="d-inline-block">View more</span><span class="fs-3">></span>
+            </a>
         </div>
         <div class="recommended-list">
             <ul>

@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../assets/bootsrap/css/bootstrap.css" />
     <link rel="stylesheet" href="../../assets/icofont/icofont.css" />
-    <link rel="stylesheet" href="../../assets/css/helper.css" />
+    <link rel="stylesheet" href="../../assets/css/sounds.master.css" />
     <link rel="stylesheet" href="../../assets/css/navbar.css" />
     <link rel="stylesheet" href="../../assets/css/audio.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.welcome.css" />

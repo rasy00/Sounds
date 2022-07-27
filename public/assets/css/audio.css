@@ -891,32 +891,39 @@ section.recommended-container > .recommended-list > ul > li img {
     margin-top: -14.5em;
 }
 
+section.recommended-container > .header > a {
+    color: white;
+    text-decoration: none;
+    height: 40px;
+    width: 140px;
+}
+
 /* end recommended-container style */
 
 /*  */
-/* phone and 1420px layouts */
+/* media layouts */
 
-@media only screen and (max-width: 1410px) {
+@media only screen and (max-width: 1790px) {
     /* episodes section */
     .content > .content-item > .cover > .play-overlay > img {
-        width: 10em;
-        height: 10em;
+        width: 11.9em;
+        height: 11.9em;
     }
     .content > .content-item > .cover > .play-overlay > .bg-overlay {
-        width: 10em;
-        height: 10em;
-        margin-top: -10em;
+        width: 11.9em;
+        height: 11.9em;
+        margin-top: -11.9em;
     }
     /* end episodes section */
 
     /* rekomen section */
     .recommended-item .play-overlay {
-        width: 11em !important;
-        height: 11em !important;
+        width: 12.9em !important;
+        height: 12.9em !important;
     }
     section.recommended-container > .recommended-list > ul > li img {
-        width: 11em !important;
-        height: 11em !important;
+        width: 12.9em !important;
+        height: 12.9em !important;
     }
 
     .recommended-item
@@ -925,111 +932,530 @@ section.recommended-container > .recommended-list > ul > li img {
         > .cover
         > .play-overlay
         > .bg-overlay {
-        width: 11em !important;
-        height: 11em !important;
-        margin-top: -11em;
+        width: 12.9em !important;
+        height: 12.9em !important;
+        margin-top: -12.9em;
     }
     /* end rekomen section */
-
-    @media only screen and (max-width: 600px) {
-        body,
-        html {
-            width: 100%;
-            overflow-x: hidden;
-        }
-        .duration-notation {
-            position: absolute !important;
-            z-index: -10;
-            width: 100%;
-        }
-        .hero-space.detail {
-            width: fit-content;
-            height: fit-content;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .canva-player {
-            margin: 0 auto;
-        }
-
-        .canva-player > .audio-controller > *:nth-of-type(1),
-        .canva-player > .audio-controller > *:nth-of-type(3),
-        .playback-setting-modal {
-            position: absolute;
-            opacity: 1;
-            cursor: default !important;
-            z-index: 0;
-            top: -100em;
-        }
-
-        section.description-container {
-            margin-top: 7em;
-        }
-
+    @media only screen and (max-width: 1590px) {
+        /* episodes section */
         .content > .content-item > .cover > .play-overlay > img {
-            width: 10em;
-            height: 10em;
+            width: 11em;
+            height: 11em;
         }
         .content > .content-item > .cover > .play-overlay > .bg-overlay {
-            width: 10em;
-            height: 10em;
-            margin-top: -10em;
+            width: 11em;
+            height: 11em;
+            margin-top: -11em;
+        }
+        /* end episodes section */
+
+        /* rekomen section */
+        .recommended-item .play-overlay {
+            width: 12em !important;
+            height: 12em !important;
+        }
+        section.recommended-container > .recommended-list > ul > li img {
+            width: 12em !important;
+            height: 12em !important;
         }
 
-        /* setting font size for phone layout */
-        .audio-controller > .right > #volume-controller i.icofont-ui-volume {
-            font-size: 37px;
+        .recommended-item
+            > .content
+            > .content-item
+            > .cover
+            > .play-overlay
+            > .bg-overlay {
+            width: 12em !important;
+            height: 12em !important;
+            margin-top: -12em;
         }
+        /* end rekomen section */
+        @media only screen and (max-width: 1490px) {
+            /* episodes section */
+            .content > .content-item > .cover > .play-overlay > img {
+                width: 10em;
+                height: 10em;
+            }
+            .content > .content-item > .cover > .play-overlay > .bg-overlay {
+                width: 10em;
+                height: 10em;
+                margin-top: -10em;
+            }
+            /* end episodes section */
 
-        .audio-controller
-            > .right
-            > #volume-controller:hover
-            i.icofont-ui-volume {
-            font-size: 42px;
-        }
-
-        .audio-controller
-            > .right
-            > #volume-controller
-            > .volume-bar
-            > #indicatorVol {
-            font-size: 17px;
-        }
-
-        .audio-controller
-            > .center
-            > button#playBtn
-            > i
-            > i.icofont-ui-play::before {
-            font-size: 27px;
-        }
-        /* end setting font size */
-        @media only screen and (max-width: 400px) {
-            .canva-player > .audio-controller > * {
-                transform: scale(0.8);
-                position: relative;
-                margin-left: -5%;
+            /* rekomen section */
+            .recommended-item .play-overlay {
+                width: 11em !important;
+                height: 11em !important;
+            }
+            section.recommended-container > .recommended-list > ul > li img {
+                width: 11em !important;
+                height: 11em !important;
             }
 
-            section.description-container {
-                margin-top: 9em;
+            .recommended-item
+                > .content
+                > .content-item
+                > .cover
+                > .play-overlay
+                > .bg-overlay {
+                width: 11em !important;
+                height: 11em !important;
+                margin-top: -11em;
             }
+            /* end rekomen section */
 
-            @media only screen and (max-width: 360px) {
-                .canva-player > .audio-controller > * {
-                    margin-left: -8.5%;
+            @media only screen and (max-width: 1390px) {
+                /* episodes section */
+                .content > .content-item > .cover > .play-overlay > img {
+                    width: 9.5em;
+                    height: 9.5em;
+                }
+                .content
+                    > .content-item
+                    > .cover
+                    > .play-overlay
+                    > .bg-overlay {
+                    width: 9.5em;
+                    height: 9.5em;
+                    margin-top: -9.5em;
+                }
+                /* end episodes section */
+
+                /* rekomen section */
+                .recommended-item .play-overlay {
+                    width: 10.5em !important;
+                    height: 10.5em !important;
+                }
+                section.recommended-container
+                    > .recommended-list
+                    > ul
+                    > li
+                    img {
+                    width: 10.5em !important;
+                    height: 10.5em !important;
                 }
 
-                section.description-container {
-                    margin-top: 10em;
+                .recommended-item
+                    > .content
+                    > .content-item
+                    > .cover
+                    > .play-overlay
+                    > .bg-overlay {
+                    width: 10.5em !important;
+                    height: 10.5em !important;
+                    margin-top: -10.5em;
                 }
+                @media only screen and (max-width: 1290px) {
+                    /* episodes section */
+                    .content > .content-item > .cover > .play-overlay > img {
+                        width: 8.6em;
+                        height: 8.6em;
+                    }
+                    .content
+                        > .content-item
+                        > .cover
+                        > .play-overlay
+                        > .bg-overlay {
+                        width: 8.6em;
+                        height: 8.6em;
+                        margin-top: -8.6em;
+                    }
+                    /* end episodes section */
 
-                @media only screen and (max-width: 330px) {
-                    .canva-player > .audio-controller > * {
-                        margin-left: -15.5%;
-                        transform: scale(0.7);
+                    /* rekomen section */
+                    .recommended-item .play-overlay {
+                        width: 9.6em !important;
+                        height: 9.6em !important;
+                    }
+                    section.recommended-container
+                        > .recommended-list
+                        > ul
+                        > li
+                        img {
+                        width: 9.6em !important;
+                        height: 9.6em !important;
+                    }
+
+                    .recommended-item
+                        > .content
+                        > .content-item
+                        > .cover
+                        > .play-overlay
+                        > .bg-overlay {
+                        width: 9.6em !important;
+                        height: 9.6em !important;
+                        margin-top: -9.6em;
+                    }
+                    /* end rekomen section */
+                    @media only screen and (max-width: 1190px) {
+                        /* episodes section */
+                        .content
+                            > .content-item
+                            > .cover
+                            > .play-overlay
+                            > img {
+                            width: 7.8em;
+                            height: 7.8em;
+                        }
+                        .content
+                            > .content-item
+                            > .cover
+                            > .play-overlay
+                            > .bg-overlay {
+                            width: 7.8em;
+                            height: 7.8em;
+                            margin-top: -7.8em;
+                        }
+                        /* end episodes section */
+
+                        /* rekomen section */
+                        .recommended-item .play-overlay {
+                            width: 8.8em !important;
+                            height: 8.8em !important;
+                        }
+                        section.recommended-container
+                            > .recommended-list
+                            > ul
+                            > li
+                            img {
+                            width: 8.8em !important;
+                            height: 8.8em !important;
+                        }
+
+                        .recommended-item
+                            > .content
+                            > .content-item
+                            > .cover
+                            > .play-overlay
+                            > .bg-overlay {
+                            width: 8.8em !important;
+                            height: 8.8em !important;
+                            margin-top: -8.8em;
+                        }
+                        /* end rekomen section */
+                        @media only screen and (max-width: 1090px) {
+                            /* episodes section */
+                            .content
+                                > .content-item
+                                > .cover
+                                > .play-overlay
+                                > img {
+                                width: 6.8em;
+                                height: 6.8em;
+                            }
+                            .content
+                                > .content-item
+                                > .cover
+                                > .play-overlay
+                                > .bg-overlay {
+                                width: 6.8em;
+                                height: 6.8em;
+                                margin-top: -6.8em;
+                            }
+                            /* end episodes section */
+
+                            /* rekomen section */
+                            .recommended-item .play-overlay {
+                                width: 7.8em !important;
+                                height: 7.8em !important;
+                            }
+                            section.recommended-container
+                                > .recommended-list
+                                > ul
+                                > li
+                                img {
+                                width: 7.8em !important;
+                                height: 7.8em !important;
+                            }
+
+                            .recommended-item
+                                > .content
+                                > .content-item
+                                > .cover
+                                > .play-overlay
+                                > .bg-overlay {
+                                width: 7.8em !important;
+                                height: 7.8em !important;
+                                margin-top: -7.8em;
+                            }
+                            /* end rekomen section */
+                            @media only screen and (max-width: 980px) {
+                                /* rekomen section */
+                                section.recommended-container
+                                    > .recommended-list
+                                    > ul {
+                                    height: 27em !important;
+                                    overflow: hidden;
+                                }
+                                /* end rekomen section */
+
+                                /* set font size */
+                                /* end set font size */
+                                @media only screen and (max-width: 770px) {
+                                    body,
+                                    html {
+                                        width: 100%;
+                                        overflow-x: hidden;
+                                    }
+                                    button#share_btn {
+                                        position: absolute !important;
+                                        width: 1.4em !important;
+                                        height: 1.4em !important;
+                                        font-size: 1.3em !important;
+                                        margin-top: 5.7em !important;
+                                    }
+                                    .duration-notation {
+                                        position: absolute !important;
+                                        z-index: -10;
+                                        width: 100%;
+                                    }
+                                    .hero-space.detail {
+                                        width: fit-content;
+                                        height: fit-content;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+                                    }
+
+                                    .canva-player {
+                                        margin: 0 auto;
+                                    }
+
+                                    .canva-player
+                                        > .audio-controller
+                                        > *:nth-of-type(1),
+                                    .canva-player
+                                        > .audio-controller
+                                        > *:nth-of-type(3),
+                                    .playback-setting-modal {
+                                        position: absolute;
+                                        opacity: 1;
+                                        cursor: default !important;
+                                        z-index: 0;
+                                        top: -100em;
+                                    }
+
+                                    section.description-container {
+                                        margin-top: 7em;
+                                    }
+
+                                    .content
+                                        > .content-item
+                                        > .cover
+                                        > .play-overlay
+                                        > img {
+                                        width: 7.8em;
+                                        height: 7.8em;
+                                    }
+                                    .content
+                                        > .content-item
+                                        > .cover
+                                        > .play-overlay
+                                        > .bg-overlay {
+                                        width: 7.8em;
+                                        height: 7.8em;
+                                        margin-top: -7.8em;
+                                    }
+
+                                    /* setting font size for phone layout */
+                                    .audio-controller
+                                        > .right
+                                        > #volume-controller
+                                        i.icofont-ui-volume {
+                                        font-size: 37px;
+                                    }
+
+                                    .audio-controller
+                                        > .right
+                                        > #volume-controller:hover
+                                        i.icofont-ui-volume {
+                                        font-size: 42px;
+                                    }
+
+                                    .audio-controller
+                                        > .right
+                                        > #volume-controller
+                                        > .volume-bar
+                                        > #indicatorVol {
+                                        font-size: 17px;
+                                    }
+
+                                    .audio-controller
+                                        > .center
+                                        > button#playBtn
+                                        > i
+                                        > i.icofont-ui-play::before {
+                                        font-size: 27px;
+                                    }
+                                    /* end setting font size */
+                                    @media only screen and (max-width: 700px) {
+                                        html {
+                                            font-size: 15px;
+                                        }
+
+                                        section.recommended-container
+                                            > .header
+                                            > a {
+                                            height: 40px !important;
+                                            width: 100px !important;
+                                            /* margin-top: 1.5em !important; */
+                                        }
+
+                                        section.description-container {
+                                            margin-top: 13em !important;
+                                        }
+                                        section > * {
+                                            width: 80% !important;
+                                        }
+
+                                        .more-episodes {
+                                            font-size: 1.5em !important;
+                                        }
+
+                                        section.recommended-container
+                                            > .header
+                                            > h1 {
+                                            font-size: 1.5em !important;
+                                        }
+                                        section.recommended-container
+                                            > .header
+                                            > a {
+                                            font-size: 1em !important;
+                                            margin-bottom: 0 !important;
+                                        }
+                                        .container-scroll > .gel {
+                                            width: 10% !important;
+                                        }
+
+                                        .container-scroll > .button-slide {
+                                            margin-left: 80%;
+                                        }
+
+                                        .container-scroll > .button-slide > * {
+                                            width: 1.5em;
+                                            height: 1.5em;
+                                        }
+
+                                        .container-scroll
+                                            > .button-slide
+                                            > *
+                                            > * {
+                                            font-size: 1.7em;
+                                        }
+
+                                        section.recommended-container
+                                            > .recommended-list
+                                            > ul {
+                                            align-items: space-between;
+                                            height: 27em !important;
+                                            padding-top: 20px !important;
+                                        }
+                                        @media only screen and (max-width: 440px) {
+                                            html {
+                                                font-size: 14px;
+                                            }
+                                            button#share_btn {
+                                                margin-left: 65% !important;
+                                                margin-top: 5em !important;
+                                            }
+
+                                            @media only screen and (max-width: 400px) {
+                                                .canva-player
+                                                    > .audio-controller
+                                                    > * {
+                                                    transform: scale(0.8);
+                                                    position: relative;
+                                                    margin-left: -5%;
+                                                }
+
+                                                /* rekomen section */
+
+                                                .recommended-item
+                                                    .play-overlay {
+                                                    width: 8.5em !important;
+                                                    height: 8.5em !important;
+                                                }
+                                                section.recommended-container
+                                                    > .recommended-list
+                                                    > ul
+                                                    > li
+                                                    img {
+                                                    width: 8.5em !important;
+                                                    height: 8.5em !important;
+                                                }
+
+                                                .recommended-item
+                                                    > .content
+                                                    > .content-item
+                                                    > .cover
+                                                    > .play-overlay
+                                                    > .bg-overlay {
+                                                    width: 8.5em !important;
+                                                    height: 8.5em !important;
+                                                    margin-top: -8.5em;
+                                                }
+                                                .recommended-item
+                                                    > .content
+                                                    > .content-item
+                                                    > .data
+                                                    > .summ {
+                                                    margin-top: -4px !important;
+                                                }
+
+                                                section.recommended-container
+                                                    > .recommended-list
+                                                    > ul
+                                                    > * {
+                                                    margin-bottom: 10px !important;
+                                                }
+                                                .recommended-item
+                                                    > .content
+                                                    > .content-item
+                                                    > .data
+                                                    > * {
+                                                    margin: 0;
+                                                    padding: 0;
+                                                }
+                                                /* end rekomen section */
+
+                                                button#share_btn {
+                                                    margin-top: 3.5em !important;
+                                                }
+
+                                                section.description-container {
+                                                    margin-top: 9em;
+                                                }
+
+                                                @media only screen and (max-width: 360px) {
+                                                    .canva-player
+                                                        > .audio-controller
+                                                        > * {
+                                                        margin-left: -8.5%;
+                                                    }
+
+                                                    section.description-container {
+                                                        margin-top: 10em;
+                                                    }
+
+                                                    @media only screen and (max-width: 330px) {
+                                                        .canva-player
+                                                            > .audio-controller
+                                                            > * {
+                                                            margin-left: -15.5%;
+                                                            transform: scale(
+                                                                0.7
+                                                            );
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
