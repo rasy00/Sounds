@@ -5,7 +5,7 @@
       <section class="audio-player">
         <audio hidden ontimeupdate="onTimeUpdate()">
            {{-- <source src="horse.ogg" type="audio/ogg" />  --}}
-          <source src="../assets/resources/coba.mp3" type="audio/mpeg" />
+          <source src="../assets/resources/sounds/coba.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
         <div class="background"></div>

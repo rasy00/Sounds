@@ -13,22 +13,22 @@
     <div class="headline-slider-inner d-flex">
       <div class="headline-slider-item active">
         <div class="headline-slider-data overlay">
-            <img src="assets/resources/tod.jpeg" class="d-block" alt="...">
+            <img src="assets/resources/photod/tod.jpeg" class="d-block" alt="...">
         </div>
       </div>
       <div class="headline-slider-item">
         <div class="headline-slider-data overlay">
-            <img src="assets/resources/tod1.jpeg" class="d-block" alt="...">
+            <img src="assets/resources/photod/tod1.jpeg" class="d-block" alt="...">
         </div>
       </div>
       <div class="headline-slider-item">
         <div class="headline-slider-data overlay">
-            <img src="assets/resources/tod2.jpeg" class="d-block" alt="...">
+            <img src="assets/resources/photod/tod2.jpeg" class="d-block" alt="...">
         </div>
       </div>
       <div class="headline-slider-item">
         <div class="headline-slider-data overlay">
-            <img src="assets/resources/tod3.jpeg" class="d-block" alt="...">
+            <img src="assets/resources/photod/tod3.jpeg" class="d-block" alt="...">
         </div>
       </div>
     </div>
