@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <div class="headline-slider-indicators">
+    <div class="headline-slider-indicators">    
         <button type="button" data-bs-target="#headline" data-index = "0" class="active" onclick="slideShow(0)" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#headline" data-index = "1" class="" onclick="slideShow(1)" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#headline" data-index = "2" class="" onclick="slideShow(2)" aria-label="Slide 3"></button>
@@ -79,11 +79,11 @@
     <div class="live-container">
         <div class="live-container-inner">
             @for ($i = 1; $i <=10; $i++)
-                <div class="live-item">
+                <div class="live-item {{$i === 2?"live-current":""}}">
                     <a href="">
                         <div class="cover-item">
                             <div class="duration-ui">
-                                <img src="assets/resources/photod/tod{{$i==7?$i+6:$i + 2}}.jpeg" alt="" width="150" height="150" style="border-radius:50%">
+                                <img src="assets/resources/photod/tod{{$i==7?$i+6:$i + 2}}.jpeg" alt="" width="140" height="140" style="border-radius:50%">
                             </div>    
                         </div>
                         <div class="data-item">

@@ -184,11 +184,11 @@ $(document).ready(function () {
     });
 
     $(window).resize(()=>{
-        setWidthTumbnail();
+        setTumbnail();
         setHeightBtnGel($(".live-section > .btn-gel")[0]);
         setHeightBtnGel($(".headline-slider-container > .btn-gel")[0])
     })
-    setWidthTumbnail = ()=>{
+    function setTumbnail(){
         // set width tumbnail-img
         $(".headline-slider-data>a>img").each((i, element) => {
             const width = element.width;
@@ -206,22 +206,37 @@ $(document).ready(function () {
         });
     }
 
-    setWidthTumbnail();
-
-   setHeightBtnGel = function(element){
+    function setHeightBtnGel(element){
         const heightParent = element.parentElement.offsetHeight;
         for (const children of element.children) {
             children.style.height = `${heightParent}px`;
-        }
-        
+        } 
         element.style.margin= `-${heightParent}px 0 0 0`;
     }
 
+    setTumbnail();
     setHeightBtnGel($(".live-section > .btn-gel")[0]);
-
-    
 
     // auto slide
     headInner.auto(4000);
+
+
+
+    // progress bar circle funtion
+    function progress(initialState,range){
+        setTimeout(() => {
+        const el = $(".live-section > .live-container > .live-container-inner > .live-item:nth-child(2)>a>.cover-item>.duration-ui")[0];
+        el.style.background = `conic-gradient(var(--normal)0deg,var(--normal)${initialState}deg,#CBCBCB ${initialState}deg,#CBCBCB 360deg)`;
+        currentState = initialState + range;
+        if(initialState === 360){
+            return 0;
+        }else{
+            return progress(currentState,range);
+        }
+        
+    }, 1000);
+    }
+    
+   progress(0,5); 
     
 });
