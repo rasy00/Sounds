@@ -186,6 +186,7 @@ html {
 /* end style headline */
 
 /* style live section */
+
 .live-section{
     width: 100%;
 }
@@ -198,24 +199,42 @@ html {
 .live-section > .live-container > .live-container-inner{
     width: inherit;
     display: flex;
-    justify-content: space-evenly;
-    padding: 0 15%;
+    justify-content: center;
+    padding: 0 14%;
     box-sizing:content-box;
-    transform: translateX(-9%);
+    /* transform: translateX(-9%); */
+}
+
+.live-section > .live-container > .live-container-inner > .live-item{
+    margin-left: 20px;
+}
+
+.live-section > .live-container > .live-container-inner > .live-item>.data-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+.live-section > .live-container > .live-container-inner > .live-item>a>.data-item> *{
+    display: block;
+    text-align: center;
+}
+
+.live-section > .live-container > .live-container-inner > .live-item:last-of-type{
+    margin: 0;
 }
 
 /* style gel */
 .live-section>.btn-gel {
     position: absolute;
     width: 100%;
-    margin-top: -40em;
 }
 
 .live-section>.btn-gel > .gel {
     position: absolute;
     border: none;
     width: 14%;
-    height: 40em;
+    box-sizing: border-box;
 }
 
 .live-section>.btn-gel > .gel > i {
@@ -226,6 +245,36 @@ html {
 }
 .live-section>.btn-gel > .gel:hover > i {
     color: var(--normal);
+}
+
+.live-section>.btn-gel > .gel-left {
+    left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: linear-gradient(
+            270deg,
+            rgba(26, 26, 27, 0.4) 0%,
+        rgba(26, 26, 27, 0.55) 25%,
+        rgba(26, 26, 27, 0.7) 50%,
+        rgba(26, 26, 27, 0.9) 75%,
+        rgba(26, 26, 27, 1) 100%
+    );
+}
+.live-section>.btn-gel > .gel-right {
+    right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(26, 26, 27, 0.4) 0%,
+        rgba(26, 26, 27, 0.54) 25%,
+        rgba(26, 26, 27, 0.7) 50%,
+        rgba(26, 26, 27, 0.9) 75%,
+        rgba(26, 26, 27, 1) 100%
+    );
+
+    
 }
 /* end style gel */
 /* end style live section */

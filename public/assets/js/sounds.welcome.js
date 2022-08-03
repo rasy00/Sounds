@@ -1,3 +1,96 @@
+const headInner = $(".headline-slider-inner")[0];
+
+// declarate methode to headInner OBJ
+headInner.slideTo = function(from, to) {
+    const range = to - from;
+
+    if (from === 3 && to === 0) {
+        this.slideRight(1, 0);
+    } else if (from === 0 && to === 3) {
+        this.slideLeft(1, 0);
+    } else {
+        if (range === 1) {
+            this.slideRight(1, 0);
+        } else if (range === -1) {
+            this.slideLeft(1, 0);
+        } else {
+            if (range < -1) {
+                this.slideLeft(Math.abs(range), 0);
+            } else if (range > 1) {
+                this.slideRight(range, 25);
+            } else {
+                console.log("Not valid range");                                         
+            }
+        }
+    }
+}
+
+headInner.slideRight = function(range, inter) {
+    // animate slide
+    this.style.transform = `translateX(-${45 * range - inter}%)`;
+    this.addEventListener(
+        "transitionend",
+        (ev) => {
+            for (let index = 1; index <= range; index++) {
+                this.append(this.firstElementChild);
+            }
+
+            this.style.transition = "none";
+            this.style.transform = `translateX(-22.78%)`;
+
+            setTimeout(() => {
+                this.style.transition = "transform 300ms ease-in-out";
+            });
+        },
+        { once: true }
+    );
+}
+
+headInner.slideLeft =function(range, inter) {
+    // animate slide
+    if(range === 1){
+        this.style.transform = `translateX(${0}%)`;
+    }else if(range >= 1){
+        this.style.transform = `translateX(${22.78}%)`;
+    }
+    
+        
+    this.addEventListener(
+        "transitionend",
+        (event) => {
+            for (let index = 1; index <= range; index++) {
+                this.prepend(this.lastElementChild);  
+            }
+
+            this.style.transition = "none";
+            this.style.transform = `translateX(-22.78%)`;
+            setTimeout(() => {
+                this.style.transition = "transform 300ms ease-in-out";
+            }, 300);
+        },
+        { once: true }
+    );
+} 
+
+headInner.slideCurrent = 1;
+headInner.auto = function (interval){
+    $(".headline-slider-container>.btn-gel>*").click(function (){
+        this.slideCurrent++;
+        if (this.slideCurrent >= 4) {
+            this.slideCurrent = 0;
+        }
+    });
+    setTimeout(() => {
+        slideShow(this.slideCurrent);
+        this.slideCurrent++;
+    if (this.slideCurrent >= 4) {
+        this.slideCurrent = 0;
+    }
+    return this.auto(4000);
+    
+}, interval);
+}
+
 function slideShow(n) {
     // convert value
     switch (n) {
@@ -24,7 +117,7 @@ function slideShow(n) {
     const indicators = $(".headline-slider-indicators > *");
 
     // slide
-    slideTo(Number(getActive(indicators[0].offsetParent).dataset.index), n);
+    headInner.slideTo(Number(getActive(indicators[0].offsetParent).dataset.index), n);
 
     // edit items
     items.removeClass("active");
@@ -49,56 +142,8 @@ function slideShow(n) {
     ).lastElementChild.lastElementChild.classList.add("hidden");
 }
 
-function slideTo(from, to) {
-    const range = to - from;
-
-    if (from === 3 && to === 0) {
-        slideRight(1, 0);
-    } else if (from === 0 && to === 3) {
-        slideLeft(1, 0);
-    } else {
-        if (range === 1) {
-            slideRight(1, 0);
-        } else if (range === -1) {
-            slideLeft(1, 0);
-        } else {
-            if (range < -1) {
-                slideLeft(Math.abs(range), 0);
-            } else if (range > 1) {
-                slideRight(range, 25);
-            } else {
-                console.log("Not valid range");                                         
-            }
-        }
-    }
-}
 
 
-function slideRight(range, inter) {
-    const headInner = $(".headline-slider-inner")[0];
-    // animate slide
-    headInner.style.transform = `translateX(-${45 * range - inter}%)`;
-    headInner.addEventListener(
-        "transitionend",
-        (ev) => {
-            for (let index = 1; index <= range; index++) {
-                headInner.append(headInner.firstElementChild);
-            }
-
-            headInner.style.transition = "none";
-            headInner.style.transform = `translateX(-22.78%)`;
-
-            setTimeout(() => {
-                headInner.style.transition = "transform 300ms ease-in-out";
-            });
-        },
-        { once: true }
-    );
-}
-
-$(".headline-slide-inner").on("transitionend",(ev)=>{
-    
-})
 
 function getActive(parent) {
     for (let item of parent.children) {
@@ -108,32 +153,7 @@ function getActive(parent) {
     }
 }
 
-function slideLeft(range, inter) {
-    const headInner = $(".headline-slider-inner")[0];
-    // animate slide
-    if(range === 1){
-        headInner.style.transform = `translateX(${0}%)`;
-    }else if(range >= 1){
-        headInner.style.transform = `translateX(${22.78}%)`;
-    }
-    
-        
-    headInner.addEventListener(
-        "transitionend",
-        (event) => {
-            for (let index = 1; index <= range; index++) {
-                headInner.prepend(headInner.lastElementChild);
-            }
 
-            headInner.style.transition = "none";
-            headInner.style.transform = `translateX(-22.78%)`;
-            setTimeout(() => {
-                headInner.style.transition = "transform 300ms ease-in-out";
-            }, 300);
-        },
-        { once: true }
-    );
-}
 
 function getTranslateX(element) {
     const style = window.getComputedStyle(element);
@@ -152,7 +172,7 @@ function getIndex(parent) {
 }
 
 $(document).ready(function () {
-    $(".btn-gel>*").click(function () {
+    $(".headline-slider-container>.btn-gel>*").click(function () {
         const headInner = $(".headline-slider-inner")[0];
         if (this.dataset.to === "right") {
             let to = Number(getActive(headInner).dataset.index) + 1;
@@ -165,6 +185,8 @@ $(document).ready(function () {
 
     $(window).resize(()=>{
         setWidthTumbnail();
+        setHeightBtnGel($(".live-section > .btn-gel")[0]);
+        setHeightBtnGel($(".headline-slider-container > .btn-gel")[0])
     })
     setWidthTumbnail = ()=>{
         // set width tumbnail-img
@@ -186,28 +208,20 @@ $(document).ready(function () {
 
     setWidthTumbnail();
 
+   setHeightBtnGel = function(element){
+        const heightParent = element.parentElement.offsetHeight;
+        for (const children of element.children) {
+            children.style.height = `${heightParent}px`;
+        }
+        
+        element.style.margin= `-${heightParent}px 0 0 0`;
+    }
+
+    setHeightBtnGel($(".live-section > .btn-gel")[0]);
+
     
 
     // auto slide
-    let a = 1;
-    function auto(){
-        $(".btn-gel>*").click(function (){
-            a++;
-            if (a >= 4) {
-                a = 0;
-            }
-        });
-        setTimeout(() => {
-            slideShow(a);
-            a++;
-        if (a >= 4) {
-            a = 0;
-        }
-        return auto();
-        
-    }, 4000);
-    }
-
-    auto()
+    headInner.auto(4000);
     
 });
