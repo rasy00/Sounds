@@ -1,6 +1,26 @@
 /* master */
 @import url("https://fonts.googleapis.com/css2?family=Mali:wght@300;400;500&display=swap");
 
+*:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.info-section{
+    color:var(--neutral);
+    width: 71%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+   
+}
+
+.judul-section{
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
 :root {
     --black: #1a1a1b;
     --neutral: #ffffff;
@@ -11,6 +31,15 @@
 
 hmtl {
     font-size: 12px;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+}
+
+*.hidden {
+    display: none !important;
+    pointer-events: none !important;
+    cursor: none !important;
+    z-index: 0 !important;
 }
 
 .cs-pointer {
@@ -143,7 +172,6 @@ a:hover {
 .container-scroll > .button-slide > *:hover {
     transform: scale(1.1);
     background-color: var(--neutral);
-
     z-index: 61;
 }
 

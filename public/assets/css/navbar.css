@@ -30,6 +30,8 @@ nav.scrolled::before {
 
 nav div {
     z-index: 1000;
+    width: 70% !important;
+    margin: 0 auto;
 }
 
 a.navbar-brand,
@@ -49,6 +51,7 @@ ul.menu a.nav-link:visited {
     font-size: 22px;
     color: var(--no-active);
     transition: all 200ms ease-in;
+    padding-right: 0 !important;
 }
 
 ul.menu li:nth-of-type(1) {

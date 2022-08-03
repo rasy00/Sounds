@@ -1,5 +1,5 @@
-<nav class="navbar position-sticky px-6">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
+<nav class="navbar position-sticky">
+    <div class="d-flex justify-content-between align-items-center">
         <a class="navbar-brand pe-auto" href="/sounds">
           <strong>SOUNDS</strong>
         </a>

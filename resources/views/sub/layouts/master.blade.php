@@ -35,5 +35,6 @@
 <script src="../../assets/js/navbar.js"></script>
 <script src="../../assets/js/audio.js"></script>
 <script src="../../assets/js/script.js"></script>
+<script src="../../assets/js/sounds.welcome.js"></script>
 </body>
 </html>
