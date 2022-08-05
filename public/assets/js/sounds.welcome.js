@@ -186,8 +186,10 @@ $(document).ready(function () {
         // set width tumbnail-img
         $(".headline-slider-data>a>img").each((i, element) => {
             const width = element.width;
+            const height = element.height
             const tumbnail = element.parentElement.nextElementSibling;
             tumbnail.style.width = `${width}px`;
+            tumbnail.style.height = `${height}px`
         });
 
         $(".headline-slider-data > a").mouseenter(function (ev) {
@@ -210,6 +212,7 @@ $(document).ready(function () {
 
     setTumbnail();
     setHeightBtnGel($(".live-section > .btn-gel")[0]);
+    setHeightBtnGel($(".headline-slider-container > .btn-gel")[0]);
 
     // auto slide
     headInner.auto(4000);
@@ -288,6 +291,6 @@ $(document).ready(function () {
     $(window).resize(()=>{
         setTumbnail();
         setHeightBtnGel($(".live-section > .btn-gel")[0]);
-        setHeightBtnGel($(".headline-slider-container > .btn-gel")[0])
+        setHeightBtnGel($(".headline-slider-container > .btn-gel")[0]);
     })
 });

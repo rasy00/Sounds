@@ -13,9 +13,11 @@
                             <img src="assets/resources/photod/tod{{$i==0?"":$i}}.jpeg" class="d-block" alt="...">
                         </a>
                         <div class="tumbnail-img">
-                            <button class="play">
-                                <i class="icofont-play-alt-1"></i>
-                            </button>
+                            <a href="/sounds#">
+                                <button class="play">
+                                    <i class="icofont-play-alt-1"></i>
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -68,7 +70,7 @@
             @endfor
         </div>
     </div>
-      <div id="button-slide" class="btn-gel">
+        <div id="button-slide" class="btn-gel">
             <button class="gel gel-left" data-to="left"><i class="icofont-curved-left"></i></button>
             <button class="gel gel-right" data-to="right"><i class="icofont-curved-right"></i></button>
         </div>
@@ -77,7 +79,12 @@
 {{-- end live section --}}
 
 {{-- cover section --}}
-
+<section class="cover-section">
+    <div class="info-section">
+        <span class="judul-section">Podcast Mixes</span>
+        <a class="see-more">View more ></a>
+    </div>    
+</section>
 {{-- end cover section --}}
 
 @endsection
