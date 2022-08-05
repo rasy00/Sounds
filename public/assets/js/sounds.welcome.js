@@ -86,7 +86,7 @@ headInner.auto = function (interval){
     if (this.slideCurrent >= 4) {
         this.slideCurrent = 0;
     }
-    return this.auto(4000);
+    return this.auto(interval);
     
 }, interval);
 }
@@ -109,7 +109,6 @@ function slideShow(n) {
 
         case 4:
             n = 0;
-            // slideLeft();
             break;
     }
 
@@ -183,11 +182,6 @@ $(document).ready(function () {
         }
     });
 
-    $(window).resize(()=>{
-        setTumbnail();
-        setHeightBtnGel($(".live-section > .btn-gel")[0]);
-        setHeightBtnGel($(".headline-slider-container > .btn-gel")[0])
-    })
     function setTumbnail(){
         // set width tumbnail-img
         $(".headline-slider-data>a>img").each((i, element) => {
@@ -238,5 +232,62 @@ $(document).ready(function () {
     }
     
    progress(0,5); 
-    
+
+
+    /* tombol slider ev */
+    const slidebtn = $("#button-slide > *");
+    $(".live-container-inner").on("transitionend", function(){
+        let txValue = (getTranslateX(this) / 100) * parseInt(window.getComputedStyle(this).width) ;
+        if (txValue >= 0) {
+            slidebtn.each(function(){
+                if(this.dataset.to === "right")
+                    this.dataset.disable = true;
+                else
+                    this.dataset.disable = false;
+            });
+        } else if (txValue <= -530) {
+            slidebtn.each(function(){
+                if(this.dataset.to === "left")
+                    this.dataset.disable = true;
+                else
+                    this.dataset.disable = false;
+            });
+        } else {
+            slidebtn.each(function(){
+                this.dataset.disable = false;
+            });
+           
+        }
+    });
+
+    slidebtn.click(function(ev){
+        const live = $(".live-container-inner")[0];
+        let txValue = (getTranslateX(live) / 100) * parseInt(window.getComputedStyle(live).width) ;
+        
+        if(this.dataset.to === "right"){
+            if(this.dataset.disable === "true" || txValue === 0){
+                 txValue-=530;
+                 this.dataset.disable = false;
+            }
+            else
+                txValue+=530;
+
+            live.style.transform = `translateX(${txValue}px)`
+        }else if(this.dataset.to === "left" ){
+            if(this.dataset.disable === "true"){
+                txValue+=530;
+                this.dataset.disable = false;
+            }
+            else
+                txValue-=530;
+            live.style.transform = `translateX(${txValue}px)`
+        }
+        ev.preventDefault();
+    });
+
+    $(window).resize(()=>{
+        setTumbnail();
+        setHeightBtnGel($(".live-section > .btn-gel")[0]);
+        setHeightBtnGel($(".headline-slider-container > .btn-gel")[0])
+    })
 });
