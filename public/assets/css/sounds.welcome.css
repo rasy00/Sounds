@@ -67,7 +67,7 @@ html {
     width: 100%;
     display: flex;
     justify-content: center;
-    height:35em;
+    height:30em;
     margin-right: 20px;
     /* overflow: hidden; */
 }
@@ -78,14 +78,14 @@ html {
 .headline-slider-container>.btn-gel {
     position: absolute;
     width: 100%;
-    margin-top: -35em;
+    margin-top: -30em;
 }
 
 .headline-slider-container>.btn-gel > .gel {
     position: absolute;
     border: none;
     width: 14%;
-    height: 35em;
+    height: 30em;
 }
 
 .headline-slider-container>.btn-gel > .gel > i {
@@ -181,7 +181,7 @@ html {
 
 .headline-slider-item > .headline-slider-data {
     width: 100%;
-    height: 35em;
+    height: 30em;
 }
 .headline-slider-item > .headline-slider-data > a {
     width: 100%;
@@ -189,7 +189,7 @@ html {
 
 .headline-slider-item > .headline-slider-data > a > img {
     width: 100%;
-    height: 35em;
+    height: 30em;
     border-radius: 4px;
 }
 /* end style headline */
@@ -391,3 +391,48 @@ html {
 }
 /* end style gel */
 /* end style live section */
+
+/* style cover section */
+.cover-section{
+    width:100%;
+    margin-bottom:3em;
+}
+
+.cover-section > .cover-container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 71%;
+    margin: 0 auto;
+}
+
+.cover-section > .cover-container > .cover-item{
+    margin-bottom: 15px;
+}
+
+.cover-section > .cover-container > .cover-item > .cover > img {
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.cover-section > .cover-container > .cover-item > .data > * {
+    display: block;
+    width: 250px;
+    overflow: hidden;
+    color:white;
+}
+
+.cover-section > .cover-container > .cover-item > .data > .judul{
+    font-size: 23px;
+    line-height: 21px;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+}
+
+.cover-section > .cover-container > .cover-item > .data > .summ {
+    font-size: 15px;
+    color: #3a3a3a;
+    font-weight: 500;
+}
+/* end style cover section */

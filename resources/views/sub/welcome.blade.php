@@ -10,7 +10,7 @@
                 <div class="headline-slider-item {{$i==1?'active':''}}" data-index = "{{$i==0?3:($i==1?0:($i==2?1:2))}}">
                     <div class="headline-slider-data">
                         <a href="#">
-                            <img src="assets/resources/photod/tod{{$i==0?"":$i}}.jpeg" class="d-block" alt="...">
+                            <img src="assets/resources/photod/headline/{{$i+1}}.png" class="d-block" alt="...">
                         </a>
                         <div class="tumbnail-img">
                             <a href="/sounds#">
@@ -82,7 +82,20 @@
 <section class="cover-section">
     <div class="info-section">
         <span class="judul-section">Podcast Mixes</span>
-        <a class="see-more">View more ></a>
+        <a class="see-more">View more ></a> 
+    </div>
+    <div class="cover-container">
+       @for ($i = 1; $i <= 10; $i++)
+           <div class="cover-item">
+            <div class="cover"> 
+                <img src="../assets/resources/photod/cover/{{$i}}.jpg" alt="">
+            </div>
+            <div class="data">
+                <span class="judul">Lorem ipsum dolor sit amet.</span>
+                <span class="summ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque sequi minus ex ...hic.</span>
+            </div>
+          </div> 
+       @endfor
     </div>    
 </section>
 {{-- end cover section --}}
