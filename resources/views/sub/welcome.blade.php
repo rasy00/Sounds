@@ -10,7 +10,7 @@
                 <div class="headline-slider-item {{$i==1?'active':''}}" data-index = "{{$i==0?3:($i==1?0:($i==2?1:2))}}">
                     <div class="headline-slider-data">
                         <a href="#">
-                            <img src="assets/resources/photod/headline/{{$i+1}}.png" class="d-block" alt="...">
+                            <img src="assets/resources/photos/headline/{{$i+1}}.png" class="d-block" alt="...">
                         </a>
                         <div class="tumbnail-img">
                             <a href="/sounds#">
@@ -52,7 +52,7 @@
                     <a href="">
                         <div class="cover-item">
                             <div class="duration-ui">
-                                <img src="assets/resources/photod/tod{{$i==7?$i+6:$i + 2}}.jpeg" alt="" width="150" height="150" style="border-radius:50%">
+                                <img src="assets/resources/photos/tos{{$i>=8?$i+1:$i}}.jpeg" alt="" width="150" height="150" style="border-radius:50%">
                             </div>  
                             <div class="thumbnail-cover">
                                 <button class="play">
@@ -82,23 +82,65 @@
 <section class="cover-section">
     <div class="info-section">
         <span class="judul-section">Podcast Mixes</span>
-        <a class="see-more">View more ></a> 
+        <a href="#" class="see-more">View more ></a> 
     </div>
     <div class="cover-container">
+        
        @for ($i = 1; $i <= 10; $i++)
+        <a href="#" class="cover-link">
            <div class="cover-item">
             <div class="cover"> 
-                <img src="../assets/resources/photod/cover/{{$i}}.jpg" alt="">
+                <img src="../assets/resources/photos/cover/{{$i}}.jpg" alt="">
+            </div>
+            <div class="thumbnail-cover">
+                <button class="play">
+                    <i class="icofont-ui-play"></i>
+                </button>
             </div>
             <div class="data">
                 <span class="judul">Lorem ipsum dolor sit amet.</span>
                 <span class="summ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque sequi minus ex ...hic.</span>
             </div>
           </div> 
+        </a>  
        @endfor
     </div>    
 </section>
 {{-- end cover section --}}
+
+{{-- program section --}}
+<section class="program-section">
+    <div class="info-section">
+        <span class="judul-section">Programs</span>
+        <a href="#" class="see-more">More programs ></a>
+    </div>
+    <div class="program-container">
+        @for ($i = 1; $i <=10; $i++)
+        <a href="#" class="program-link">
+            <div class="program-item">
+            <div class="cover">
+                <img src="../assets/resources/photos/tos{{$i==1?"":($i>=8?$i+1:$i-1)}}.jpeg" alt="">
+            </div>
+            <div class="thumbnail-cover">
+                <button class="play">
+                    <i class="icofont-ui-play"></i>
+                </button>
+            </div>
+            <div class="data">
+                <span class="judul">Lorem ipsum dolor sit amet.</span>
+                <span class="summ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat similique adipisci ...aecati!</span>
+                <span class="episodes">24 episodes <svg width="15" height="9" viewBox="0 0 15 9" xmlns="http://www.w3.org/2000/svg" fill="white">
+                    <path d="M0 0V8.82142H1.2218V0H0ZM2.4812 0V8.82142H3.703V0H2.4812ZM8.30827 6.64084V2.18058L12.3684 4.41071L8.30827 6.64084ZM6.297 1.15637H13.6654V7.66504H6.297V1.15637ZM4.96241 8.82142H15V0H4.96241V8.82142Z" fill="white"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        </a>
+        @endfor
+        
+    </div>
+</section>
+{{-- end program section --}}
 
 @endsection
 

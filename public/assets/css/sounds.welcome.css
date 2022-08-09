@@ -1,7 +1,7 @@
-/* style headline */
+/* style headline
 body {
     overflow-x: hidden;
-}
+} */
 
 /* declaration animation */
 @keyframes showCaseSlideLeft {
@@ -253,7 +253,7 @@ html {
     font-size: 1em;
 }
 .live-section > .live-container > .live-container-inner > .live-item>a>.data-item> *.author-live{
-    color: #444444;
+    color: #858585;
     margin-top:-2px;
     font-size: .9em;
 }
@@ -392,47 +392,98 @@ html {
 /* end style gel */
 /* end style live section */
 
-/* style cover section */
-.cover-section{
+/* style cover and program section */
+.cover-section,.program-section {
     width:100%;
     margin-bottom:3em;
 }
 
-.cover-section > .cover-container{
+.cover-section > .cover-container, .program-section > .program-container{
     display: flex;
+    position: relative;
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 71%;
     margin: 0 auto;
 }
 
-.cover-section > .cover-container > .cover-item{
+.cover-section > .cover-container > .cover-link,.program-section > .program-container > .program-link {
+    text-decoration:none;
+    position: inherit;
+}
+
+.cover-section > .cover-container > .cover-link > .cover-item,.program-section > .program-container > .program-link > .program-item{
     margin-bottom: 15px;
 }
 
-.cover-section > .cover-container > .cover-item > .cover > img {
+.cover-section > .cover-container > .cover-link > .cover-item > .cover > img , .program-section > .program-container > .program-link > .program-item > .cover > img{
     width: 250px;
     height: 250px;
     border-radius: 5px;
 }
 
-.cover-section > .cover-container > .cover-item > .data > * {
+.cover-section > .cover-container > .cover-link > .cover-item > .data > *, .program-section > .program-container > .program-link > .program-item > .data > * {
     display: block;
     width: 250px;
     overflow: hidden;
     color:white;
+    transition: 150ms ease-in-out;
 }
 
-.cover-section > .cover-container > .cover-item > .data > .judul{
+.cover-section > .cover-container > .cover-link > .cover-item > .data > .judul , .program-section > .program-container > .program-link > .program-item > .data > .judul{
     font-size: 23px;
     line-height: 21px;
     font-weight: 600;
     margin: 5px 0 10px 0;
 }
 
-.cover-section > .cover-container > .cover-item > .data > .summ {
+.cover-section > .cover-container > .cover-link > .cover-item > .data > .summ , .program-section > .program-container > .program-link > .program-item > .data > .summ{
     font-size: 15px;
-    color: #3a3a3a;
+    color: #858585;
     font-weight: 500;
 }
-/* end style cover section */
+
+.program-section > .program-container > .program-link > .program-item > .data > .episodes{
+    font-size:14px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.cover-section a:hover .judul, .program-section a:hover .judul{
+    color: var(--normal) !important;
+}
+
+
+/* button play */
+
+.cover-link > .cover-item > .thumbnail-cover > button,.program-link > .program-item > .thumbnail-cover > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top:0;
+    background-color: #1b1b1b50;
+    margin-left: 0;
+    margin-top: 0;
+    border: none;
+    opacity: 0;
+    border-radius: 5px;
+    transition: 150ms ease-in-out;
+}
+
+a:hover>.cover-item > .thumbnail-cover > button,a:hover>.program-item > .thumbnail-cover > button{
+    opacity: 1;
+}
+
+
+.thumbnail-cover > button > i {
+    /* color: transparent; */
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    transition: 150ms ease-in-out;
+}
+/* end button play */
+/* end style cover and program section */

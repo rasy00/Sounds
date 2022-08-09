@@ -1,8 +1,7 @@
 // function for initial behavior your web
 function initial() {
-    let active;
-    if ($(window).innerWidth() <= 600) {
-        $(".nav.menu").innerHeight($(window).innerHeight() + 180);
+    if ($(window).innerWidth() <= 850) {
+        $(".nav.menu").innerHeight($("body")[0].offsetHeight);
     } else {
         $(".nav.menu").innerHeight("100%");
     }

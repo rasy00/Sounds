@@ -83,10 +83,10 @@ ul.menu a.nav-link.active i {
 /* hamburger style */
 .hamburger-lines {
     height: 23px;
-    width: 35px;
+    width: 35px !important;
     z-index: 2;
     position: absolute;
-    left: 80%;
+    left: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -125,7 +125,7 @@ nav.navbar input[type="checkbox"] {
     height: 50px;
     width: 50px;
     top: 15px;
-    left: 79%;
+    left: 89%;
     z-index: 5;
     opacity: 0;
 }
@@ -152,7 +152,7 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
 }
 
 /* phone layouts*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
     nav {
         position: sticky;
         background-color: var(--black);
@@ -175,7 +175,12 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
         background-color: var(--neutral) !important;
     }
 
+    nav.navbar>div{
+        width: 90% !important;
+    }
+
     .nav.menu {
+        display: none;
         flex-direction: column;
         text-align: start;
         flex-wrap: nowrap;
@@ -185,7 +190,7 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
         overflow: hidden;
         top: 0;
         transform: translateX(400px);
-        left: 40%;
+        right: 0;
         width: 0;
         margin: 0;
         padding: 70px 0 0 0;
@@ -194,12 +199,7 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
     }
 
     nav.navbar input[type="checkbox"]:checked ~ .nav.menu {
-        transform: translateX(0);
-        width: 23em;
-        opacity: 1;
-    }
-
-    nav.navbar input[type="checkbox"]:checked ~ .nav.menu {
+        display: block;
         transform: translateX(0);
         width: 23em;
         opacity: 1;

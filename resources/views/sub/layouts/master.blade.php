@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../../assets/bootsrap/css/bootstrap.css" />
     <link rel="stylesheet" href="../../assets/icofont/icofont.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.master.css" />
-    <link rel="stylesheet" href="../../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../../assets/css/sounds.navbar.css" />
+    <link rel="stylesheet" href="../../assets/css/sounds.footer.css">
     <link rel="stylesheet" href="../../assets/css/audio.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.welcome.css" />
     <title>Sounds
@@ -30,9 +31,13 @@
     @yield("konten")
     {{-- end konten --}}
 
+    {{-- footer --}}
+    @include("sub.partials.footer")
+    {{-- end footer --}}
+
 <script src="../../assets/js/jquery-3.6.0.js"></script>
 <script src="../../assets/bootsrap/js/bootstrap.bundle.js"></script>
-<script src="../../assets/js/navbar.js"></script>
+<script src="../../assets/js/sounds.navbar.js"></script>
 <script src="../../assets/js/audio.js"></script>
 <script src="../../assets/js/script.js"></script>
 <script src="../../assets/js/sounds.welcome.js"></script>
