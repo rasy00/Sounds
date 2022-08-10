@@ -24,7 +24,6 @@ headInner.slideTo = function(from, to) {
         }
     }
 }
-// add comment
 
 headInner.slideRight = function(range, inter) {
     // animate slide
