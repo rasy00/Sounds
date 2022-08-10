@@ -27,7 +27,13 @@ headInner.slideTo = function(from, to) {
 
 headInner.slideRight = function(range, inter) {
     // animate slide
-    this.style.transform = `translateX(-${45 * range - inter}%)`;
+    if($("body").outerWidth() <=1300){
+        this.style.transform = `translateX(-${49 * range - inter}%)`;
+    }else if($("body").outerWidth() <=1300){
+        this.style.transform = `translateX(-${47 * range - inter}%)`;
+    }else{
+        this.style.transform = `translateX(-${45 * range - inter}%)`;
+    }
     this.addEventListener(
         "transitionend",
         (ev) => {
@@ -36,7 +42,13 @@ headInner.slideRight = function(range, inter) {
             }
 
             this.style.transition = "none";
-            this.style.transform = `translateX(-22.78%)`;
+            if($("body").outerWidth() <=1000){
+                this.style.transform = `translateX(-24.50%)`;
+            }else if($("body").outerWidth() <=1300){
+                this.style.transform = `translateX(-23.50%)`;
+            }else{
+                this.style.transform = `translateX(-22.78%)`;
+            }
 
             setTimeout(() => {
                 this.style.transition = "transform 300ms ease-in-out";
@@ -51,7 +63,13 @@ headInner.slideLeft =function(range, inter) {
     if(range === 1){
         this.style.transform = `translateX(${0}%)`;
     }else if(range >= 1){
-        this.style.transform = `translateX(${22.78}%)`;
+        if($("body").outerWidth() <=1000){
+            this.style.transform = `translateX(24.50%)`;
+        }else if($("body").outerWidth() <=1300){
+            this.style.transform = `translateX(23.50%)`;
+        }else{
+            this.style.transform = `translateX(22.78%)`;
+        }
     }
     
         
@@ -63,7 +81,14 @@ headInner.slideLeft =function(range, inter) {
             }
 
             this.style.transition = "none";
-            this.style.transform = `translateX(-22.78%)`;
+            if($("body").outerWidth() <=1000){
+                this.style.transform = `translateX(-24.50%)`;
+            }else if($("body").outerWidth() <=1300){
+                this.style.transform = `translateX(-23.50%)`;
+            }else{
+                this.style.transform = `translateX(-22.78%)`;
+            }
+            
             setTimeout(() => {
                 this.style.transition = "transform 300ms ease-in-out";
             }, 300);
@@ -171,6 +196,7 @@ function getIndex(parent) {
 }
 
 $(document).ready(function () {
+    $(".live-container-inner")[0].countSlide = 0;
     $(".headline-slider-container>.btn-gel>*").click(function () {
         const headInner = $(".headline-slider-inner")[0];
         if (this.dataset.to === "right") {
@@ -215,7 +241,7 @@ $(document).ready(function () {
     setHeightBtnGel($(".headline-slider-container > .btn-gel")[0]);
 
     // auto slide
-    headInner.auto(4000);
+    // headInner.auto(4000);
 
 
 
@@ -240,53 +266,34 @@ $(document).ready(function () {
     /* tombol slider ev */
     const slidebtn = $("#button-slide > *");
     $(".live-container-inner").on("transitionend", function(){
-        let txValue = (getTranslateX(this) / 100) * parseInt(window.getComputedStyle(this).width) ;
-        if (txValue >= 0) {
-            slidebtn.each(function(){
-                if(this.dataset.to === "right")
-                    this.dataset.disable = true;
-                else
-                    this.dataset.disable = false;
-            });
-        } else if (txValue <= -530) {
-            slidebtn.each(function(){
-                if(this.dataset.to === "left")
-                    this.dataset.disable = true;
-                else
-                    this.dataset.disable = false;
-            });
-        } else {
-            slidebtn.each(function(){
-                this.dataset.disable = false;
-            });
-           
-        }
+        const widthbtn = slidebtn[0].offsetWidth * 2
+        
+    if(this.countSlide >= this.children.length){
+        console.log("oke")
+    }
     });
+
+    
+
 
     slidebtn.click(function(ev){
         const live = $(".live-container-inner")[0];
-        let txValue = (getTranslateX(live) / 100) * parseInt(window.getComputedStyle(live).width) ;
+        let widthItem = live.children[0].offsetWidth;
+        let txValue = (getTranslateX(live) / 100) * parseInt(window.getComputedStyle(live).width);
         
         if(this.dataset.to === "right"){
-            if(this.dataset.disable === "true" || txValue === 0){
-                 txValue-=530;
-                 this.dataset.disable = false;
-            }
-            else
-                txValue+=530;
+            txValue-=(widthItem + 30);
+            live.countSlide++;
 
-            live.style.transform = `translateX(${txValue}px)`
         }else if(this.dataset.to === "left" ){
-            if(this.dataset.disable === "true"){
-                txValue+=530;
-                this.dataset.disable = false;
-            }
-            else
-                txValue-=530;
-            live.style.transform = `translateX(${txValue}px)`
+            txValue+=(widthItem + 30);
+            live.countSlide--;
         }
+        live.style.transform = `translateX(${txValue}px)`;
         ev.preventDefault();
     });
+
+    
 
     $(window).resize(()=>{
         setTumbnail();

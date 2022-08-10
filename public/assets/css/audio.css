@@ -1200,11 +1200,6 @@ section.recommended-container > .header > a {
                                 /* set font size */
                                 /* end set font size */
                                 @media only screen and (max-width: 770px) {
-                                    body,
-                                    html {
-                                        width: 100%;
-                                        overflow-x: hidden;
-                                    }
                                     button#share_btn {
                                         position: absolute !important;
                                         width: 1.4em !important;
