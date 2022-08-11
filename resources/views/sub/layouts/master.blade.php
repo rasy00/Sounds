@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../../assets/css/sounds.master.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.navbar.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.footer.css">
-    <link rel="stylesheet" href="../../assets/css/audio.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.welcome.css" />
     <title>Sounds
         @if ($id == "top-shows")

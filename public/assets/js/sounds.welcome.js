@@ -27,11 +27,11 @@ headInner.slideTo = function(from, to) {
 
 headInner.slideRight = function(range, inter) {
     // animate slide
-    if($("body").outerWidth() <=1300){
+    if($("body").outerWidth() <=600){
         this.style.transform = `translateX(-${51 * range - inter}%)`;
-    }else if($("body").outerWidth() <=1300){
+    }else if($("body").outerWidth() <=1000){
         this.style.transform = `translateX(-${49 * range - inter}%)`;
-    }else if($("body").outerWidth() <=1300){
+    }else if($("body").outerWidth() <=1350){
         this.style.transform = `translateX(-${47 * range - inter}%)`;
     }else{
         this.style.transform = `translateX(-${45 * range - inter}%)`;
@@ -48,7 +48,7 @@ headInner.slideRight = function(range, inter) {
                 this.style.transform = `translateX(-25.50%)`;
             }else if($("body").outerWidth() <=1000){
                 this.style.transform = `translateX(-24.50%)`;
-            }else if($("body").outerWidth() <=1300){
+            }else if($("body").outerWidth() <=1350){
                 this.style.transform = `translateX(-23.50%)`;
             }else{
                 this.style.transform = `translateX(-22.78%)`;
@@ -71,7 +71,7 @@ headInner.slideLeft =function(range, inter) {
             this.style.transform = `translateX(25.50%)`;
         }else if($("body").outerWidth() <=1000){
             this.style.transform = `translateX(24.50%)`;
-        }else if($("body").outerWidth() <=1300){
+        }else if($("body").outerWidth() <=1350){
             this.style.transform = `translateX(23.50%)`;
         }else{
             this.style.transform = `translateX(22.78%)`;
@@ -91,7 +91,7 @@ headInner.slideLeft =function(range, inter) {
                 this.style.transform = `translateX(-25.50%)`;
             }else if($("body").outerWidth() <=1000){
                 this.style.transform = `translateX(-24.50%)`;
-            }else if($("body").outerWidth() <=1300){
+            }else if($("body").outerWidth() <=1350){
                 this.style.transform = `translateX(-23.50%)`;
             }else{
                 this.style.transform = `translateX(-22.78%)`;
@@ -218,13 +218,13 @@ $(document).ready(function () {
 
     function setTumbnail(){
         // set width tumbnail-img
-        $(".headline-slider-data>a>img").each((i, element) => {
-            const width = element.width;
-            const height = element.height
-            const tumbnail = element.parentElement.nextElementSibling;
+        $(".headline-slider-data>a").each((i, element) => {
+            const width = element.offsetWidth;
+            const height = element.offsetHeight;
+            const tumbnail = element.nextElementSibling;
             tumbnail.style.width = `${width}px`;
             tumbnail.style.height = `${height}px`
-        });
+            });
 
         $(".headline-slider-data > a").mouseenter(function (ev) {
             const tumbnail = this.nextElementSibling;
@@ -279,6 +279,9 @@ $(document).ready(function () {
     if(this.countSlide >= this.children.length){
         console.log("oke")
     }
+
+    console.log((getTranslateX(this) / 100) * parseInt(window.getComputedStyle(this).width))
+    console.log(this.offsetWidth);
     });
 
     
@@ -288,16 +291,26 @@ $(document).ready(function () {
         const live = $(".live-container-inner")[0];
         let widthItem = live.children[0].offsetWidth;
         let txValue = (getTranslateX(live) / 100) * parseInt(window.getComputedStyle(live).width);
+        let txValueCurr;
+
+        if($("body").outerWidth() <=1000){
+            txValueCurr = (widthItem +30) * 4;
+        }else if($("body").outerWidth() <=1350){
+            txValueCurr = (widthItem +30) * 5;
+        }else{
+            txValueCurr = (widthItem +30) * 5;
+        }
         
         if(this.dataset.to === "right"){
-            txValue-=(widthItem + 30);
+            txValue-=(txValueCurr);
             live.countSlide++;
 
         }else if(this.dataset.to === "left" ){
-            txValue+=(widthItem + 30);
+            txValue+=(txValueCurr);
             live.countSlide--;
         }
         live.style.transform = `translateX(${txValue}px)`;
+        console.log($(".live-container-inner"))
         ev.preventDefault();
     });
 

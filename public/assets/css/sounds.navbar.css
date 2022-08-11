@@ -153,7 +153,7 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
 }
 
 /* phone layouts*/
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1350px) {
   nav.navbar > div {
     width: 80% !important;
   }
@@ -240,6 +240,20 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
         a.navbar-brand:visited {
           font-size: 25px;
           font-weight: 700;
+        }
+
+        @media only screen and (max-width: 500px) {
+          nav.navbar > div {
+            width: 97% !important;
+          }
+
+          nav.navbar input[type="checkbox"] {
+            left: 90.5%;
+          }
+
+          .hamburger-lines {
+            left: 91.5%;
+          }
         }
 
         @media only screen and (max-width: 450px) {

@@ -1,7 +1,135 @@
+/* css reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  background-color: var(--black);
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* css reset */
+
 @import url(../fonts/inter/inter.css);
 html {
   font-size: 16px;
-  font-family: "Inter", sans-serif;
+  font-family: sans-serif;
 }
 .headline-slider {
   width: 100%;
@@ -192,8 +320,6 @@ html {
   pointer-events: visible;
   cursor: pointer;
   transition: all 100ms ease-in-out;
-
-  opacity: 0;
 }
 
 /* button play */
@@ -270,6 +396,7 @@ html {
 }
 
 .info-section > * {
+  width: fit-content;
   color: white !important;
   text-decoration: none;
   transition: 150ms ease-in-out;
@@ -752,7 +879,7 @@ a:hover > .program-item > .thumbnail-cover > button {
 /* end style cover, program and categories section */
 
 /* media */
-@media only screen and (max-width: 1444px) {
+@media only screen and (max-width: 1200px) {
   .headline-slider-item
     > .headline-slider-data
     > a
@@ -769,4 +896,84 @@ a:hover > .program-item > .thumbnail-cover > button {
     > .data {
     width: 65%;
   }
+}
+@media only screen and (max-width: 360px) {
+  /* custom headline */
+  .headline-slider-inner {
+    width: 340%;
+    padding: 0 10%;
+    transform: translateX(-23.5%);
+  }
+
+  .headline-slider-item > .headline-slider-data {
+    width: 101%;
+  }
+  .headline-slider-item > .headline-slider-data > a {
+    width: 101%;
+  }
+
+  .headline-slider-item > .headline-slider-data > a > img {
+    width: 101%;
+  }
+
+  .headline-slider-container > .btn-gel > .gel {
+    width: 10%;
+  }
+
+  .headline-slider-item
+    > .headline-slider-data
+    > a
+    > .headline-item
+    > .headline-data
+    > .cover {
+    width: 40%;
+  }
+  .headline-slider-item
+    > .headline-slider-data
+    > a
+    > .headline-item
+    > .headline-data
+    > .data {
+    width: 60%;
+  }
+
+  .headline-slider-item
+    > .headline-slider-data
+    > a
+    > .headline-item
+    > .headline-data
+    > .data
+    > *.judul {
+    font-size: 30px;
+  }
+
+  .headline-slider-item
+    > .headline-slider-data
+    > a
+    > .headline-item
+    > .headline-data
+    > .data
+    > *.summ {
+    font-size: 13px;
+  }
+  /* end custom headline */
+
+  /* custom info section */
+  .info-section {
+    width: 80%;
+  }
+  /* end custom info section */
+
+  /* custom live section */
+  /* btn gel */
+  .live-section > .btn-gel > .gel {
+    width: 10%;
+  }
+
+  /* inner */
+  .live-section > .live-container > .live-container-inner {
+    padding: 0 10%;
+  }
+
+  /* end custom live section */
 }

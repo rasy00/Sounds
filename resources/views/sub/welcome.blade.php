@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                         </a>
-                        <div class="tumbnail-img">
+                        <div class="tumbnail-img hidden">
                             <a href="/sounds#">
                                 <button class="play">
                                     <i class="icofont-play-alt-1"></i>
