@@ -1307,9 +1307,6 @@ section.recommended-container > .header > a {
                                         section.description-container {
                                             margin-top: 13em !important;
                                         }
-                                        section > * {
-                                            width: 80% !important;
-                                        }
 
                                         .more-episodes {
                                             font-size: 1.5em !important;

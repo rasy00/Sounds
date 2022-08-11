@@ -28,6 +28,8 @@ headInner.slideTo = function(from, to) {
 headInner.slideRight = function(range, inter) {
     // animate slide
     if($("body").outerWidth() <=1300){
+        this.style.transform = `translateX(-${51 * range - inter}%)`;
+    }else if($("body").outerWidth() <=1300){
         this.style.transform = `translateX(-${49 * range - inter}%)`;
     }else if($("body").outerWidth() <=1300){
         this.style.transform = `translateX(-${47 * range - inter}%)`;
@@ -42,7 +44,9 @@ headInner.slideRight = function(range, inter) {
             }
 
             this.style.transition = "none";
-            if($("body").outerWidth() <=1000){
+            if($("body").outerWidth() <=600){
+                this.style.transform = `translateX(-25.50%)`;
+            }else if($("body").outerWidth() <=1000){
                 this.style.transform = `translateX(-24.50%)`;
             }else if($("body").outerWidth() <=1300){
                 this.style.transform = `translateX(-23.50%)`;
@@ -63,7 +67,9 @@ headInner.slideLeft =function(range, inter) {
     if(range === 1){
         this.style.transform = `translateX(${0}%)`;
     }else if(range >= 1){
-        if($("body").outerWidth() <=1000){
+        if($("body").outerWidth() <=600){
+            this.style.transform = `translateX(25.50%)`;
+        }else if($("body").outerWidth() <=1000){
             this.style.transform = `translateX(24.50%)`;
         }else if($("body").outerWidth() <=1300){
             this.style.transform = `translateX(23.50%)`;
@@ -81,7 +87,9 @@ headInner.slideLeft =function(range, inter) {
             }
 
             this.style.transition = "none";
-            if($("body").outerWidth() <=1000){
+            if($("body").outerWidth() <=600){
+                this.style.transform = `translateX(-25.50%)`;
+            }else if($("body").outerWidth() <=1000){
                 this.style.transform = `translateX(-24.50%)`;
             }else if($("body").outerWidth() <=1300){
                 this.style.transform = `translateX(-23.50%)`;
