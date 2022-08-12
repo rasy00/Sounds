@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer-container">
         <a href="/sounds" class="footer-brand">
-            <strong>SOUNDS</strong>
+            Sounds
         </a>
         <a href="#" class="about">
             <span>About Us</span>

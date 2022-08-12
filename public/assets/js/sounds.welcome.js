@@ -51,7 +51,7 @@ headInner.slideRight = function(range, inter) {
             }else if($("body").outerWidth() <=1350){
                 this.style.transform = `translateX(-23.50%)`;
             }else{
-                this.style.transform = `translateX(-22.78%)`;
+                this.style.transform = `translateX(-22.7%)`;
             }
 
             setTimeout(() => {
@@ -74,7 +74,7 @@ headInner.slideLeft =function(range, inter) {
         }else if($("body").outerWidth() <=1350){
             this.style.transform = `translateX(23.50%)`;
         }else{
-            this.style.transform = `translateX(22.78%)`;
+            this.style.transform = `translateX(22.7%)`;
         }
     }
     
@@ -94,7 +94,7 @@ headInner.slideLeft =function(range, inter) {
             }else if($("body").outerWidth() <=1350){
                 this.style.transform = `translateX(-23.50%)`;
             }else{
-                this.style.transform = `translateX(-22.78%)`;
+                this.style.transform = `translateX(-22.7%)`;
             }
             
             setTimeout(() => {

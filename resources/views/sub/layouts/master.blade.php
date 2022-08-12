@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../../assets/css/sounds.navbar.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.footer.css">
     <link rel="stylesheet" href="../../assets/css/sounds.welcome.css" />
+    {{-- <link rel="stylesheet" href="../../assets/css/sounds.detail.css" /> --}}
+    
     <title>Sounds
         @if ($id == "top-shows")
             | Top Shows
