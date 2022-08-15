@@ -1,4 +1,4 @@
-@import url(sound.fonts.css);
+@import url(sounds.fonts.css);
 
 /* navbar style */
 nav.navbar {
@@ -183,7 +183,7 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
 @media only screen and (max-width: 1200px) {
   nav div {
     z-index: 1000;
-    width: 90% !important;
+    width: 85% !important;
     margin: 0 auto;
   }
 

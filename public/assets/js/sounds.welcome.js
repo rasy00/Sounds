@@ -27,12 +27,10 @@ headInner.slideTo = function(from, to) {
 
 headInner.slideRight = function(range, inter) {
     // animate slide
-    if($("body").outerWidth() <=600){
+    if($("body").outerWidth() <=360){
         this.style.transform = `translateX(-${51 * range - inter}%)`;
-    }else if($("body").outerWidth() <=1000){
-        this.style.transform = `translateX(-${49 * range - inter}%)`;
-    }else if($("body").outerWidth() <=1350){
-        this.style.transform = `translateX(-${47 * range - inter}%)`;
+    }else if($("body").outerWidth() <=1200){
+        this.style.transform = `translateX(-${48.16 * range - inter}%)`;
     }else{
         this.style.transform = `translateX(-${45 * range - inter}%)`;
     }
@@ -44,12 +42,10 @@ headInner.slideRight = function(range, inter) {
             }
 
             this.style.transition = "none";
-            if($("body").outerWidth() <=600){
+            if($("body").outerWidth() <=360){
                 this.style.transform = `translateX(-25.50%)`;
-            }else if($("body").outerWidth() <=1000){
-                this.style.transform = `translateX(-24.50%)`;
-            }else if($("body").outerWidth() <=1350){
-                this.style.transform = `translateX(-23.50%)`;
+            }else if($("body").outerWidth() <=1200){
+                this.style.transform = `translateX(-24.08%)`;
             }else{
                 this.style.transform = `translateX(-22.7%)`;
             }
@@ -62,17 +58,15 @@ headInner.slideRight = function(range, inter) {
     );
 }
 
-headInner.slideLeft =function(range, inter) {
+headInner.slideLeft = function(range, inter) {
     // animate slide
     if(range === 1){
         this.style.transform = `translateX(${0}%)`;
     }else if(range >= 1){
-        if($("body").outerWidth() <=600){
+        if($("body").outerWidth() <=360){
             this.style.transform = `translateX(25.50%)`;
-        }else if($("body").outerWidth() <=1000){
-            this.style.transform = `translateX(24.50%)`;
-        }else if($("body").outerWidth() <=1350){
-            this.style.transform = `translateX(23.50%)`;
+        }else if($("body").outerWidth() <=1200){
+            this.style.transform = `translateX(-24.08%)`;
         }else{
             this.style.transform = `translateX(22.7%)`;
         }
@@ -87,12 +81,10 @@ headInner.slideLeft =function(range, inter) {
             }
 
             this.style.transition = "none";
-            if($("body").outerWidth() <=600){
+            if($("body").outerWidth() <=360){
                 this.style.transform = `translateX(-25.50%)`;
-            }else if($("body").outerWidth() <=1000){
-                this.style.transform = `translateX(-24.50%)`;
-            }else if($("body").outerWidth() <=1350){
-                this.style.transform = `translateX(-23.50%)`;
+            }else if($("body").outerWidth() <=1200){
+                this.style.transform = `translateX(-24.08%)`;
             }else{
                 this.style.transform = `translateX(-22.7%)`;
             }
@@ -273,15 +265,23 @@ $(document).ready(function () {
 
     /* tombol slider ev */
     const slidebtn = $("#button-slide > *");
+    slidebtn.attr('state',false);
     $(".live-container-inner").on("transitionend", function(){
-        const widthbtn = slidebtn[0].offsetWidth * 2
-        
-    if(this.countSlide >= this.children.length){
-        console.log("oke")
-    }
+        const widthbtn = slidebtn[0].offsetWidth * 2;
+        let txValue = (getTranslateX(this) / 100) * parseInt(window.getComputedStyle(this).width);
+        if(txValue < 0){
+            slidebtn.attr('state',false);
+            slidebtn[1].setAttribute('state',true);
 
-    console.log((getTranslateX(this) / 100) * parseInt(window.getComputedStyle(this).width))
-    console.log(this.offsetWidth);
+        }else if(txValue >= 0){
+            slidebtn.attr('state',false);
+            slidebtn[0].setAttribute('state',true);
+        }else{
+            console.warn("not valid state")
+            slidebtn.attr('state',true);
+        }
+
+        console.log(txValue);
     });
 
     
@@ -293,24 +293,34 @@ $(document).ready(function () {
         let txValue = (getTranslateX(live) / 100) * parseInt(window.getComputedStyle(live).width);
         let txValueCurr;
 
-        if($("body").outerWidth() <=1000){
+        if($("body").outerWidth() <=360){
             txValueCurr = (widthItem +30) * 4;
-        }else if($("body").outerWidth() <=1350){
-            txValueCurr = (widthItem +30) * 5;
+        }else if($("body").outerWidth() <=1200){
+            txValueCurr = (widthItem +30) * 5 - 90;
         }else{
-            txValueCurr = (widthItem +30) * 5;
+            txValueCurr = (widthItem +30) * 3;
         }
         
         if(this.dataset.to === "right"){
-            txValue-=(txValueCurr);
+            if(this.getAttribute('state') == 'false')
+                txValue-=(txValueCurr);
+            else
+                txValue+=(txValueCurr);
+
             live.countSlide++;
+            
 
         }else if(this.dataset.to === "left" ){
-            txValue+=(txValueCurr);
+            if(this.getAttribute('state') == 'false')
+                txValue+=(txValueCurr);
+            else
+                txValue-=(txValueCurr);
+            
             live.countSlide--;
         }
+        
         live.style.transform = `translateX(${txValue}px)`;
-        console.log($(".live-container-inner"))
+        
         ev.preventDefault();
     });
 
