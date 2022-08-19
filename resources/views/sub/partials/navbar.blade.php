@@ -4,7 +4,7 @@
           Sounds
         </a>
         <input type="checkbox" name="" id="" />
-        <ul class="nav d-flex menu">
+        <ul class="nav menu">
             @if ($id == "programs")
                 <li class="nav-item">
                     <a class="nav-link" href="/sounds/top-shows">

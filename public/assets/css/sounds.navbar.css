@@ -47,6 +47,7 @@ a.navbar-brand:visited {
 }
 
 ul.menu {
+  display: flex;
   height: 30px;
 }
 
@@ -184,7 +185,7 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
   nav div {
     z-index: 1000;
     width: 85% !important;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .icon-nav {
@@ -202,13 +203,36 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
   }
 }
 @media only screen and (max-width: 360px) {
+  nav.navbar {
+    border-bottom: 0.5px solid rgba(245, 245, 245, 0.185);
+    width: 100%;
+  }
+
+  a.navbar-brand,
+  a.navbar-brand:hover,
+  a.navbar-brand:active,
+  a.navbar-brand:visited {
+    font-size: 28px !important;
+    margin-left: 1px !important;
+  }
   nav.navbar input[type="checkbox"] {
     cursor: pointer;
+    top: 12px;
+    left: 89%;
+    width: 36px;
+    height: 36px;
+  }
+
+  nav div {
+    z-index: 1000;
+    width: 85% !important;
+    margin: 0;
   }
 
   .hamburger-lines {
     opacity: 1;
     cursor: pointer;
+    left: 89%;
   }
 
   .hamburger-lines > .line {
@@ -216,7 +240,6 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
   }
 
   .nav.menu {
-    display: none;
     flex-direction: column;
     text-align: start;
     flex-wrap: nowrap;
@@ -224,21 +247,17 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
     border-radius: 10px;
     position: absolute;
     overflow: hidden;
-    transform: translateX(400px);
     right: 0;
-    width: 0;
     margin: 0;
-    padding: 70px 0 0 0;
-    transition: all 0.4s ease-in-out;
+    padding: 70px 0 0 10px;
     opacity: 0;
     top: 0;
+    transition: all 400ms ease-in-out 50ms;
   }
 
   nav.navbar input[type="checkbox"]:checked ~ .nav.menu {
-    display: block;
-    transform: translateX(0);
-    width: 23em;
     opacity: 1;
+    transition: all 400ms ease-in-out;
   }
 }
 

@@ -49,4 +49,12 @@ a.about:hover {
   .footer-container {
     width: 100%;
   }
+  a.footer-brand {
+    font-size: 28px;
+    margin-left: 1px;
+  }
+
+  a.about {
+    margin-right: 1.35%;
+  }
 }
