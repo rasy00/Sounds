@@ -185,7 +185,7 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
   nav div {
     z-index: 1000;
     width: 85% !important;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .icon-nav {
@@ -203,6 +203,9 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
   }
 }
 @media only screen and (max-width: 360px) {
+  nav div {
+    margin: 0;
+  }
   nav.navbar {
     border-bottom: 0.5px solid rgba(245, 245, 245, 0.185);
     width: 100%;

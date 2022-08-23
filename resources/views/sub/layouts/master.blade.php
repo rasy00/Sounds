@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../../assets/css/sounds.master.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.navbar.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.footer.css">
-    <link rel="stylesheet" href="../../assets/css/sounds.welcome.css" />
+    <link rel="stylesheet" href="../../assets/css/sounds.program.css">
+    {{-- <link rel="stylesheet" href="../../assets/css/sounds.welcome.css" /> --}}
     {{-- <link rel="stylesheet" href="../../assets/css/sounds.detail.css" /> --}}
     
     <title>Sounds
@@ -19,7 +20,8 @@
 
         @elseif($id == "programs")
             | Programs
-
+        @else
+            | {{$id}}
         @endif
     </title>
 </head>
@@ -39,8 +41,9 @@
 <script src="../../assets/js/jquery-3.6.0.js"></script>
 <script src="../../assets/bootsrap/js/bootstrap.bundle.js"></script>
 <script src="../../assets/js/sounds.navbar.js"></script>
-<script src="../../assets/js/audio.js"></script>
+{{-- <script src="../../assets/js/sounds.audio.js"></script> --}}
 <script src="../../assets/js/script.js"></script>
-<script src="../../assets/js/sounds.welcome.js"></script>
+<script src="../../assets/js/souds.program.js"></script>
+{{-- <script src="../../assets/js/sounds.welcome.js"></script> --}}
 </body>
 </html>

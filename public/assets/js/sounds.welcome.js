@@ -1,5 +1,7 @@
 const headInner = $(".headline-slider-inner")[0];
 
+headInner.slideCurrent = 0;
+
 // declarate methode to headInner OBJ
 headInner.slideTo = function(from, to) {
     const range = to - from;
@@ -23,6 +25,7 @@ headInner.slideTo = function(from, to) {
             }
         }
     }
+    this.slideCurrent = to;
 }
 
 headInner.slideRight = function(range, inter) {
@@ -115,6 +118,19 @@ headInner.auto = function (interval){
     
 }, interval);
 }
+
+headInner.addEventListener("touchstart",function(ev){
+    const startPoint = ev.touches[0].clientX;
+    console.log("startPoint : "+startPoint);
+    this.addEventListener("touchend",function(event){
+        console.log(event);
+        if(startPoint > event.changedTouches[0].clientX){
+            slideShow(headInner.slideCurrent + 1);
+        }else if(startPoint < event.changedTouches[0].clientX){
+            slideShow(headInner.slideCurrent - 1);
+        }
+    })
+})
 
 function slideShow(n) {
     // convert value
@@ -244,6 +260,41 @@ $(document).ready(function () {
     // headInner.auto(4000);
 
 
+    $(".live-container")[0].addEventListener("touchstart",function(event){
+        const target = this;
+        const startPoint = event.touches[0].clientX;
+        console.log(event)
+        translateMobile(target,startPoint);
+        target.addEventListener("touchend",function(event){
+            if(Math.abs(target.resultTranslate ) > 861){
+                target.firstElementChild.style.transform = 'translateX(0)';
+                
+            }else{
+               target.firstElementChild.style.transform = target.resultTranslate; 
+            }
+            
+            
+            event.preventDefault();
+        },false);
+        event.preventDefault()
+    },false)
+
+    function translateMobile(target, startPoint){
+        target.addEventListener("touchmove",(event)=>{
+            const touchEv = event.touches[0];
+            if(startPoint < touchEv.clientX){
+                console.log("nambah")
+                target.resultTranslate = `translateX(${(getTranslateX(target.firstElementChild) / 100) * parseInt(window.getComputedStyle(target.firstElementChild).width) + touchEv.clientX}px)`;
+                
+  
+            }else if(startPoint > touchEv.clientX){ 
+                console.log("kurang")
+                target.resultTranslate = `translateX(${(getTranslateX(target.firstElementChild) / 100) * parseInt(window.getComputedStyle(target.firstElementChild).width) - touchEv.clientX}px)`;
+            }
+        });
+    }
+
+
 
     // progress bar circle funtion
     function progress(initialState,range){
@@ -296,7 +347,7 @@ $(document).ready(function () {
         if($("body").outerWidth() <=360){
             txValueCurr = (widthItem +30) * 4;
         }else if($("body").outerWidth() <=1200){
-            txValueCurr = (widthItem +30) * 5 - 90;
+            txValueCurr = (widthItem +30) * 5 - 99;
         }else{
             txValueCurr = (widthItem +30) * 3;
         }

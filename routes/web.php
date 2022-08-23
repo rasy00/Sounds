@@ -36,3 +36,7 @@ Route::get("/sounds",function(){
 Route::get("/sounds/ ",function(){
     return view("sub.welcome",["id" =>" "]);
 });
+
+Route::get("/sounds/program/34e",function(){
+    return view("sub.program",['id'=>'34e']);
+});
