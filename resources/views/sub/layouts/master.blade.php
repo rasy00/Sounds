@@ -43,7 +43,7 @@
 <script src="../../assets/js/sounds.navbar.js"></script>
 {{-- <script src="../../assets/js/sounds.audio.js"></script> --}}
 <script src="../../assets/js/script.js"></script>
-<script src="../../assets/js/souds.program.js"></script>
+<script src="../../assets/js/sounds.program.js"></script>
 {{-- <script src="../../assets/js/sounds.welcome.js"></script> --}}
 </body>
 </html>

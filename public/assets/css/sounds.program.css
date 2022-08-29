@@ -1,0 +1,270 @@
+/* css reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  background-color: var(--black);
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* end css reset */
+
+html {
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--black);
+}
+
+section {
+  width: 100%;
+}
+
+section.headline {
+  border-bottom: 1px solid #cacaca50;
+  font-family: "Inter", sans-serif;
+}
+
+section.headline > .info-section {
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+
+.info-section > .judul-section {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: "Poppins Regular", sans-serif;
+}
+.info-section > .judul-section > .available {
+  font: inherit;
+  font-size: 20px;
+  font-weight: 100;
+}
+.info-section > .grid-option-container > button {
+  margin: 0;
+  margin-left: -2.5px;
+  padding: 3px 5.5px;
+  border: 0 solid transparent;
+  border-radius: 2px;
+  transition: color 300ms ease-in-out;
+}
+
+.info-section > .grid-option-container > button.active {
+  background-color: var(--light);
+}
+.info-section > .grid-option-container > button:nth-of-type(3) {
+  padding: 3px;
+}
+
+.info-section > .grid-option-container > button.hover {
+  background-color: var(--light);
+}
+
+.info-section > .grid-option-container > button:active {
+  background-color: var(--normal);
+}
+
+.headline-container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  color: white;
+  margin-top: 50px;
+}
+
+.headline-container > .headline-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}
+.headline-container > .headline-text > .judul {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.headline-container > .headline-cover {
+  width: 30%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.headline-container > .headline-cover > img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+section.episodes-section {
+  margin: 20px 0;
+}
+section.episodes-section > * {
+  width: 70%;
+  margin: 0 auto;
+}
+/* custom episode grid list */
+.grid-list > .episode-item {
+  text-decoration: none;
+  display: flex;
+  box-shadow: 0 0.5px 0 0 #94f3e530, 0 1.5px 0 0 rgba(0, 0, 0, 0.5);
+  padding-bottom: 5px;
+  box-sizing: content-box;
+  margin-bottom: 10px;
+}
+
+.grid-list > .episode-item > .cover {
+  width: fit-content;
+  margin-right: 20px;
+}
+.grid-list > .episode-item > .cover > img {
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+}
+.grid-list > .episode-item > .data {
+  color: white;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+.grid-list > .episode-item > .data > .judul {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.grid-list > .episode-item > .data > .summ {
+  font-size: 12px;
+  color: #adadad;
+  margin-bottom: 4px;
+}
+.grid-list > .episode-item > .data > .duration-release {
+  font-size: 13px;
+  color: #adadad;
+}
+/* end custom episode grid list */
+
+section.episodes-section > *.episodes-container {
+  margin-bottom: 15px;
+}
