@@ -397,7 +397,7 @@ body {
 .live-section {
   width: 100%;
   margin-top: 5em;
-  margin-bottom: 10em;
+  margin-bottom: 4em;
 }
 
 .info-section > * {
@@ -660,8 +660,23 @@ body {
 .cover-section,
 .program-section,
 .categories-section {
-  width: 99%;
-  margin-bottom: 3em;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.cover-section {
+  padding-bottom: 2em;
+  padding-top: 2em;
+  box-shadow: 0 1px 0 0 #333f44, 0 1.5px 0 0 #000000, 0 -1px 0 0 #333f44,
+    0 -1.5px 0 0 #000000;
+
+  margin-bottom: 2.5px;
+}
+
+.program-section {
+  padding-bottom: 2em;
+  padding-top: 2em;
+  box-shadow: 0 1px 0 0 #333f44, 0 1.5px 0 0 #000000;
 }
 
 .cover-section > .cover-container,

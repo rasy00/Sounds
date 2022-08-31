@@ -141,11 +141,41 @@ section {
 }
 
 section.headline {
-  border-bottom: 1px solid #cacaca50;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.8), 0 1.8px 0 0 #333f44;
   font-family: "Inter", sans-serif;
+  padding-top: 10px;
+  position: relative;
+}
+section.headline > .headline-background {
+  width: 100%;
+  position: relative;
 }
 
-section.headline > .info-section {
+section.headline > .headline-background > img {
+  object-fit: cover;
+  width: 100%;
+  height: 22em;
+  object-position: 80% 70%;
+}
+
+section.headline > .headline-background::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(27, 27, 27, 0.55);
+  background-image: linear-gradient(rgba(27, 27, 27, 0.2), rgba(0, 0, 0, 0.9));
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+section.headline > .headline-data {
+  position: absolute;
+  top: 0;
+}
+
+section.headline > .headline-data > .info-section {
   margin-top: 50px;
   margin-bottom: 5px;
 }
@@ -204,6 +234,11 @@ section.headline > .info-section {
   margin-bottom: 10px;
 }
 
+.headline-container > .headline-text > .summ {
+  color: #adadad;
+  text-align: justify;
+}
+
 .headline-container > .headline-cover {
   width: 30%;
   display: flex;
@@ -223,14 +258,24 @@ section.episodes-section > * {
   width: 70%;
   margin: 0 auto;
 }
+
+.episodes-container > *,
+.episodes-container > * > *,
+.episodes-container > * > * > * {
+  transition: all 400ms ease-in-out;
+}
+
+.episodes-container > * > * > * {
+  transition: all 100ms ease-in-out;
+}
+
 /* custom episode grid list */
 .grid-list > .episode-item {
   text-decoration: none;
   display: flex;
-  box-shadow: 0 0.5px 0 0 #94f3e530, 0 1.5px 0 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44;
   padding-bottom: 5px;
-  box-sizing: content-box;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .grid-list > .episode-item > .cover {
@@ -264,6 +309,130 @@ section.episodes-section > * {
   color: #adadad;
 }
 /* end custom episode grid list */
+
+/* custom episode grid 3 coloumns */
+.grid-3 {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 20px;
+  flex-shrink: 3;
+  flex-flow: row wrap;
+}
+.grid-3 > .episode-item {
+  text-decoration: none;
+  width: 30%;
+}
+
+.grid-3 > .episode-item > .cover {
+  width: 100%;
+}
+
+.grid-3 > .episode-item > .cover > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.grid-3 > .episode-item > .data {
+  color: white;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  width: 100%;
+}
+.grid-3 > .episode-item > .data > .judul {
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.grid-3 > .episode-item > .data > .summ {
+  font-size: 16px;
+  color: #adadad;
+  margin-bottom: 4px;
+}
+/* end custom episode grid 3 columns */
+/* custom episode grid 4 coloumns */
+.grid-4 {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 20px;
+  flex-shrink: 4;
+  flex-flow: row wrap;
+}
+.grid-4 > .episode-item {
+  text-decoration: none;
+  width: 23%;
+}
+
+.grid-4 > .episode-item > .cover {
+  width: 100%;
+}
+
+.grid-4 > .episode-item > .cover > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.grid-4 > .episode-item > .data {
+  color: white;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  width: 100%;
+}
+.grid-4 > .episode-item > .data > .judul {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.grid-4 > .episode-item > .data > .summ {
+  font-size: 14px;
+  color: #adadad;
+  margin-bottom: 4px;
+}
+/* end custom episode grid 4 columns */
+
+.pagination {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination * {
+  background-color: transparent;
+  color: white;
+}
+
+.pagination button {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 1px 0.5px black, 0 0 3px 1px #333f44;
+  transition: all 300ms ease-in-out;
+}
+
+.pagination button:hover {
+  background-color: var(--light);
+  color: var(--black);
+  font-weight: 600;
+  box-shadow: 0 0 1px 0.5px black, 0 0 3px 1px #333f44;
+}
+
+.pagination button:hover svg * {
+  fill: var(--black);
+}
+
+.pagination button svg {
+  display: block;
+  margin: 0 auto;
+}
 
 section.episodes-section > *.episodes-container {
   margin-bottom: 15px;
