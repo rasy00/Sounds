@@ -1,4 +1,34 @@
 $(document).ready(function(){
+    function initialWidth(){
+        if(window.screen.width === 360){
+            $(".grid-option-container").addClass("hidden");
+            const episodesContainer = $("section.episodes-section > .episodes-container");
+            episodesContainer.removeClass("grid-3");
+            episodesContainer.removeClass("grid-4");
+            episodesContainer.removeClass("grid-list");
+            episodesContainer.addClass("grid-list");
+            $(".episode-item > .data > .duration-release").removeClass("hidden");
+
+        }else{
+            $(".grid-option-container").removeClass("hidden");
+            $('.grid-option-container > button').each(function(){
+                if(this.classList.contains("grid-list")){
+                    $('.grid-option-container > button').btnActive = this;
+                    this.classList.add("active");
+                }
+                
+            })
+        }
+    }
+
+    initialWidth();
+    $(window).resize(()=>{
+        $('.grid-option-container > button').removeClass("active");
+        $('.grid-option-container > button').removeClass("hover");
+        initialWidth();
+        
+    })
+   
     const gridOptionBtn = $('.grid-option-container > button');
 
     gridOptionBtn.each(function(){

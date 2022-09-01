@@ -62,8 +62,9 @@
         @for ($i = 1; $i <= 12; $i++)
             <a href="#" class="episode-item">
                 <div class="cover">
-                    <img src="../../assets/resources/photos/tos.jpeg" alt="jhsd" height="200" width="200" srcset="../../assets/resources/photos/tos.jpeg">
+                    <img src="../../assets/resources/photos/tos.jpeg" alt="jhsd" height="200" width="200" srcset="../../assets/resources/photos/tos.jpeg"> 
                 </div>
+                <div class="gel"></div>
                 <div class="data">
                     <span class="judul">MG Radio Network</span>
                     <span class="summ">Setelah Jokowi Bertemu Zelensky dan Putin, What Next?</span>
