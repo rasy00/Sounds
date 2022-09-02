@@ -25,7 +25,7 @@ Route::get('/sounds/play/{id}', function ($id) {
 Route::get('/sounds/{id}', function($param){
     $returnValue = $param == "programs" || $param == "top-shows"
                         ? view("sub.detail",['id'=>$param])
-                        : view("errors.404");
+                        : redirect("/sounds/category/");
     return $returnValue;
 
 });
@@ -39,4 +39,12 @@ Route::get("/sounds/ ",function(){
 
 Route::get("/sounds/program/34e",function(){
     return view("sub.program",['id'=>'34e']);
+});
+
+Route::get("/sounds/categories/{id}",function(){
+    return view("sub.category",["id"=>'']);
+});
+
+Route::get("/sounds/categories",function(){
+    return view("sub.category",["id"=>'']);
 });
