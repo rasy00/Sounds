@@ -243,6 +243,7 @@ $(document).ready(function(){
             episodesContainer.addClass("grid-list");
             $(".episode-item > .data > .duration-release").removeClass("hidden");
             $('.categories-scroll').addClass("hidden");
+            $(".categories-option_DD").removeClass("hidden");
 
         }else{
             $(".grid-option-container").removeClass("hidden");
@@ -255,6 +256,7 @@ $(document).ready(function(){
             });
             $('.categories-scroll')[0].fakeScroll({track:"smooth"});
             $('.categories-scroll').removeClass("hidden");
+            $(".categories-option_DD").addClass("hidden");
         }
     }
 
@@ -312,8 +314,46 @@ $(document).ready(function(){
         }
     });
 
+    $(".dd-item").addClass("not_spawn");
+    $(".dd-item").addClass("hidden");
     $(".categories-option_DD > button").on("touchstart",function(){
-        $(".dd-item").toggleClass("spawn");
+        $(".dd-item").each((index,element)=>{
+            if(element.classList.contains("not_spawn")){
+                setTimeout(function(){ 
+                    element.classList.remove("hidden");
+                },index * 30)
+            
+                $(".dd-item").css("opacity","0");
+                setTimeout(function(){
+                    element.style.opacity ="1";
+                },(index * 30) + 40);
+
+                setTimeout(function(){
+                    element.classList.add("spawn");
+                },(index * 30) + 40);
+
+                 element.classList.remove("not_spawn");
+                
+            }else{ 
+                setTimeout(function(){
+                    element.classList.add("not_spawn");
+                },index * 30); 
+                
+                setTimeout(function(){
+                    element.classList.add("hidden");
+                },(index * 30) + 40);
+                
+               
+                
+                element.classList.remove("spawn");  
+            }
+            
+        });
+        
+
+        
+        
+        
         $(".dd-item").on("touchstart",function(){
             $(".dd-item").removeClass("active");
             if(this.classList.contains("dropdown-item-1")){

@@ -44,7 +44,7 @@ Route::get("/sounds/program/34e",function(){
 Route::get("/sounds/categories/{id}",function(){
     return view("sub.category",["id"=>'']);
 });
-
-Route::get("/sounds/categories",function(){
-    return view("sub.category",["id"=>'']);
+Route::get("/sounds/schedules/{id}",function(){
+    return view("sub.schedule",["id"=>'']);
 });
+

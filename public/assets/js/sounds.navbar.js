@@ -6,7 +6,7 @@ function initial() {
         $(".nav.menu")[0].style.display = "none";
     } else {
         $(".nav.menu").innerHeight("100%");
-        
+        $(".nav.menu")[0].style.display = "flex";
     }
 
     $(".navbar input").click(function(){

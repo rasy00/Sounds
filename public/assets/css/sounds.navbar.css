@@ -44,6 +44,7 @@ a.navbar-brand:visited {
   font-size: 35px !important;
   font-weight: 700;
   color: var(--light);
+  text-shadow: 0 0 2px #000000;
 }
 
 ul.menu {
