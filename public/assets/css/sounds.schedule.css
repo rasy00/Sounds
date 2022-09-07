@@ -137,28 +137,161 @@ body {
 .date_lives_container {
   width: 100%;
   position: relative;
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.8), 0 1.8px 0 0 #333f44;
-  margin-top: 100px;
+  border-bottom: 0.5px solid rgba(245, 245, 245, 0.185);
+  margin-top: 10px;
+  overflow: hidden;
 }
 
-.date_lives_container > .button_gel_group {
+.gel {
   position: absolute;
   top: 0;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.btn {
   width: 15%;
   height: 20px;
-  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+  color: white;
+  font-family: "Roboto Medium", sans-serif;
+  display: flex;
+  align-items: center;
+}
+.gel_left {
+  justify-content: end;
+  left: 0;
+  background: linear-gradient(
+    270deg,
+    rgba(26, 26, 27, 0.8) 0%,
+    rgba(26, 26, 27, 1) 50%,
+    rgba(26, 26, 27, 1) 100%
+  );
+}
+.gel_right {
+  justify-content: start;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 27, 0.8) 0%,
+    rgba(26, 26, 27, 1) 50%,
+    rgba(26, 26, 27, 1) 100%
+  );
+}
+
+.gel > svg > * {
+  transition: all 250ms ease-in-out;
+}
+.forbidden {
+  cursor: none;
+  pointer-events: none;
+}
+.forbidden > svg > * {
+  fill: #333f44;
 }
 
 .date_lives_inner {
-  width: 100%;
-  padding: 0 15%;
-  border: 1px solid white;
-  font-family: "Roboto Medium", sans-serif;
+  min-width: 100%;
+  padding: 3px 15%;
+  font-family: "Roboto Regular", sans-serif;
+  overflow: hidden;
+}
+.date_lives {
+  width: max-content;
+  display: flex;
+}
+
+.date_lives_item {
+  width: fit-content;
+  display: block;
   color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 50px;
+  font-weight: 100;
+  box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.8), 2px 0 0 0 #333f44;
+  box-sizing: content-box;
+  transition: all 200ms ease-in-out;
+}
+.date_lives_item:last-of-type {
+  box-shadow: 0 0 0 0 transparent;
+}
+.date_lives_item:hover {
+  color: var(--light);
+  text-decoration: underline;
+}
+
+.time_lives_container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.title_schedule {
+  display: block;
+  color: white;
+  font-family: "Roboto Medium", sans-serif;
+  width: 70%;
+  margin: 0 auto;
+  font-size: 26px;
+}
+
+.time_live_inner {
+  color: white;
+  font-family: "Roboto Regular", sans-serif;
+  text-decoration: none;
+  width: 58%;
+  font-size: 15px;
+  margin: 30px auto 0 auto;
+}
+
+.time_live_item {
+  color: white;
+  font-family: "Roboto Regular", sans-serif;
+  text-decoration: none;
+  padding: 5px 15px;
+  font-size: 13px;
+  box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.8), 2px 0 0 0 #333f44;
+  transition: all 200ms ease-in-out;
+}
+.time_live_item:hover {
+  color: var(--light);
+  text-decoration: underline;
+}
+
+.lives_container {
+  width: 58%;
+  margin: 0 auto;
+  color: white;
+}
+
+#early {
+  margin-top: 20px;
+}
+
+.info_inner {
+  display: block;
+  color: white;
+  font-family: "Roboto Medium", sans-serif;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.live-item {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  column-gap: 40px;
+  color: white;
+  text-decoration: none;
+}
+
+.live-item > * {
+  display: block;
+}
+.cover_data {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 20px;
+}
+.cover_data > * {
+  display: block;
+}
+
+.data_item > * {
+  display: block;
 }
