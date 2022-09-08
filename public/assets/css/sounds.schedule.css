@@ -260,14 +260,20 @@ body {
 }
 
 #early {
-  margin-top: 20px;
+  margin-top: 30px;
+}
+#morning,
+#afternoon,
+#evening,
+#late {
+  margin-top: 60px;
 }
 
 .info_inner {
   display: block;
   color: white;
   font-family: "Roboto Medium", sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
@@ -275,23 +281,168 @@ body {
   display: flex;
   width: 100%;
   justify-content: flex-start;
-  column-gap: 40px;
+  column-gap: 70px;
   color: white;
   text-decoration: none;
+  margin-bottom: 30px;
 }
 
 .live-item > * {
   display: block;
 }
+.time {
+  font-family: "Roboto Regular", sans-serif;
+  font-size: 20px;
+}
 .cover_data {
   display: flex;
+  text-decoration: none;
   justify-content: flex-start;
   column-gap: 20px;
+  position: relative;
 }
 .cover_data > * {
   display: block;
 }
 
+.cover_data > img {
+  border-radius: 2px;
+  width: 150px;
+  height: 150px;
+}
+
+.gel_play {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 2px;
+  display: flex;
+  background: transparent;
+  transition: background-color 200ms ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
+.gel_play > i {
+  color: transparent;
+  font-size: 40px;
+  transition: color 200ms ease-in-out;
+}
+
+.cover_data:hover > .gel_play {
+  background-color: #1b1b1b80;
+}
+.cover_data:hover > .gel_play > i {
+  color: white;
+}
+
 .data_item > * {
   display: block;
+  color: white;
+  font-family: "Inter", sans-serif;
+  width: 60%;
+}
+
+.data_item > .judul_item {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  transition: color 200ms ease-in-out;
+}
+
+.data_item > .host {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.data_item > .summ_item {
+  font-size: 13px;
+  font-weight: 100;
+  color: rgba(255, 255, 255);
+}
+
+.cover_data:hover > .data_item > .judul_item {
+  color: var(--light);
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 1200px) {
+  .title_schedule {
+    width: 85%;
+  }
+
+  .gel {
+    width: 7.5%;
+  }
+
+  .date_lives_inner {
+    padding: 3px 7.5%;
+  }
+
+  .time_live_inner {
+    width: 65%;
+  }
+
+  .lives_container {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .title_schedule {
+    width: 100%;
+  }
+
+  .gel {
+    width: 5%;
+  }
+
+  .live-item {
+    column-gap: 20px;
+  }
+
+  .time {
+    align-self: flex-start;
+  }
+
+  .data_item {
+    width: 70%;
+  }
+
+  .data_item > * {
+    width: 100%;
+  }
+
+  .cover_data {
+    column-gap: 0;
+    align-items: center;
+  }
+
+  .gel_play {
+    position: relative;
+    background-color: #333f44;
+    order: 1;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gel_play > i {
+    font-size: 18px;
+    color: white;
+  }
+
+  .date_lives_inner {
+    padding: 3px 5%;
+  }
+
+  .time_live_inner {
+    width: 99%;
+  }
+
+  .lives_container {
+    width: 99%;
+  }
 }

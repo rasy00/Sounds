@@ -1,7 +1,15 @@
 function initial(){
     $(".gel").height($(".gel").offsetParent().height());
+    if($(window).width() <= 360){
+        $('.cover_data > img').addClass("hidden");
+        $('.cover_data > .data_item > .host').addClass("hidden");
+    }else{
+        $('.cover_data > img').removeClass("hidden");
+        $('.cover_data > .data_item > .host').removeClass("hidden");
+    }
 }
 $(document).ready(function(){
+    initial();
     $(".gel").click(function(ev){
         let scroll = $(".date_lives_inner").scrollLeft();
         let scrollPM = $(".date_lives").width();
@@ -17,12 +25,23 @@ $(document).ready(function(){
 
         // console.log(`scroll : ${scroll}`);
         // console.log(`scrollPM : ${scrollPM}`);
-        if(scroll >= (scrollPM - ((30 / 100) * scrollPM))){
-            $(".gel_right").addClass("forbidden");
-        }else if(scroll <= 0){
-            $(".gel_left").addClass("forbidden");
+        if($(window).width() == 1200){
+            if(scroll >= (scrollPM - ((40 / 100) * scrollPM))){
+                $(".gel_right").addClass("forbidden");
+            }else if(scroll <= 0){
+                $(".gel_left").addClass("forbidden");
+            }else{
+                $(".gel").removeClass("forbidden");
+            }
         }else{
-            $(".gel").removeClass("forbidden");
+            if(scroll >= (scrollPM - ((50 / 100) * scrollPM))){
+                $(".gel_right").addClass("forbidden");
+            }else if(scroll <= 0){
+                $(".gel_left").addClass("forbidden");
+            }else{
+                $(".gel").removeClass("forbidden");
+            }
         }
-    })
+       
+    });
 });

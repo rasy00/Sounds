@@ -37,19 +37,179 @@
     </div>
 
     <div class="lives_container">
-        <div class="lives_inner" id="early">
-            <span class="info_inner">Early</span>
-            <a class="live-item">
-                <span class="time">00.00</span>
-                <div class="cover_data">
+        @for ($i = 0; $i <= 23; $i++)
+            @php
+            $count = 0;
+                if($i <=6){
+                    if($i <= 0){
+                        echo('
+                        <div class="lives_inner" id="early">
+                            <span class="info_inner">Early</span>
+                        ');
+                    }
+                    echo('
+                        <div class="live-item">
+                            <span class="time">'
+                    );
+                    
+                    if($i < 10){
+                        echo("0$i");
+                    }else{
+                        echo($i);
+                    }
+
+                    echo(':00
+                            </span>
+                            <a class="cover_data">
+                                <img src="../../assets/resources/photos/tos1.jpeg" width="200" height="200" alt="ww" srcset="../../assets/resources/photos/tos1.jpeg">
+                                <div class="gel_play"><i class="icofont-ui-play"></i></div>
+                                <div class="data_item">
+                                    <span class="judul_item">Kesetaraan Semangat Kebangsaan</span>
+                                    <span class="host">Adian Radiatus</span>
+                                    <span class="summ_item">Leon Vynehall has new music in the mix and his collaborator Kenzie TTH in the studio</span>
+                                </div>
+                            </a>
+                        </div>
+                    ');
+                        
+
+                    if($count == 6){
+                        echo("</div>");
+                    }
+                    $count++;
+                    
+                }elseif($i <=11){
+                    if($i <= 7){
+                        echo('
+                        <div class="lives_inner" id="morning">
+                            <span class="info_inner">Morning</span>
+                        ');
+                    }
+                    echo('
+                        <div class="live-item">
+                            <span class="time">'
+                    );
+                    
+                    if($i < 10){
+                        echo("0$i");
+                    }else{
+                        echo($i);
+                    }
+
+                    echo(':00
+                            </span>
+                            <a class="cover_data">
+                                <img src="../../assets/resources/photos/tos1.jpeg" width="200" height="200" alt="ww" srcset="../../assets/resources/photos/tos1.jpeg">
+                                <div class="gel_play"><i class="icofont-ui-play"></i></div>
+                                <div class="data_item">
+                                    <span class="judul_item">Kesetaraan Semangat Kebangsaan</span>
+                                    <span class="host">Adian Radiatus</span>
+                                    <span class="summ_item">Leon Vynehall has new music in the mix and his collaborator Kenzie TTH in the studio</span>
+                                </div>
+                            </a>
+                        </div>
+                    ');   
+
+                    if($count == 11){
+                        echo("</div>");
+                    } 
+                    $count++;
+                }elseif($i <=17){
+                    if($i <= 12){
+                        echo('
+                        <div class="lives_inner" id="afternoon">
+                            <span class="info_inner">Afternoon</span>
+                        ');
+                    }
+                    echo('
+                        <div class="live-item">
+                            <span class="time">'
+                    );
+                    
+                    if($i < 10){
+                        echo("0$i");
+                    }else{
+                        echo($i);
+                    }
+
+                    echo(':00
+                            </span>
+                            <a class="cover_data">
+                                <img src="../../assets/resources/photos/tos1.jpeg" width="200" height="200" alt="ww" srcset="../../assets/resources/photos/tos1.jpeg">
+                                <div class="gel_play"><i class="icofont-ui-play"></i></div>
+                                <div class="data_item">
+                                    <span class="judul_item">Kesetaraan Semangat Kebangsaan</span>
+                                    <span class="host">Adian Radiatus</span>
+                                    <span class="summ_item">Leon Vynehall has new music in the mix and his collaborator Kenzie TTH in the studio</span>
+                                </div>
+                            </a>
+                        </div>
+                    ');
+                        
+
+                    if($count == 17){
+                        echo("</div>");
+                    } 
+                    $count++;
+                }elseif($i <=23){
+                    // logical for skip this count
+                    if($i == 18 || $i == 20 || $i==21){
+                        continue;
+                    }
+
+
+                    if($i <= 19){
+                        echo('
+                        <div class="lives_inner" id="evening">
+                            <span class="info_inner">Evening</span>
+                        ');
+                    }
+
+                    echo('
+                        <div class="live-item">
+                            <span class="time">'
+                    );
+                    
+                    if($i < 10){
+                        echo("0$i");
+                    }else{
+                        echo($i);
+                    }
+
+                    echo(':00
+                            </span>
+                            <a class="cover_data">
+                                <img src="../../assets/resources/photos/tos1.jpeg" width="200" height="200" alt="ww" srcset="../../assets/resources/photos/tos1.jpeg">
+                                <div class="gel_play"><i class="icofont-ui-play"></i></div>
+                                <div class="data_item">
+                                    <span class="judul_item">Kesetaraan Semangat Kebangsaan</span>
+                                    <span class="host">Adian Radiatus</span>
+                                    <span class="summ_item">Leon Vynehall has new music in the mix and his collaborator Kenzie TTH in the studio</span>
+                                </div>
+                            </a>
+                        </div>
+                    ');
+                    if($count == 6){
+                        echo("</div>");
+                    }
+                    $count++;
+                }
+            @endphp
+        @endfor
+        <div class="lives_inner" id="late">
+            <span class="info_inner">Late</span>
+            <div class="live-item">
+                <span class="time">00:00</span>
+                <a class="cover_data">
                     <img src="../../assets/resources/photos/tos1.jpeg" width="200" height="200" alt="ww" srcset="../../assets/resources/photos/tos1.jpeg">
+                    <div class="gel_play"><i class="icofont-ui-play"></i></div>
                     <div class="data_item">
-                        <span class="judul_item">Leon Vynehall with Kenzie TTH</span>
+                        <span class="judul_item">Kesetaraan Semangat Kebangsaan</span>
+                        <span class="host">Adian Radiatus</span>
                         <span class="summ_item">Leon Vynehall has new music in the mix and his collaborator Kenzie TTH in the studio</span>
                     </div>
-                </div>
-                
-            </a>
+                </a>
+            </div>
         </div>
     </div>    
 </section>
