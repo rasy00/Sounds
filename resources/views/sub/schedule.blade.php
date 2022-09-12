@@ -27,12 +27,14 @@
         <span class="title_schedule">Schedules</span>
         <div class="time_live_inner">
             <span class="skip_to">Skip To :</span>
-            <a href="#" class="time_live_item">On air</a>
-            <a href="#" class="time_live_item">Early</a>
-            <a href="#" class="time_live_item">Morning</a>
-            <a href="#" class="time_live_item">Afternoon</a>
-            <a href="#" class="time_live_item">Evening</a>
-            <a href="#" class="time_live_item">Late</a>
+            <div class="time_lives_inner_container">
+                <a href="#" class="time_live_item">On air</a>
+                <a href="#" class="time_live_item">Early</a>
+                <a href="#" class="time_live_item">Morning</a>
+                <a href="#" class="time_live_item">Afternoon</a>
+                <a href="#" class="time_live_item">Evening</a>
+                <a href="#" class="time_live_item">Late</a> 
+            </div>
         </div>
     </div>
 

@@ -234,6 +234,7 @@ body {
   color: white;
   font-family: "Roboto Regular", sans-serif;
   text-decoration: none;
+  display: flex;
   width: 58%;
   font-size: 15px;
   margin: 30px auto 0 auto;
@@ -381,20 +382,56 @@ body {
   }
 
   .time_live_inner {
-    width: 65%;
+    width: 70%;
   }
 
   .lives_container {
-    width: 65%;
+    width: 70%;
   }
 }
 @media only screen and (max-width: 360px) {
+  .date_lives_item {
+    font-size: 14px;
+    padding: 5px 30px;
+  }
   .title_schedule {
     width: 100%;
+    font-size: 20px;
+  }
+
+  .info_inner {
+    font-size: 20px;
+  }
+
+  .time {
+    font-size: 18px;
+  }
+
+  .data_item > .judul_item {
+    font-size: 14px;
+  }
+
+  .data_item > .summ_item {
+    font-size: 11px;
   }
 
   .gel {
     width: 5%;
+  }
+
+  .gel > svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .time_live_item {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .skip_to {
+    font-size: 15px;
+    width: 80px;
   }
 
   .live-item {
@@ -414,32 +451,43 @@ body {
   }
 
   .cover_data {
-    column-gap: 0;
+    column-gap: 20px;
     align-items: center;
   }
 
   .gel_play {
     position: relative;
-    background-color: #333f44;
+    background-color: var(--light);
     order: 1;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
   }
 
   .gel_play > i {
-    font-size: 18px;
-    color: white;
+    font-size: 15px;
+    color: var(--black);
   }
-
+  .icofont-ui-play:before {
+    height: 15px;
+    width: 15px;
+  }
   .date_lives_inner {
     padding: 3px 5%;
+  }
+  .time_lives_inner_container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    row-gap: 5px;
   }
 
   .time_live_inner {
     width: 99%;
+    display: flex;
+    align-items: flex-start;
   }
 
   .lives_container {

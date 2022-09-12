@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../../assets/css/sounds.master.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.navbar.css" />
     <link rel="stylesheet" href="../../assets/css/sounds.footer.css">
-    <link rel="stylesheet" href="../../assets/css/sounds.schedule.css">
+    <link rel="stylesheet" href="../../assets/css/sounds.search.css">
+    {{-- <link rel="stylesheet" href="../../assets/css/sounds.schedule.css"> --}}
 
     {{-- <link rel="stylesheet" href="../../assets/css/sounds.categories.css"> --}}
     {{-- <link rel="stylesheet" href="../../assets/css/sounds.program.css"> --}}
@@ -46,7 +47,8 @@
 <script src="../../assets/js/sounds.navbar.js"></script>
 {{-- <script src="../../assets/js/sounds.audio.js"></script> --}}
 <script src="../../assets/js/script.js"></script>
-<script src="../../assets/js/sounds.schedule.js"></script>
+{{-- <script src="../../assets/js/sounds.schedule.js"></script> --}}
+<script src="../../assets/js/sounds.search.js"></script>
 {{-- <script src="../../assets/js/sounds.categories.js"></script> --}}
 {{-- <script src="../../assets/js/sounds.program.js"></script> --}}
 {{-- <script src="../../assets/js/sounds.welcome.js"></script> --}}

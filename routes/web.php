@@ -47,4 +47,7 @@ Route::get("/sounds/categories/{id}",function(){
 Route::get("/sounds/schedules/{id}",function(){
     return view("sub.schedule",["id"=>'']);
 });
+Route::get("/sounds/search/{id}",function(){
+    return view("sub.search",["id"=>'']);
+});
 

@@ -1,0 +1,565 @@
+/* css reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  background-color: var(--black);
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* end css reset */
+.search_section {
+  width: 100%;
+}
+.search_container {
+  width: 100%;
+}
+
+.search_headline {
+  width: 100%;
+  margin-top: 100px;
+  padding: 5px 0;
+  box-sizing: content-box;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.8), 0 1.8px 0 0 #333f44;
+}
+
+.search_tool_group {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.search_tool_group > * {
+  width: 60%;
+  margin: 0 auto;
+  display: block;
+}
+
+.search_tool_group > form > * {
+  display: block;
+}
+
+.search_tool_group > form {
+  display: flex;
+}
+
+.search_tool_group input {
+  background-color: transparent;
+  border: 1px solid white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: 40px;
+  margin: 0;
+  width: 90%;
+  color: white;
+  padding-left: 20px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  border-right: none;
+  font-family: "Inter", sans-serif;
+}
+
+.search_tool_group label {
+  width: 10%;
+}
+
+.search_tool_group button[type="submit"] {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 1px solid white;
+  border-left: none;
+  background-color: transparent;
+  height: 40px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.search_tool_group > #result_search {
+  color: white;
+  margin-top: 10px;
+  padding-left: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.info-section {
+  width: 70%;
+  margin: 40px auto 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.info-section > .grid-option-container > button {
+  margin: 0;
+  margin-left: -2.5px;
+  padding: 3px 5.5px;
+  border: 0 solid transparent;
+  border-radius: 2px;
+  transition: color 300ms ease-in-out;
+}
+
+.info-section > .grid-option-container > button.active {
+  background-color: var(--light);
+}
+.info-section > .grid-option-container > button:nth-of-type(3) {
+  padding: 3px;
+}
+
+.info-section > .grid-option-container > button.hover {
+  background-color: var(--light);
+}
+
+.info-section > .grid-option-container > button:active {
+  background-color: var(--normal);
+}
+
+.search_container_inner {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.search_inner {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search_inner_main {
+  width: 70%;
+}
+
+.search_inner_recommend {
+  width: 25%;
+}
+
+.episodes-container > *,
+.episodes-container > * > *,
+.episodes-container > * > * > * {
+  transition: all 400ms ease-in-out;
+}
+
+.episodes-container > * > * > * {
+  transition: all 100ms ease-in-out;
+}
+
+/* custom episode grid list */
+.grid-list > .episode-item {
+  text-decoration: none;
+  display: flex;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.grid-list > .episode-item > .cover {
+  position: relative;
+  width: fit-content;
+  margin-right: 20px;
+  overflow: hidden;
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+}
+
+.grid-list > .episode-item > .gel {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  border-radius: 4px;
+  transition: all 350ms ease-in-out;
+}
+
+.grid-list > .episode-item > .cover > img {
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+  transition: all 350ms ease-in-out;
+}
+.grid-list > .episode-item > .data {
+  color: white;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+.grid-list > .episode-item > .data > .judul {
+  font-family: "Roboto Medium", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+  transition: all 350ms ease-in-out;
+}
+.grid-list > .episode-item > .data > .summ {
+  font-size: 12px;
+  color: #adadad;
+  margin-bottom: 4px;
+}
+.grid-list > .episode-item > .data > .duration-release {
+  font-size: 13px;
+  color: #adadad;
+}
+/* hover */
+.grid-list > .episode-item:hover > .gel {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.grid-list > .episode-item:hover > .cover > img {
+  transform: scale(1.05);
+}
+
+.grid-list > .episode-item:hover > .data > .judul {
+  color: var(--light);
+  text-decoration: underline;
+}
+/* end custom episode grid list */
+
+/* custom episode grid 3 coloumns */
+.grid-3 {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 20px;
+  flex-shrink: 3;
+  flex-flow: row wrap;
+}
+.grid-3 > .episode-item {
+  text-decoration: none;
+  width: 30%;
+  position: relative;
+}
+
+.grid-3 > .episode-item > .cover {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.grid-3 > .episode-item > .cover > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.grid-3 > .episode-item > .gel {
+  position: absolute;
+  width: 100%;
+  height: 83.5%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  border-radius: 4px;
+  transition: all 350ms ease-in-out, height 150ms ease-in-out;
+  top: 0;
+}
+
+.grid-3 > .episode-item > .data {
+  color: white;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  width: 100%;
+}
+.grid-3 > .episode-item > .data > .judul {
+  font-family: "Roboto Medium", sans-serif;
+  font-size: 22px;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+}
+.grid-3 > .episode-item > .data > .summ {
+  font-size: 16px;
+  color: #adadad;
+  margin-bottom: 4px;
+}
+/* hover */
+.grid-3 > .episode-item:hover > .gel {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  height: 84.3%;
+  transition: all 350ms ease-in-out, height 50ms ease-in-out;
+}
+
+.grid-3 > .episode-item:hover > .cover > img {
+  transform: scale(1.05);
+}
+
+.grid-3 > .episode-item:hover > .data > .judul {
+  color: var(--light);
+  text-decoration: underline;
+}
+/* end custom episode grid 3 columns */
+/* custom episode grid 4 coloumns */
+.grid-4 {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 20px;
+  flex-shrink: 4;
+  flex-flow: row wrap;
+}
+.grid-4 > .episode-item {
+  text-decoration: none;
+  width: 23%;
+  position: relative;
+}
+
+.grid-4 > .episode-item > .cover {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+}
+
+.grid-4 > .episode-item > .cover > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.grid-4 > .episode-item > .gel {
+  position: absolute;
+  width: 100%;
+  height: 80.7%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  border-radius: 4px;
+  transition: all 350ms ease-in-out, height 150ms ease-in-out;
+  top: 0;
+}
+.grid-4 > .episode-item > .data {
+  color: white;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  width: 100%;
+}
+.grid-4 > .episode-item > .data > .judul {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.grid-4 > .episode-item > .data > .summ {
+  font-size: 14px;
+  color: #adadad;
+  margin-bottom: 4px;
+}
+
+/* hover */
+.grid-4 > .episode-item:hover > .gel {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  height: 81.4%;
+  transition: all 350ms ease-in-out, height 50ms ease-in-out;
+}
+
+.grid-4 > .episode-item:hover > .cover > img {
+  transform: scale(1.05);
+}
+
+.grid-4 > .episode-item:hover > .data > .judul {
+  color: var(--light);
+  text-decoration: underline;
+}
+/* end custom episode grid 4 columns */
+
+.pagination {
+  width: 70%;
+  margin: 0 auto 10px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination * {
+  background-color: transparent;
+  color: white;
+}
+.pagination div {
+  margin: 0 10px;
+}
+
+.pagination div button {
+  box-shadow: 0 0 1px 0.5px white, 0 0 3px 1px #333f44;
+}
+
+.pagination button {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  transition: all 300ms ease-in-out;
+}
+
+.pagination button:hover {
+  background-color: var(--light);
+  color: var(--black);
+  box-shadow: 0 0 1px 0.5px black, 0 0 3px 1px #333f44;
+  font-weight: 600;
+}
+
+.pagination button:hover svg * {
+  fill: var(--black);
+}
+
+.pagination button svg {
+  display: block;
+  margin: 0 auto;
+}
