@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="search_inner_recommend">
-                    <span class="recomend_sign">Rekomendasi</span>
+                    <span class="recommend_sign">Rekomendasi</span>
                     <div class="recommend_container">
                         <a href="#" class="recommend_item">
                             <div class="cover">
@@ -87,8 +87,8 @@
                             </div>
                             <div class="gel"></div>
                             <div class="data">
-                                <span class="judul">MG Radio Network</span>
-                                <span class="summ">Setelah Jokowi Bertemu Zelensky dan Putin, What Next?</span>
+                                <span class="program_name">MG Radio Network</span>
+                                <span class="judul">Filipina Masa Kini | Ft. Letjen TNI (Purn.) Agus Widjojo</span>
                                 <span class="duration-release">64 Min | 06 Jul 2022</span>
                             </div>
                         </a>
@@ -98,8 +98,8 @@
                             </div>
                             <div class="gel"></div>
                             <div class="data">
-                                <span class="judul">MG Radio Network</span>
-                                <span class="summ">Setelah Jokowi Bertemu Zelensky dan Putin, What Next?</span>
+                                <span class="program_name">MG Radio Network</span>
+                                <span class="judul">Filipina Masa Kini | Ft. Letjen TNI (Purn.) Agus Widjojo </span>
                                 <span class="duration-release">64 Min | 06 Jul 2022</span>
                             </div>
                         </a>
