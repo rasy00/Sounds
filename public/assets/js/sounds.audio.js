@@ -36,7 +36,7 @@ $(document).ready(function () {
         // jika ada volume line yang di klik
         $(
             ".audio-controller > .right > #volume-controller > .volume-bar"
-        ).click(() => {
+        ).click(function(){
             let count = 0;
 
             target.removeClass("active");
@@ -48,7 +48,12 @@ $(document).ready(function () {
                 }
                 count++;
             }
+
+            $("audio")[0].volume =  (Number(count)+1)/10;
+           
         });
+
+        
 
         $(".audio-controller > .right > #volume-controller").mouseleave(() => {
             checkingActive(target);
@@ -86,6 +91,9 @@ $(document).ready(function () {
             }
             count++;
         }
+
+       
+
     }
 
     // function jika btn back/forward interval diclick
@@ -93,7 +101,6 @@ $(document).ready(function () {
         if (target.length !== 0) {
             const backIntervalBtn = target[2];
             const forwardIntervalBtn = target[3];
-            console.log(target);
             backIntervalBtn.addEventListener("mouseup", (ev) => {
                 ev.target.classList.add("rotateLeft");
                 setTimeout(() => {
@@ -273,4 +280,6 @@ $(document).ready(function () {
     // }else{
 
     // }
+
+    document.getElementsByTagName("audio")[0].ontimeupdate = onTimeUpdate;
 });

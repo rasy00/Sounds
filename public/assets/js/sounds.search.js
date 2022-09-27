@@ -2,7 +2,7 @@ $(document).ready(function(){
     function initialWidth(){
         if(window.screen.width === 360){
             $(".grid-option-container").addClass("hidden");
-            const episodesContainer = $("section.episodes-section > .episodes-container");
+            const episodesContainer = $(".episodes-container");
             episodesContainer.removeClass("grid-3");
             episodesContainer.removeClass("grid-4");
             episodesContainer.removeClass("grid-list");

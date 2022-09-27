@@ -22,13 +22,6 @@ Route::get('/', function () {
 Route::get('/sounds/play/{id}', function ($id) {
     return view('sub.detail' , ["id"=>"default"]);
 });
-Route::get('/sounds/{id}', function($param){
-    $returnValue = $param == "programs" || $param == "top-shows"
-                        ? view("sub.detail",['id'=>$param])
-                        : redirect("/sounds/category/");
-    return $returnValue;
-
-});
 
 Route::get("/sounds",function(){
     return view("sub.welcome",["id" =>" "]);

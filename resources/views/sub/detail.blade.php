@@ -3,9 +3,9 @@
 @section("konten")
       {{-- section audio-player  --}}
       <section class="audio-player">
-        <audio hidden ontimeupdate="onTimeUpdate()">
+        <audio hidden>
            {{-- <source src="horse.ogg" type="audio/ogg" />  --}}
-          <source src="../assets/resources/sounds/coba.mp3" type="audio/mpeg" />
+          <source src="../../assets/resources/sounds/coba.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
         <div class="background"></div>
@@ -21,12 +21,12 @@
               </div>
               <hr class="judul-rule" />
               <div class="descripsi">
-                <span class="fs-5 d-inline-block">Gangster: The Story of Curtis Warren</span>
+                <span class="fs-5 mb-1 d-inline-block">Gangster: The Story of Curtis Warren</span>
               </div>
               <p class="fs-6">Introducing Gangster: The Story of Curtis Warren</p>
             </div>
 
-          </div><button id='share_btn' class="share-btn position-absolute d-flex justify-content-center align-items-center" style="border-radius:50%; margin-left:95%; font-size:1.5em; width:1.8em;height:1.8em; border:1px solid transparent"><i class="icofont-share position-absolute"></i></button>
+          </div>
         </div>
         <div class="canva-player py-5 my-3">
           <div class="track-duration">
@@ -51,7 +51,7 @@
                 </div>
               </button>
             </div>
-            <div class="center d-flex audio-controller-item justify-content-evenly align-items-center">
+            <div class="center d-flex audio-controller-item justify-content-center align-items-center">
               <button id="previousBtn">
                 <svg width="52" height="52" viewBox="0 0 48 48" focusable="false">
                   <path
@@ -100,6 +100,7 @@
               </button>
             </div>
             <div class="left audio-controller-item d-flex justify-content-end align-items-center">
+              <button id='share_btn' class="share-btn me-2 d-flex justify-content-center align-items-center" style="border-radius:50%; background-color:transparent; color:white; font-size:1.2em; width:30px; height:30px; border:1px solid white; text-align:center;"><i class="icofont-share position-absolute"></i></button>
               <div id="playbackSetting "><i class="icofont-gear"></i></div>
             </div>
           </div>
@@ -124,4 +125,9 @@
         </div>
       </section>
       {{-- end section audio-player  --}}
+      {{-- section deskripsi --}}
+      <section class="description_section">
+
+      </section>
+      {{-- end section deskripsi --}}
 @endsection

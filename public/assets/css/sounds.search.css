@@ -659,3 +659,135 @@ table {
   display: block;
   margin: 0 auto;
 }
+
+@media only screen and (max-width: 1200px) {
+  .search_tool_group {
+    width: 85%;
+  }
+
+  .info-section {
+    width: 85%;
+  }
+
+  .search_container_inner {
+    width: 85%;
+  }
+
+  .pagination {
+    width: 85%;
+  }
+  .search_inner_recommend {
+    width: 33%;
+  }
+
+  .search_inner_main {
+    width: 66%;
+  }
+
+  .grid-3 > .episode-item > .gel {
+    height: 68%;
+  }
+  .grid-3 > .episode-item:hover > .gel {
+    height: 69%;
+  }
+  .grid-4 > .episode-item > .gel {
+    height: 59.5%;
+  }
+  .grid-4 > .episode-item:hover > .gel {
+    height: 60.5%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .search_tool_group {
+    width: 100%;
+  }
+
+  .info-section {
+    width: 100%;
+  }
+
+  .search_container_inner {
+    width: 100%;
+  }
+
+  .search_inner {
+    width: 100%;
+    margin: 20px auto;
+    display: block;
+  }
+  .pagination {
+    width: 100%;
+  }
+  .search_inner_recommend {
+    width: 100%;
+    border: none;
+  }
+
+  .recommend_item {
+    display: block;
+  }
+
+  .recommend_container {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .recommend_item > .gel {
+    top: 0;
+  }
+
+  .recommend_sign {
+    color: white;
+    font-family: "Roboto Medium", sans-serif;
+    font-size: 25px;
+    border-bottom: none;
+    font-weight: 6 00;
+    margin-bottom: 0;
+    padding: 10px 0 0 10px;
+  }
+
+  .search_inner_main {
+    width: 100%;
+  }
+
+  .search_tool_group > * {
+    width: 70%;
+  }
+
+  .grid-list > .episode-item > .cover > img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .grid-list > .episode-item > .data {
+    width: 63%;
+  }
+
+  .grid-list > .episode-item > .cover {
+    width: 120px;
+    height: 120px;
+    margin-right: 10px;
+  }
+
+  .grid-list > .episode-item > .gel {
+    width: 120px;
+    height: 120px;
+  }
+
+  .pagination {
+    width: 100%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pagination div {
+    margin: 0 8px;
+  }
+
+  .pagination button {
+    margin: 0 2px;
+  }
+}
