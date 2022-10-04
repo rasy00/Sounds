@@ -126,8 +126,57 @@
       </section>
       {{-- end section audio-player  --}}
       {{-- section deskripsi --}}
-      <section class="description_section">
-
+      <section class="description_section container-fluid px-0">
+        <div class="description_container">
+          <div class="previous_next_container d-flex justify-content-between">
+            <a href="#" class="n_p previous_episode d-flex justify-content-start">
+              <img src="../../assets/resources/photos/tos.jpeg" height="200" width="200" alt="">
+              <div class="data">
+                <span class="judul">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, maiores.</span>
+                <span class="summary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia nobis architecto obcaecati iure explicabo magnam?</span>
+              </div>
+            </a>
+            <a href="#" class="n_p next_episode d-flex justify-content-start ">
+              <img src="../../assets/resources/photos/tos1.jpeg" height="200" width="200" alt="">
+              <div class="data">
+                <span class="judul">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, maiores.</span>
+                <span class="summary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia nobis architecto obcaecati iure explicabo magnam?</span>
+              </div>
+            </a>
+          </div>
+          <div class="description_episode_inner d-flex justify-content-between">
+            <div class="description_inner">
+              <span class="realease">Released On : <span class="value_release">20 Juli 2022 - 14:37</span></span>
+              <span class="summary">
+                <span class="jd">Gimana tuhh konflik yang sehat?</span>
+                <span class="isi">Kalo kalian sedang menghadapi masalah dalam hubungan, harus bisa yang namanya jadi pendengar yang baik, bisa diskusi tentang hal2 yang lebih dalam lagi dan usahakan selalu berkepala dingin saat ada konflik, jangan dua-dua nya sama-sama ga mau ngalah ya Podme Friends.</span>
+              </span>
+              <span class="presenter_producer">
+                <span class="presenter">Presenter : Lauren Laverne</span>
+                <span class="producer">Producer : Paula McGinley</span>
+              </span>
+            </div>
+            <div class="episode_inner">
+              <span class="info">Daftar Episode</span>
+              <div class="episodes" >
+                @for ($i = 1; $i <= 10; $i++)
+                  <a href="#" class="episode_item">
+                    <span class="nomor">{{$i}}.</span>
+                    <div class="data">
+                      <span class="judul">Lorem ipsum dolor sit.</span>
+                      <span class="author">Ninuninu</span>
+                    </div>
+                  </a>  
+                @endfor
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       {{-- end section deskripsi --}}
+      {{-- section recommend --}}
+      <section class="recommend_section">
+        
+      </section>
+      {{-- end section recommend --}}
 @endsection
