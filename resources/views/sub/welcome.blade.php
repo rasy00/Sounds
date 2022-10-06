@@ -53,17 +53,17 @@
 <section class="live-section">
     <div class="info-section">
         <span class="judul-section">Schedules</span>
-        <a class="see-more">View all Schedules ></a>
+        <a href="/sounds/schedules/this"class="see-more">View all Schedules ></a>
     </div>
     
     <div class="live-container">
         <div class="live-container-inner">
             @for ($i = 1; $i <=10; $i++)
                 <div class="live-item {{$i === 2?"live-current":""}}">
-                    <a href="">
+                    <a href="/sounds/play/2">
                         <div class="cover-item">
                             <div class="duration-ui">
-                                <img src="assets/resources/photos/tos{{$i>=8?$i+1:$i}}.jpeg" alt="" width="150" height="150" style="border-radius:50%">
+                                <img src="../../assets/resources/photos/tos{{$i>=8?$i+1:$i}}.jpeg" alt="" width="150" height="150" style="border-radius:50%">
                             </div>  
                             <div class="thumbnail-cover">
                                 <button class="play">
@@ -93,12 +93,11 @@
 <section class="cover-section">
     <div class="info-section">
         <span class="judul-section">Podcast Mixes</span>
-        <a href="#" class="see-more">View more ></a> 
     </div>
     <div class="cover-container">
         
        @for ($i = 1; $i <= 10; $i++)
-        <a href="#" class="cover-link">
+        <a href="/sounds/play/1" class="cover-link">
            <div class="cover-item">
             <div class="cover"> 
                 <img src="../assets/resources/photos/cover/{{$i}}.jpg" alt="">
@@ -123,11 +122,11 @@
 <section class="program-section">
     <div class="info-section">
         <span class="judul-section">Programs</span>
-        <a href="#" class="see-more">More programs ></a>
+        <a href="" class="see-more">More programs ></a>
     </div>
     <div class="program-container">
         @for ($i = 1; $i <=10; $i++)
-        <a href="#" class="program-link">
+        <a href="/sounds/program/this" class="program-link">
             <div class="program-item">
             <div class="cover">
                 <img src="../assets/resources/photos/tos{{$i==1?"":($i>=8?$i+1:$i-1)}}.jpeg" alt="">
@@ -160,11 +159,11 @@
 <section class="categories-section">
     <div class="info-section">
         <span class="judul-section">Categories</span>
-        <a href="#" class="see-more">More categories ></a>
+        <a href="/sounds/categories/more" class="see-more">More categories ></a>
     </div>
     <div class="categories-container">
         @for ($i = 1; $i <=10 ; $i++)
-            <a href="#" class="category-link">
+            <a href="/sounds/categories/this" class="category-link">
                 <div class="category-item">
                     <div class="cover"> 
                         <img src="../assets/resources/photos/categories/{{$i}}.jpg" >

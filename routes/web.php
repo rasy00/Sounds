@@ -20,27 +20,45 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/sounds/play/{id}', function ($id) {
-    return view('sub.detail' , ["id"=>"default"]);
+    return view('sub.detail' , [
+                                "type"=>"Detail"
+                                ,"id"=>"default"
+                            ]);
 });
 
 Route::get("/sounds",function(){
-    return view("sub.welcome",["id" =>" "]);
+    return view("sub.welcome",[
+                                "type"=>"Home"
+                                ,"id"=>"default"
+                            ]);
 });
 Route::get("/sounds/ ",function(){
-    return view("sub.welcome",["id" =>" "]);
+    return redirect("/sounds");
 });
 
-Route::get("/sounds/program/34e",function(){
-    return view("sub.program",['id'=>'34e']);
+Route::get("/sounds/program/{id}",function(){
+    return view("sub.program",[
+                                "type"=>"Program"
+                                ,"id"=>"default"
+                            ]);
 });
 
 Route::get("/sounds/categories/{id}",function(){
-    return view("sub.category",["id"=>'']);
+    return view("sub.category",[
+                                "type"=>"Categories"
+                                ,"id"=>"default"
+                            ]);
 });
 Route::get("/sounds/schedules/{id}",function(){
-    return view("sub.schedule",["id"=>'']);
+    return view("sub.schedule",[
+                                "type"=>"Schedule"
+                                ,"id"=>"default"
+                            ]);
 });
 Route::get("/sounds/search/{id}",function(){
-    return view("sub.search",["id"=>'']);
+    return view("sub.search",[
+                                "type"=>"Search"
+                                ,"id"=>"default"
+                            ]);
 });
 
