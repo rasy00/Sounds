@@ -1,44 +1,44 @@
 // declarate a function prototype for fakeScroll
-(function(root, factory){
-    var define = define || {};
-    if( typeof define === 'function' && define.amd )
-        define([], factory);
-    else if( typeof exports === 'object' && typeof module === 'object' )
-        module.exports = factory();
-    else if(typeof exports === 'object')
-        exports["FakeScroll"] = factory()
-    else
-        root.FakeScroll = factory()
-  }(this, function(){
-    raf = window.requestAnimationFrame || function(cb) { return window.setTimeout(cb, 1000 / 60) };
+(function (root, factory) {
+  var define = define || {};
+  if (typeof define === "function" && define.amd) define([], factory);
+  else if (typeof exports === "object" && typeof module === "object") module.exports = factory();
+  else if (typeof exports === "object") exports["FakeScroll"] = factory();
+  else root.FakeScroll = factory();
+})(this, function () {
+  raf =
+    window.requestAnimationFrame ||
+    function (cb) {
+      return window.setTimeout(cb, 1000 / 60);
+    };
 
-    function FakeScroll(targetElm, settings){
-        if( !targetElm ) return;
+  function FakeScroll(targetElm, settings) {
+    if (!targetElm) return;
 
-        this.settings = Object.assign({}, this.defaults, settings || {})
+    this.settings = Object.assign({}, this.defaults, settings || {});
 
-        this.state = {}
-        this.listeners = {}
+    this.state = {};
+    this.listeners = {};
 
-        this.DOM = this.build(targetElm)
-        this.events.binding.call(this, this.DOM)
+    this.DOM = this.build(targetElm);
+    this.events.binding.call(this, this.DOM);
 
-        // run "moveBar" once
-        setTimeout(this.events.callbacks.onScrollResize.bind(this))
-    }
+    // run "moveBar" once
+    setTimeout(this.events.callbacks.onScrollResize.bind(this));
+  }
 
-    FakeScroll.prototype = {
-        defaults : {
-            classname : "",
-            track     : false // "smooth" will enable smooth scroll
-        },
+  FakeScroll.prototype = {
+    defaults: {
+      classname: "",
+      track: false, // "smooth" will enable smooth scroll
+    },
 
-        /**
-         * Build the DOM needed
-         */
-        build( targetElm ){
-            var DOM = {};
-                scopeHTML = `<div class="fakeScroll__wrap">
+    /**
+     * Build the DOM needed
+     */
+    build(targetElm) {
+      var DOM = {};
+      (scopeHTML = `<div class="fakeScroll__wrap">
                                 <div class="fakeScroll__content"></div>
                              </div>
                              <div class='fakeScroll__track ${this.settings.classname}'>
@@ -55,326 +55,310 @@
                                         
                                     </div>
                                 </div>
-                             </div>`,
-                fragment = document.createDocumentFragment();
+                             </div>`),
+        (fragment = document.createDocumentFragment());
 
-            // move all the children of the target element into a fragment
-            while( targetElm.childNodes.length ){
-                fragment.appendChild(targetElm.childNodes[0]);
+      // move all the children of the target element into a fragment
+      while (targetElm.childNodes.length) {
+        fragment.appendChild(targetElm.childNodes[0]);
+      }
+
+      targetElm.insertAdjacentHTML("afterbegin", scopeHTML);
+
+      DOM.scope = targetElm;
+      DOM.scrollWrap = targetElm.firstElementChild;
+      DOM.scrollContent = DOM.scrollWrap.firstElementChild;
+      DOM.scrollContent.appendChild(fragment);
+
+      DOM.track = DOM.scrollWrap.nextElementSibling;
+      DOM.bar = DOM.track.firstElementChild;
+
+      DOM.scope.classList.add("fakeScroll");
+
+      return DOM;
+    },
+
+    destroy() {
+      this.events.off.call(this, window, "resize", "onScrollResize");
+    },
+
+    get scrollRatio() {
+      return this.state.scrollRatio;
+    },
+
+    events: {
+      on(elm, eName, cbName) {
+        // to be able tp unbind the events, callback refferece must be saved somewhere
+        eName.split(" ").forEach((e) => {
+          if (!(cbName in this.events.callbacks)) console.warn(cbName, " doesn't exist in Callbacks: ", this.events.callbacks);
+
+          this.listeners[e] = this.events.callbacks[cbName].bind(this);
+          elm.addEventListener(e, this.listeners[e]);
+        });
+
+        return this.events;
+      },
+
+      off(elm, eName, cbName) {
+        eName.split(" ").forEach((e) => elm.removeEventListener(e, this.listeners[e]));
+        return this.events;
+      },
+
+      binding(DOM) {
+        this.events.on
+          .call(this, DOM.scrollContent, "scroll", "onScrollResize")
+          .on.call(this, DOM.scope, "mouseenter", "onScrollResize")
+          .on.call(this, DOM.bar, "mousedown", "onBarMouseDown")
+          .on.call(this, window, "resize", "onScrollResize");
+
+        if (this.settings.track) this.events.on.call(this, DOM.track, "click", "onTrackClick");
+      },
+
+      /**
+       * events only binded when Bar element gets a "mousedown" event
+       * @param  {[type]} onOff [description]
+       * @return {[type]}       [description]
+       */
+      drag(onOff) {
+        this.events[onOff].call(this, document, "mousemove", "onDrag")[onOff].call(this, document, "mouseup", "onStopDrag");
+      },
+
+      callbacks: {
+        onScrollResize() {
+          this.moveBar.call(this);
+          this.DOM.scope.classList.toggle("fakeScroll--hasBar", this.state.ratio < 1);
+
+          // debounce - get track bounds
+          clearTimeout(this.listeners.timeout__resize);
+          this.listeners.timeout__resize = setTimeout(this.getTrackBounds.bind(this), 200);
+        },
+
+        onDrag(e) {
+          var delta = e.pageY - this.state.lastPageY;
+
+          raf(() => {
+            var sTop = document.documentElement.scrollTop,
+              isDragWithinTrackBounds = e.pageY >= this.state.trackBounds.top + sTop && e.pageY <= this.state.trackBounds.bottom + sTop;
+
+            if (isDragWithinTrackBounds) this.DOM.scrollContent.scrollTop = this.state.drag + delta / this.state.ratio;
+            // update variables when mouse position is outside the Track bounds
+            else {
+              this.state.drag = this.DOM.scrollContent.scrollTop;
+              this.state.lastPageY = e.pageY;
             }
-
-            targetElm.insertAdjacentHTML('afterbegin', scopeHTML);
-
-            DOM.scope = targetElm;
-            DOM.scrollWrap = targetElm.firstElementChild;
-            DOM.scrollContent = DOM.scrollWrap.firstElementChild;
-            DOM.scrollContent.appendChild(fragment);
-
-            DOM.track = DOM.scrollWrap.nextElementSibling;
-            DOM.bar = DOM.track.firstElementChild;
-
-            DOM.scope.classList.add("fakeScroll");
-
-            return DOM;
+          });
         },
 
-        destroy(){
-            this.events.off.call(this, window, 'resize', 'onScrollResize');
+        onStopDrag(e) {
+          [this.DOM.bar, document.body].map((el) => el.classList.remove("fakeScroll--grabbed"));
+          this.events.drag.call(this, "off");
+          setTimeout(() => {
+            this.state.drag = false;
+          });
         },
 
-        get scrollRatio(){
-            return this.state.scrollRatio
+        onBarMouseDown(e) {
+          this.state.drag = this.DOM.scrollContent.scrollTop;
+          this.state.lastPageY = e.pageY;
+
+          [this.DOM.bar, document.body].map((el) => el.classList.add("fakeScroll--grabbed"));
+          this.events.drag.call(this, "on");
         },
 
-        events : {
-            on(elm, eName, cbName){
-                // to be able tp unbind the events, callback refferece must be saved somewhere
-                eName.split(' ').forEach(e => {
-                    if( !(cbName in this.events.callbacks) ) console.warn(cbName, " doesn't exist in Callbacks: ", this.events.callbacks);
+        onTrackClick(e) {
+          if (this.state.drag) return;
 
-                    this.listeners[e] = this.events.callbacks[cbName].bind(this);
-                    elm.addEventListener(e, this.listeners[e])
-                });
+          var perc = (e.clientY - this.state.trackBounds.top) / (this.state.trackBounds.height - this.state.trackBounds.topPad - this.state.trackBounds.bottomPad),
+            scrollHeight = this.DOM.scrollContent.scrollHeight,
+            ownHeight = this.DOM.scrollWrap.clientHeight,
+            newScrollTop = perc * (scrollHeight - ownHeight);
 
-                return this.events;
-            },
+          if (this.settings.track == "smooth") {
+            this.DOM.scrollContent.style.scrollBehavior = "smooth";
+            setTimeout(() => {
+              this.DOM.scrollContent.style.scrollBehavior = "unset";
+            }, 500);
+          }
 
-            off(elm, eName, cbName){
-                eName.split(' ').forEach(e => elm.removeEventListener(e, this.listeners[e]))
-                return this.events;
-            },
-
-            binding(DOM){
-                this.events.on.call(this, DOM.scrollContent, 'scroll', 'onScrollResize')
-                           .on.call(this, DOM.scope, 'mouseenter', 'onScrollResize')
-                           .on.call(this, DOM.bar, 'mousedown', 'onBarMouseDown')
-                           .on.call(this, window, 'resize', 'onScrollResize')
-
-                if( this.settings.track )
-                    this.events.on.call(this, DOM.track, 'click', 'onTrackClick')
-            },
-
-            /**
-             * events only binded when Bar element gets a "mousedown" event
-             * @param  {[type]} onOff [description]
-             * @return {[type]}       [description]
-             */
-            drag(onOff){
-                this.events[onOff].call(this, document, 'mousemove', 'onDrag')
-                           [onOff].call(this, document, 'mouseup', 'onStopDrag')
-            },
-
-            callbacks : {
-                onScrollResize(){
-                    this.moveBar.call(this);
-                    this.DOM.scope.classList.toggle('fakeScroll--hasBar', this.state.ratio < 1)
-
-                    // debounce - get track bounds
-                    clearTimeout(this.listeners.timeout__resize);
-                    this.listeners.timeout__resize = setTimeout(this.getTrackBounds.bind(this), 200)
-                },
-
-                onDrag(e){
-                    var delta = e.pageY - this.state.lastPageY;
-
-                    raf(() => {
-                        var sTop = document.documentElement.scrollTop,
-                            isDragWithinTrackBounds = e.pageY >= (this.state.trackBounds.top + sTop) && e.pageY <= (this.state.trackBounds.bottom + sTop);
-
-                        if( isDragWithinTrackBounds )
-                            this.DOM.scrollContent.scrollTop = this.state.drag + delta / this.state.ratio;
-                        // update variables when mouse position is outside the Track bounds
-                        else{
-                            this.state.drag = this.DOM.scrollContent.scrollTop;
-                            this.state.lastPageY = e.pageY;
-                        }
-                    });
-                },
-
-                onStopDrag(e){
-                    [this.DOM.bar, document.body].map(el => el.classList.remove('fakeScroll--grabbed'))
-                    this.events.drag.call(this, 'off');
-                    setTimeout(()=>{ this.state.drag = false })
-                },
-
-                onBarMouseDown(e){
-                    this.state.drag = this.DOM.scrollContent.scrollTop;
-                    this.state.lastPageY = e.pageY;
-
-                    [this.DOM.bar, document.body].map(el => el.classList.add('fakeScroll--grabbed'))
-                    this.events.drag.call(this, 'on');
-                },
-
-                onTrackClick(e){
-                    if( this.state.drag ) return;
-
-                    var perc         = (e.clientY - this.state.trackBounds.top) / (this.state.trackBounds.height - this.state.trackBounds.topPad - this.state.trackBounds.bottomPad),
-                        scrollHeight = this.DOM.scrollContent.scrollHeight,
-                        ownHeight    = this.DOM.scrollWrap.clientHeight,
-                        newScrollTop = perc * (scrollHeight - ownHeight);
-
-                    if( this.settings.track == 'smooth' ){
-                        this.DOM.scrollContent.style.scrollBehavior = 'smooth';
-                        setTimeout(()=>{ this.DOM.scrollContent.style.scrollBehavior = 'unset' }, 500)
-                    }
-
-                    this.DOM.scrollContent.scrollTop = newScrollTop;
-                }
-            }
+          this.DOM.scrollContent.scrollTop = newScrollTop;
         },
+      },
+    },
 
-        getTrackBounds(){
-            var bounds = this.DOM.track.getBoundingClientRect(),
-                styles = window.getComputedStyle(this.DOM.track, null);
+    getTrackBounds() {
+      var bounds = this.DOM.track.getBoundingClientRect(),
+        styles = window.getComputedStyle(this.DOM.track, null);
 
-            bounds.topPad = parseInt(styles.paddingTop, 10);
-            bounds.bottomPad = parseInt(styles.paddingBottom, 10);
+      bounds.topPad = parseInt(styles.paddingTop, 10);
+      bounds.bottomPad = parseInt(styles.paddingBottom, 10);
 
-            this.state.trackBounds = bounds;
-            return bounds;
-        },
+      this.state.trackBounds = bounds;
+      return bounds;
+    },
 
-        moveBar(){
-            // if( !this.DOM.scrollContent ) return false;
+    moveBar() {
+      // if( !this.DOM.scrollContent ) return false;
 
-            var _scrollContent = this.DOM.scrollContent,
-                scrollHeight = _scrollContent.scrollHeight,
-                ownHeight   = this.DOM.scrollWrap.clientHeight;
+      var _scrollContent = this.DOM.scrollContent,
+        scrollHeight = _scrollContent.scrollHeight,
+        ownHeight = this.DOM.scrollWrap.clientHeight;
 
-            this.state.ratio = this.DOM.track.clientHeight / scrollHeight
-            this.state.scrollRatio = this.DOM.scrollContent.scrollTop / (_scrollContent.scrollHeight - ownHeight)
+      this.state.ratio = this.DOM.track.clientHeight / scrollHeight;
+      this.state.scrollRatio = this.DOM.scrollContent.scrollTop / (_scrollContent.scrollHeight - ownHeight);
 
+      // update fake scrollbar location on the Y axis using requestAnimationFrame
+      raf(() => {
+        var height = (ownHeight / scrollHeight) * 100,
+          top = (_scrollContent.scrollTop / scrollHeight) * 100;
 
-            // update fake scrollbar location on the Y axis using requestAnimationFrame
-            raf(()=> {
-                var height = (ownHeight / scrollHeight) * 100,
-                    top = (_scrollContent.scrollTop / scrollHeight ) * 100;
-
-                this.DOM.bar.style.cssText = `height  : ${height}%;
+        this.DOM.bar.style.cssText = `height  : ${height}%;
                                               top     : ${top}%;
-                                              display : ${scrollHeight <= ownHeight ? 'none' : ''}`;
+                                              display : ${scrollHeight <= ownHeight ? "none" : ""}`;
 
-                this.settings.onChange && this.settings.onChange({scrollRatio:this.state.scrollRatio })
-            });
+        this.settings.onChange && this.settings.onChange({ scrollRatio: this.state.scrollRatio });
+      });
+    },
+  };
 
+  /**
+   * Extend the DOM with "fakeScroll" method. The chances of the same name already be taken are slim to none,
+   * But you should now; it's your code you're putting this into.
+   */
+  Element.prototype.fakeScroll = function (settings) {
+    this._fakeScroll = this._fakeScroll || new FakeScroll(this, settings || {});
+    return this._fakeScroll;
+  };
+
+  return FakeScroll;
+});
+
+$(document).ready(function () {
+  function initialWidth() {
+    if (window.screen.width <= 360) {
+      $(".grid-option-container").addClass("hidden");
+      const categoriesContainer = $(".categories-container > .episodes-container");
+      categoriesContainer.removeClass("grid-3");
+      categoriesContainer.removeClass("grid-4");
+      categoriesContainer.removeClass("grid-list");
+      categoriesContainer.addClass("grid-list");
+      $(".episode-item > .data > .duration-release").removeClass("hidden");
+      $(".categories-scroll").addClass("hidden");
+      $(".categories-option_DD").removeClass("hidden");
+
+      $(".grid-option-container > button").removeClass("active");
+      $(".grid-option-container > button").removeClass("hover");
+
+      $(".grid-option-container > button").each(function () {
+        if (this.classList.contains("grid-list")) {
+          $(".grid-option-container > button").btnActive = this;
+          this.classList.add("active");
         }
+      });
+    } else {
+      $(".grid-option-container").removeClass("hidden");
+
+      $(".categories-scroll")[0].fakeScroll({ track: "smooth" });
+      $(".categories-scroll").removeClass("hidden");
+      $(".categories-option_DD").addClass("hidden");
     }
+  }
 
-    /**
-     * Extend the DOM with "fakeScroll" method. The chances of the same name already be taken are slim to none,
-     * But you should now; it's your code you're putting this into.
-     */
-    Element.prototype.fakeScroll = function( settings ){
-        this._fakeScroll = this._fakeScroll || new FakeScroll(this, settings || {});
-        return this._fakeScroll;
-    }
-
-    return FakeScroll
-}));
-
-$(document).ready(function(){
-    function initialWidth(){
-        if(window.screen.width <= 360){
-            $(".grid-option-container").addClass("hidden");
-            const episodesContainer = $("section.episodes-section > .episodes-container");
-            episodesContainer.removeClass("grid-3");
-            episodesContainer.removeClass("grid-4");
-            episodesContainer.removeClass("grid-list");
-            episodesContainer.addClass("grid-list");
-            $(".episode-item > .data > .duration-release").removeClass("hidden");
-            $('.categories-scroll').addClass("hidden");
-            $(".categories-option_DD").removeClass("hidden");
-
-        }else{
-            $(".grid-option-container").removeClass("hidden");
-            $('.grid-option-container > button').each(function(){
-                if(this.classList.contains("grid-list")){
-                    $('.grid-option-container > button').btnActive = this;
-                    this.classList.add("active");
-                }
-                
-            });
-            $('.categories-scroll')[0].fakeScroll({track:"smooth"});
-            $('.categories-scroll').removeClass("hidden");
-            $(".categories-option_DD").addClass("hidden");
-        }
-    }
-
+  initialWidth();
+  $(window).resize(() => {
     initialWidth();
-    $(window).resize(()=>{
-        $('.grid-option-container > button').removeClass("active");
-        $('.grid-option-container > button').removeClass("hover");
-        initialWidth();
-        
+  });
+
+  const gridOptionBtn = $(".grid-option-container > button");
+
+  gridOptionBtn.each(function () {
+    const btnActive = this.classList.contains("active") === true ? this : undefined;
+    gridOptionBtn.btnActive = btnActive;
+  });
+
+  gridOptionBtn.on("mouseleave", function () {
+    gridOptionBtn.removeClass("hover");
+    $(gridOptionBtn.btnActive).addClass("active");
+  });
+
+  gridOptionBtn.on("mouseenter", function () {
+    gridOptionBtn.removeClass("active");
+    $(this).addClass("hover");
+  });
+
+  gridOptionBtn.on("mouseup", function () {
+    function setActive(element) {
+      $(element).addClass("active");
+    }
+
+    gridOptionBtn.removeClass("active");
+    setActive(this);
+    gridOptionBtn.btnActive = this;
+    const episodesContainer = $(".episodes-container");
+    episodesContainer.removeClass("grid-3");
+    episodesContainer.removeClass("grid-4");
+    episodesContainer.removeClass("grid-list");
+    if (this.dataset.grid === "list") {
+      episodesContainer.addClass("grid-list");
+      $(".episode-item > .data > .duration-release").removeClass("hidden");
+    } else if (this.dataset.grid === "tColoumns") {
+      episodesContainer.addClass("grid-3");
+      $(".episode-item > .data > .duration-release").addClass("hidden");
+    } else if (this.dataset.grid === "fColoumns") {
+      episodesContainer.addClass("grid-4");
+      $(".episode-item > .data > .duration-release").addClass("hidden");
+    }
+  });
+
+  $(".dd-item").addClass("not_spawn");
+  $(".dd-item").addClass("hidden");
+  $(".categories-option_DD > button").on("touchstart", function () {
+    $(".dd-item").each((index, element) => {
+      if (element.classList.contains("not_spawn")) {
+        setTimeout(function () {
+          element.classList.remove("hidden");
+        }, index * 30);
+
+        $(".dd-item").css("opacity", "0");
+        setTimeout(function () {
+          element.style.opacity = "1";
+        }, index * 30 + 40);
+
+        setTimeout(function () {
+          element.classList.add("spawn");
+        }, index * 30 + 40);
+
+        element.classList.remove("not_spawn");
+      } else {
+        setTimeout(function () {
+          element.classList.add("not_spawn");
+        }, index * 30);
+
+        setTimeout(function () {
+          element.classList.add("hidden");
+        }, index * 30 + 40);
+
+        element.classList.remove("spawn");
+      }
     });
 
-    
-   
-    const gridOptionBtn = $('.grid-option-container > button');
-
-    gridOptionBtn.each(function(){
-        const btnActive = this.classList.contains('active') === true ? this : undefined;
-        gridOptionBtn.btnActive = btnActive;
-    });
-
-    gridOptionBtn.on('mouseleave',function(){
-        gridOptionBtn.removeClass('hover');
-        $(gridOptionBtn.btnActive).addClass('active');
-    });
-
-    gridOptionBtn.on('mouseenter',function(){
-        gridOptionBtn.removeClass('active')
-        $(this).addClass('hover');
-    });
-
-    gridOptionBtn.on('mouseup',function(){
-        function setActive(element){
-            $(element).addClass("active");
-        }
-        
-
-        
-        
-        gridOptionBtn.removeClass("active");
-        setActive(this);
-        gridOptionBtn.btnActive = this; 
-        const episodesContainer = $(".episodes-container");
-        episodesContainer.removeClass("grid-3");
-        episodesContainer.removeClass("grid-4");
-        episodesContainer.removeClass("grid-list");
-        if(this.dataset.grid === 'list'){
-           episodesContainer.addClass("grid-list");
-           $(".episode-item > .data > .duration-release").removeClass("hidden");
-        }else if(this.dataset.grid ==="tColoumns"){
-            episodesContainer.addClass("grid-3");
-            $(".episode-item > .data > .duration-release").addClass("hidden");
-        }else if(this.dataset.grid ==="fColoumns"){
-            episodesContainer.addClass("grid-4");
-            $(".episode-item > .data > .duration-release").addClass("hidden");
-        }
-    });
-
-    $(".dd-item").addClass("not_spawn");
-    $(".dd-item").addClass("hidden");
-    $(".categories-option_DD > button").on("touchstart",function(){
-        $(".dd-item").each((index,element)=>{
-            if(element.classList.contains("not_spawn")){
-                setTimeout(function(){ 
-                    element.classList.remove("hidden");
-                },index * 30)
-            
-                $(".dd-item").css("opacity","0");
-                setTimeout(function(){
-                    element.style.opacity ="1";
-                },(index * 30) + 40);
-
-                setTimeout(function(){
-                    element.classList.add("spawn");
-                },(index * 30) + 40);
-
-                 element.classList.remove("not_spawn");
-                
-            }else{ 
-                setTimeout(function(){
-                    element.classList.add("not_spawn");
-                },index * 30); 
-                
-                setTimeout(function(){
-                    element.classList.add("hidden");
-                },(index * 30) + 40);
-                
-               
-                
-                element.classList.remove("spawn");  
-            }
-            
-        });
-        
-
-        
-        
-        
-        $(".dd-item").on("touchstart",function(){
-            $(".dd-item").removeClass("active");
-            if(this.classList.contains("dropdown-item-1")){
-                this.style.boxShadow = `0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44,
+    $(".dd-item").on("touchstart", function () {
+      $(".dd-item").removeClass("active");
+      if (this.classList.contains("dropdown-item-1")) {
+        this.style.boxShadow = `0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44,
                 -1px 0 0 1px #333f44, -2px 0 0 1px rgba(0, 0, 0, 0.8)`;
-                this.style.borderTopLeftRadius = "5px"; 
-            }else if(this === this.offsetParent.lastElementChild){
-                this.style.boxShadow = `0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44,
+        this.style.borderTopLeftRadius = "5px";
+      } else if (this === this.offsetParent.lastElementChild) {
+        this.style.boxShadow = `0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44,
                 -1px 0 0 1px #333f44, -2px 0 0 1px rgba(0, 0, 0, 0.8),
                 0 -1px 0 0 rgba(0, 0, 0, 0.8), 0 -2px 0 0 #333f44`;
-                this.style.borderBottomLeftRadius = "5px"; 
-            }else{
-                this.style.boxShadow = `0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44,
+        this.style.borderBottomLeftRadius = "5px";
+      } else {
+        this.style.boxShadow = `0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44,
                 -1px 0 0 1px #333f44, -2px 0 0 1px rgba(0, 0, 0, 0.8),
                 0 -1px 0 0 rgba(0, 0, 0, 0.8), 0 -2px 0 0 #333f44`;
-            }
+      }
 
-            this.classList.add("active");
-        });
-
-        
-      
+      this.classList.add("active");
     });
-}); 
+  });
+});
