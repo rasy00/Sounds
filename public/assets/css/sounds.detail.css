@@ -538,19 +538,11 @@ body {
   transition: all 100ms ease-in-out;
   cursor: pointer;
 }
-.audio-controller
-  > .right
-  > #volume-controller
-  > .volume-bar
-  > .volume-line.active-whitin {
+.audio-controller > .right > #volume-controller > .volume-bar > .volume-line.active-whitin {
   background-color: var(--normal);
 }
 
-.audio-controller
-  > .right
-  > #volume-controller
-  > .volume-bar
-  > .volume-line.hover {
+.audio-controller > .right > #volume-controller > .volume-bar > .volume-line.hover {
   height: 35px;
   background-color: var(--neutral);
 }
@@ -626,11 +618,7 @@ body {
   margin: 0 auto;
 }
 
-.audio-controller
-  > .center
-  > button#playBtn:hover
-  > i
-  > i.icofont-ui-play::before {
+.audio-controller > .center > button#playBtn:hover > i > i.icofont-ui-play::before {
   color: var(--neutral);
   font-size: 40px;
   left: 15px;
@@ -638,10 +626,7 @@ body {
   margin-top: 0;
 }
 
-.audio-controller
-  > .center
-  > button#playBtn:hover
-  i.icofont-play-alt-2::before {
+.audio-controller > .center > button#playBtn:hover i.icofont-play-alt-2::before {
   color: transparent;
 }
 
@@ -1107,22 +1092,12 @@ input:checked + .slider:before {
   color: white;
 }
 
-.recommend-container
-  > .recommend-link
-  > .recommend-item
-  > .cover
-  > .episodes
-  > * {
+.recommend-container > .recommend-link > .recommend-item > .cover > .episodes > * {
   display: block;
   font-family: "Inter", sans-serif;
 }
 
-.recommend-container
-  > .recommend-link
-  > .recommend-item
-  > .cover
-  > .episodes
-  > *:last-of-type {
+.recommend-container > .recommend-link > .recommend-item > .cover > .episodes > *:last-of-type {
   margin: -1px 0 0 4px;
 }
 
@@ -1138,12 +1113,7 @@ input:checked + .slider:before {
   flex-direction: column;
 }
 
-.recommend-container
-  > .recommend-link
-  > .recommend-item
-  > .cover
-  > .episodes
-  .icon-episode {
+.recommend-container > .recommend-link > .recommend-item > .cover > .episodes .icon-episode {
   height: 20px;
   width: 20px;
 }
@@ -1185,6 +1155,33 @@ a:hover > .recommend-item > .thumbnail-cover > button {
   transition: 150ms ease-in-out;
 }
 
+.btn_switch_desc {
+  background-color: var(--light);
+  width: 98%;
+  padding: 2px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+}
+
+.btn_switch_desc > button {
+  width: 50%;
+  font-family: "Roboto Medium", sans-serif;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  padding: 10px 0;
+  background-color: transparent;
+  color: var(--black);
+  transition: 200ms ease-in-out;
+}
+
+.btn_switch_desc > button.active {
+  background-color: var(--black);
+  color: white;
+}
+
 /* res */
 section.audio-player > div:not(.background) {
   width: 70%;
@@ -1224,35 +1221,133 @@ section.audio-player > div:not(.background) {
     font-size: 9px;
   }
 
-  .recommend-container
-    > .recommend-link
-    > .recommend-item
-    > .cover
-    > .episodes {
+  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes {
     font-size: 14px;
   }
 
-  .recommend-container
-    > .recommend-link
-    > .recommend-item
-    > .cover
-    > .episodes
-    .icon-episode {
+  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes .icon-episode {
     height: 16px;
     width: 16px;
   }
 
-  .recommend-container
-    > .recommend-link
-    > .recommend-item
-    > .cover
-    > .episodes
-    > span:last-of-type {
+  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes > span:last-of-type {
     margin-top: 0;
   }
 
   .recommend-link > .recommend-item > .thumbnail-cover > button {
     width: 180px;
     height: 180px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  section.audio-player > div:not(.background) {
+    width: 100%;
+  }
+  .info-section {
+    width: 99%;
+  }
+  .audio-player {
+    padding: 20px 0 0 0;
+    height: 28em;
+  }
+
+  .judul-rule {
+    margin: 10px auto;
+  }
+
+  .detail-item * {
+    text-align: center;
+  }
+
+  .detail-item > div {
+    margin-left: 0 !important;
+  }
+
+  .canva-player {
+    margin-top: 35px !important;
+    width: 98% !important;
+  }
+
+  .audio-player .background {
+    height: 80%;
+  }
+  .description_section {
+    padding: 10px 0 0 0;
+  }
+  .description_section > .description_container {
+    width: 99%;
+  }
+
+  .description_episode_inner > .description_inner {
+    width: 99%;
+    margin: 0 auto;
+  }
+  .description_episode_inner > .episode_inner {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .recommend-container {
+    width: 100%;
+  }
+
+  .audio-player {
+    margin-top: 60px;
+  }
+
+  .audio-controller > div.center {
+    justify-content: space-evenly !important;
+  }
+
+  .previous_next_container {
+    flex-direction: column;
+  }
+
+  .previous_next_container > a {
+    width: fit-content;
+  }
+  .hero-space {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recommend-container > .recommend-link > .recommend-item > .cover > img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .recommend-container > .recommend-link > .recommend-item > .cover {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .recommend-container > .recommend-link > .recommend-item > .data > * {
+    width: 150px;
+  }
+
+  .recommend-container > .recommend-link > .recommend-item > .data > .judul {
+    font-size: 16px;
+  }
+  .recommend-container > .recommend-link > .recommend-item > .data > .summ {
+    font-size: 9px;
+  }
+
+  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes {
+    font-size: 14px;
+  }
+
+  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes .icon-episode {
+    height: 16px;
+    width: 16px;
+  }
+
+  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes > span:last-of-type {
+    margin-top: 0;
+  }
+
+  .recommend-link > .recommend-item > .thumbnail-cover > button {
+    width: 150px;
+    height: 150px;
   }
 }

@@ -128,6 +128,10 @@
       {{-- section deskripsi --}}
       <section class="description_section container-fluid px-0">
         <div class="description_container">
+          <div class="btn_switch_desc hidden">
+            <button id="desc_btn">Description</button>
+            <button id="eps_btn">Episodes</button>
+          </div>
           <div class="previous_next_container d-flex justify-content-between">
             <a href="#" class="n_p previous_episode d-flex justify-content-start">
               <img src="../../assets/resources/photos/tos.jpeg" height="200" width="200" alt="">
