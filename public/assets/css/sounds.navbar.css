@@ -50,6 +50,7 @@ a.navbar-brand:visited {
 ul.menu {
   display: flex;
   height: 30px;
+  position: relative;
 }
 
 ul.menu li {
@@ -111,13 +112,14 @@ ul.menu a.nav-link span {
   padding-bottom: 2.5px;
 }
 /* hamburger style */
+
 .hamburger-lines {
+  display: none;
   height: 23px;
   width: 35px !important;
   z-index: 2;
   position: absolute;
   left: 90%;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   opacity: 0;
@@ -151,7 +153,7 @@ ul.menu a.nav-link span {
 
 nav.navbar input[type="checkbox"] {
   position: absolute;
-  display: block;
+  display: none;
   height: 50px;
   width: 50px;
   top: 15px;
@@ -181,8 +183,66 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
   box-shadow: none;
 }
 
+.search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100px;
+  margin-top: -5px;
+}
+
+.search input {
+  display: none;
+  left: 0;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 40px;
+  margin: 0;
+  width: 90%;
+  color: black;
+  padding-left: 20px;
+  font-size: 20px;
+  letter-spacing: 0;
+  box-sizing: border-box;
+  border-right: none;
+  font-family: "Inter", sans-serif;
+}
+
+.search label {
+  width: 50px;
+}
+
+.search input.focused {
+  display: block;
+}
+
+.search input.focused ~ label > button {
+  background-color: white;
+}
+
+.search button {
+  padding-top: 3px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  background-color: transparent;
+  height: 40px;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  width: fit-content;
+  align-items: center;
+}
+
 /* media*/
 @media only screen and (max-width: 1200px) {
+  .search input {
+    width: 85%;
+  }
   nav div {
     z-index: 1000;
     width: 85% !important;
@@ -204,6 +264,9 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
   }
 }
 @media only screen and (max-width: 360px) {
+  nav.navbar input[type="checkbox"] {
+    display: block;
+  }
   nav div {
     margin: 0;
   }
@@ -234,6 +297,7 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
   }
 
   .hamburger-lines {
+    display: flex;
     opacity: 1;
     cursor: pointer;
     left: 89%;
@@ -253,15 +317,98 @@ nav.navbar input[type="checkbox"]:checked ~ .hamburger-lines .line {
     overflow: hidden;
     right: 0;
     margin: 0;
-    padding: 70px 0 0 10px;
+    padding: 70px 0 0 0;
     opacity: 0;
     top: 0;
     transition: all 400ms ease-in-out 50ms;
+    row-gap: 0;
+  }
+
+  ul.menu a.nav-link span {
+    display: block;
+    padding-left: 5px;
+    padding-bottom: 3.5px;
+  }
+
+  .nav.menu li {
+    display: flex;
+    padding: 30px 0 30px 5px;
+    align-items: center;
+  }
+
+  li.nav-item {
+    width: 100%;
+  }
+
+  li.nav-item:nth-child(1) {
+    order: 2;
+    box-shadow: 0 -1px 0 0 #333f44, 0 -1.5px 0 0 black;
+  }
+  li.nav-item:nth-child(2) {
+    order: 3;
+    box-shadow: 0 1px 0 0 #333f44, 0 1.5px 0 0 black, 0 -0.5px 0 0 black,
+      0 -1.5px 0 0px #333f44, 0 -2px 0 0 black;
+  }
+  li.nav-item:nth-child(3) {
+    padding-left: 8px;
+    order: 1;
   }
 
   nav.navbar input[type="checkbox"]:checked ~ .nav.menu {
     opacity: 1;
     transition: all 400ms ease-in-out;
+  }
+
+  .search {
+    width: 90%;
+  }
+
+  .search input {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+    display: block;
+    height: 40px;
+    margin: 0;
+    background-color: transparent;
+    width: 90%;
+    color: white;
+    padding-left: 5px;
+    font-size: 12px;
+    padding-left: 20px;
+    border: 1px solid white;
+    border-right: none;
+  }
+
+  .search label {
+    width: 10%;
+  }
+  .search input.focused {
+    background-color: transparent;
+  }
+
+  .search input.focused ~ label > button {
+    background-color: transparent;
+  }
+
+  .search button {
+    padding-right: 15px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: none;
+    background-color: transparent;
+    border: 1px solid white;
+    border-left: none;
+  }
+
+  .search button > svg {
+    height: 18px !important;
+    width: 18px !important;
+    margin-top: -2px;
+  }
+
+  .search button > svg > path {
+    fill: white;
   }
 }
 

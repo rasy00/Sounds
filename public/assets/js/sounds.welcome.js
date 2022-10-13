@@ -276,7 +276,7 @@ $(document).ready(function () {
             
             event.preventDefault();
         },false);
-        event.preventDefault()
+        
     },false)
 
     function translateMobile(target, startPoint){

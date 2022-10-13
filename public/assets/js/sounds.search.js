@@ -32,8 +32,11 @@ $(document).ready(function(){
     const gridOptionBtn = $('.grid-option-container > button');
 
     gridOptionBtn.each(function(){
-        const btnActive = this.classList.contains('active') === true ? this : undefined;
-        gridOptionBtn.btnActive = btnActive;
+        if(this.classList.contains('active')){
+            gridOptionBtn.btnActive = this;
+            return 0;  
+        }
+        
     });
 
     gridOptionBtn.on('mouseleave',function(){

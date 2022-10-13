@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,10 +56,23 @@ Route::get("/sounds/schedules/{id}",function(){
                                 ,"id"=>"default"
                             ]);
 });
-Route::get("/sounds/search/{id}",function(){
+Route::get("/sounds/search/{data}",function($data,Request $request){
     return view("sub.search",[
+                                "id" => "default",
                                 "type"=>"Search"
-                                ,"id"=>"default"
+                                ,"data"=>$data
+                                ,"req"=>$request
                             ]);
 });
+
+$data = [
+        [
+            "cover" => "2.jpg",
+            "program" => "MG Radio Network",
+            "judul" => "Penurunan Harga Tiket Sebesar 15% | Ft. Djoko Setijowarno",
+            "released" => "06 Jul 2002",
+            "duration" => "24 min",
+            "summary" => "Pemerintah dalam hal ini Kementerian Perhubungan menaikkan harga tiket pesawat, namun pemerintah juga menyarankan kepada maskapai terkait penurunan harga tiket sebesar 15% jika maskapai mau menurunkan harga tiket pada saat jam-jam sepi. Namun pemerintah menangguhkan kembali per hari ini kenaikan tarif ojek online. Apakah ini menjadi kabar gembira bagi pengguna? Mengingat pemerintah belum menentukan kapan waktu yang tepat untuk menaikkannya"
+        ]
+    ];
 

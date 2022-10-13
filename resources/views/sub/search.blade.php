@@ -18,7 +18,12 @@
                     </label>
                     
                 </form>
-                <span id="result_search">Hasil yang ditemukan : xx</span>
+                <span id="result_search">Hasil yang ditemukan : @if($req->input("search_name") == "")
+                                                                    xxxxx
+                                                                @else
+                                                                    {{$req->input("search_name")}}
+                                                                @endif
+                </span>
             </div>
             <div class="info-section">
                 <div class="grid-option-container">

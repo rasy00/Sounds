@@ -538,11 +538,19 @@ body {
   transition: all 100ms ease-in-out;
   cursor: pointer;
 }
-.audio-controller > .right > #volume-controller > .volume-bar > .volume-line.active-whitin {
+.audio-controller
+  > .right
+  > #volume-controller
+  > .volume-bar
+  > .volume-line.active-whitin {
   background-color: var(--normal);
 }
 
-.audio-controller > .right > #volume-controller > .volume-bar > .volume-line.hover {
+.audio-controller
+  > .right
+  > #volume-controller
+  > .volume-bar
+  > .volume-line.hover {
   height: 35px;
   background-color: var(--neutral);
 }
@@ -618,7 +626,11 @@ body {
   margin: 0 auto;
 }
 
-.audio-controller > .center > button#playBtn:hover > i > i.icofont-ui-play::before {
+.audio-controller
+  > .center
+  > button#playBtn:hover
+  > i
+  > i.icofont-ui-play::before {
   color: var(--neutral);
   font-size: 40px;
   left: 15px;
@@ -626,7 +638,10 @@ body {
   margin-top: 0;
 }
 
-.audio-controller > .center > button#playBtn:hover i.icofont-play-alt-2::before {
+.audio-controller
+  > .center
+  > button#playBtn:hover
+  i.icofont-play-alt-2::before {
   color: transparent;
 }
 
@@ -1092,12 +1107,22 @@ input:checked + .slider:before {
   color: white;
 }
 
-.recommend-container > .recommend-link > .recommend-item > .cover > .episodes > * {
+.recommend-container
+  > .recommend-link
+  > .recommend-item
+  > .cover
+  > .episodes
+  > * {
   display: block;
   font-family: "Inter", sans-serif;
 }
 
-.recommend-container > .recommend-link > .recommend-item > .cover > .episodes > *:last-of-type {
+.recommend-container
+  > .recommend-link
+  > .recommend-item
+  > .cover
+  > .episodes
+  > *:last-of-type {
   margin: -1px 0 0 4px;
 }
 
@@ -1113,7 +1138,12 @@ input:checked + .slider:before {
   flex-direction: column;
 }
 
-.recommend-container > .recommend-link > .recommend-item > .cover > .episodes .icon-episode {
+.recommend-container
+  > .recommend-link
+  > .recommend-item
+  > .cover
+  > .episodes
+  .icon-episode {
   height: 20px;
   width: 20px;
 }
@@ -1221,16 +1251,30 @@ section.audio-player > div:not(.background) {
     font-size: 9px;
   }
 
-  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes {
+  .recommend-container
+    > .recommend-link
+    > .recommend-item
+    > .cover
+    > .episodes {
     font-size: 14px;
   }
 
-  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes .icon-episode {
+  .recommend-container
+    > .recommend-link
+    > .recommend-item
+    > .cover
+    > .episodes
+    .icon-episode {
     height: 16px;
     width: 16px;
   }
 
-  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes > span:last-of-type {
+  .recommend-container
+    > .recommend-link
+    > .recommend-item
+    > .cover
+    > .episodes
+    > span:last-of-type {
     margin-top: 0;
   }
 
@@ -1288,7 +1332,7 @@ section.audio-player > div:not(.background) {
   }
 
   .recommend-container {
-    width: 100%;
+    width: 99%;
   }
 
   .audio-player {
@@ -1333,16 +1377,30 @@ section.audio-player > div:not(.background) {
     font-size: 9px;
   }
 
-  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes {
+  .recommend-container
+    > .recommend-link
+    > .recommend-item
+    > .cover
+    > .episodes {
     font-size: 14px;
   }
 
-  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes .icon-episode {
+  .recommend-container
+    > .recommend-link
+    > .recommend-item
+    > .cover
+    > .episodes
+    .icon-episode {
     height: 16px;
     width: 16px;
   }
 
-  .recommend-container > .recommend-link > .recommend-item > .cover > .episodes > span:last-of-type {
+  .recommend-container
+    > .recommend-link
+    > .recommend-item
+    > .cover
+    > .episodes
+    > span:last-of-type {
     margin-top: 0;
   }
 
