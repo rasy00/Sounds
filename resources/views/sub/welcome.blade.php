@@ -53,7 +53,11 @@
 <section class="live-section">
     <div class="info-section">
         <span class="judul-section">Schedules</span>
-        <a href="/sounds/schedules/this"class="see-more">View all Schedules ></a>
+        <a href="/sounds/schedules/this"class="see-more">View all schedules 
+            <svg xmlns="http://www.w3.org/2000/svg" class="ms-1" width="16" height="16" viewBox="0 0 22 22" fill="none">
+                <path d="M21.459 10.291L10.3906 0.68457C10.3057 0.611328 10.1973 0.570312 10.083 0.570312H7.49023C7.27344 0.570312 7.17383 0.839844 7.33789 0.980469L17.5977 9.88672H0.453125C0.324219 9.88672 0.21875 9.99219 0.21875 10.1211V11.8789C0.21875 12.0078 0.324219 12.1133 0.453125 12.1133H17.5947L7.33496 21.0195C7.1709 21.1631 7.27051 21.4297 7.4873 21.4297H10.168C10.2236 21.4297 10.2793 21.4092 10.3203 21.3711L21.459 11.709C21.5604 11.6208 21.6417 11.5119 21.6975 11.3896C21.7532 11.2672 21.782 11.1344 21.782 11C21.782 10.8656 21.7532 10.7328 21.6975 10.6104C21.6417 10.4881 21.5604 10.3792 21.459 10.291Z" fill="white"/>
+            </svg>
+        </a>
     </div>
     
     <div class="live-container">
@@ -122,7 +126,11 @@
 <section class="program-section">
     <div class="info-section">
         <span class="judul-section">Programs</span>
-        <a href="" class="see-more">More programs ></a>
+        <a href="/sounds/programs" class="see-more">View more 
+            <svg xmlns="http://www.w3.org/2000/svg" class="ms-1" width="16" height="16" viewBox="0 0 22 22" fill="none">
+                <path d="M21.459 10.291L10.3906 0.68457C10.3057 0.611328 10.1973 0.570312 10.083 0.570312H7.49023C7.27344 0.570312 7.17383 0.839844 7.33789 0.980469L17.5977 9.88672H0.453125C0.324219 9.88672 0.21875 9.99219 0.21875 10.1211V11.8789C0.21875 12.0078 0.324219 12.1133 0.453125 12.1133H17.5947L7.33496 21.0195C7.1709 21.1631 7.27051 21.4297 7.4873 21.4297H10.168C10.2236 21.4297 10.2793 21.4092 10.3203 21.3711L21.459 11.709C21.5604 11.6208 21.6417 11.5119 21.6975 11.3896C21.7532 11.2672 21.782 11.1344 21.782 11C21.782 10.8656 21.7532 10.7328 21.6975 10.6104C21.6417 10.4881 21.5604 10.3792 21.459 10.291Z" fill="white"/>
+            </svg>
+        </a>
     </div>
     <div class="program-container">
         @for ($i = 1; $i <=10; $i++)
@@ -159,7 +167,11 @@
 <section class="categories-section">
     <div class="info-section">
         <span class="judul-section">Categories</span>
-        <a href="/sounds/categories/more" class="see-more">More categories ></a>
+        <a href="/sounds/categories/more" class="see-more">View more
+            <svg xmlns="http://www.w3.org/2000/svg" class="ms-1" width="16" height="16" viewBox="0 0 22 22" fill="none">
+                <path d="M21.459 10.291L10.3906 0.68457C10.3057 0.611328 10.1973 0.570312 10.083 0.570312H7.49023C7.27344 0.570312 7.17383 0.839844 7.33789 0.980469L17.5977 9.88672H0.453125C0.324219 9.88672 0.21875 9.99219 0.21875 10.1211V11.8789C0.21875 12.0078 0.324219 12.1133 0.453125 12.1133H17.5947L7.33496 21.0195C7.1709 21.1631 7.27051 21.4297 7.4873 21.4297H10.168C10.2236 21.4297 10.2793 21.4092 10.3203 21.3711L21.459 11.709C21.5604 11.6208 21.6417 11.5119 21.6975 11.3896C21.7532 11.2672 21.782 11.1344 21.782 11C21.782 10.8656 21.7532 10.7328 21.6975 10.6104C21.6417 10.4881 21.5604 10.3792 21.459 10.291Z" fill="white"/>
+            </svg>
+        </a>
     </div>
     <div class="categories-container">
         @for ($i = 1; $i <=10 ; $i++)

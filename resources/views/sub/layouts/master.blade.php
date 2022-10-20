@@ -22,6 +22,8 @@
         <link rel="stylesheet" href="../../assets/css/sounds.categories.css">
     @elseif($type == "Detail")
         <link rel="stylesheet" href="../../assets/css/sounds.detail.css" />
+    @elseif($type == "Programs")
+        <link rel="stylesheet" href="../../assets/css/sounds.programs.css" />
     @endif
     
     <title>Sounds

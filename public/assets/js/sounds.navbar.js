@@ -1,7 +1,7 @@
 // function for initial behavior your web
 function initial() {
   if ($(window).innerWidth() < 1200) {
-    $(".nav.menu").innerHeight($("body")[0].offsetHeight);
+    $(".nav.menu").innerHeight("100vh");
     $("#search_nav").addClass("focused");
     if (!$(".nav.menu")[0].checked) $(".nav.menu")[0].style.display = "none";
   } else {
@@ -56,12 +56,7 @@ $(document).ready(function () {
       searchNav.addClass("focused");
     } else {
       // go to url
-      $(location).prop(
-        "href",
-        `http://localhost:8000/sounds/search/results?search_name=${search
-          .eq(0)
-          .val()}`
-      );
+      $(location).prop("href", `http://localhost:8000/sounds/search/results?search_name=${search.eq(0).val()}`);
     }
 
     ev.preventDefault();
@@ -70,24 +65,13 @@ $(document).ready(function () {
   $(".nav-item > .search > input").on("keyup", function (ev) {
     const search = $(".nav-item > .search > input");
     if (ev.keyCode == 13) {
-      $(location).prop(
-        "href",
-        `http://localhost:8000/sounds/search/results?search_name=${search
-          .eq(0)
-          .val()}`
-      );
+      $(location).prop("href", `http://localhost:8000/sounds/search/results?search_name=${search.eq(0).val()}`);
     }
   });
 
   $("body").on("mouseup", function (ev) {
     const search = $(".search");
-    const limit = [
-      search[0].children[0],
-      search[0].children[1],
-      search[0].children[1].children[0],
-      search[0].children[1].children[0].children[0],
-      search[0].children[1].children[0].children[0].children[0],
-    ];
+    const limit = [search[0].children[0], search[0].children[1], search[0].children[1].children[0], search[0].children[1].children[0].children[0], search[0].children[1].children[0].children[0].children[0]];
 
     if (!limit.includes(ev.target)) {
       if (!($(window).innerWidth() < 1200)) {

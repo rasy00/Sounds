@@ -23,22 +23,6 @@
                     <rect x="17.8574" y="17.8569" width="7.14271" height="7.14294" fill="black"/>
                 </svg>
             </button>
-            <button class="grid-4-card" data-grid='fColoumns'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="27" viewBox="0 0 32 24" fill="none">
-                    <rect width="7.14" height="7.14281" fill="black"/>
-                    <rect y="9" width="7.14" height="7.14281" fill="black"/>
-                    <rect y="18" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="8" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="8" y="9" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="8" y="18" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="16" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="16" y="9" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="16" y="18" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="24" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="24" y="9" width="7.14" height="7.14281" fill="black"/>
-                    <rect x="24" y="18" width="7.14" height="7.14281" fill="black"/>
-                </svg>
-            </button>
         </div> 
         <div class="categories-option_DD">
             <button>Choose one ></button>

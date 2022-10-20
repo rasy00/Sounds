@@ -292,14 +292,7 @@ section.episodes-section > * {
   position: absolute;
   width: 180px;
   height: 180px;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.75) 0%,
-    rgba(0, 0, 0, 0.5) 25%,
-    rgba(0, 0, 0, 0.25) 50%,
-    rgba(0, 0, 0, 0.5) 75%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0.75) 100%);
   border-radius: 4px;
   transition: all 350ms ease-in-out;
 }
@@ -335,14 +328,7 @@ section.episodes-section > * {
 }
 /* hover */
 .grid-list > .episode-item:hover > .gel {
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.25) 25%,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 0.25) 75%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .grid-list > .episode-item:hover > .cover > img {
@@ -386,14 +372,7 @@ section.episodes-section > * {
   position: absolute;
   width: 100%;
   height: 83.5%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.75) 0%,
-    rgba(0, 0, 0, 0.5) 25%,
-    rgba(0, 0, 0, 0.25) 50%,
-    rgba(0, 0, 0, 0.5) 75%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0.75) 100%);
   border-radius: 4px;
   transition: all 350ms ease-in-out, height 150ms ease-in-out;
   top: 0;
@@ -420,14 +399,7 @@ section.episodes-section > * {
 }
 /* hover */
 .grid-3 > .episode-item:hover > .gel {
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.25) 25%,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 0.25) 75%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.5) 100%);
   height: 84.3%;
   transition: all 350ms ease-in-out, height 50ms ease-in-out;
 }
@@ -441,90 +413,6 @@ section.episodes-section > * {
   text-decoration: underline;
 }
 /* end custom episode grid 3 columns */
-/* custom episode grid 4 coloumns */
-.grid-4 {
-  display: flex;
-  justify-content: space-between;
-  row-gap: 20px;
-  flex-shrink: 4;
-  flex-flow: row wrap;
-}
-.grid-4 > .episode-item {
-  text-decoration: none;
-  width: 23%;
-  position: relative;
-}
-
-.grid-4 > .episode-item > .cover {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 4px;
-  position: relative;
-}
-
-.grid-4 > .episode-item > .cover > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-}
-.grid-4 > .episode-item > .gel {
-  position: absolute;
-  width: 100%;
-  height: 80.7%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.75) 0%,
-    rgba(0, 0, 0, 0.5) 25%,
-    rgba(0, 0, 0, 0.25) 50%,
-    rgba(0, 0, 0, 0.5) 75%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
-  border-radius: 4px;
-  transition: all 350ms ease-in-out, height 150ms ease-in-out;
-  top: 0;
-}
-.grid-4 > .episode-item > .data {
-  color: white;
-  font-family: "Inter", sans-serif;
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-  width: 100%;
-}
-.grid-4 > .episode-item > .data > .judul {
-  font-size: 20px;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
-.grid-4 > .episode-item > .data > .summ {
-  font-size: 14px;
-  color: #adadad;
-  margin-bottom: 4px;
-}
-
-/* hover */
-.grid-4 > .episode-item:hover > .gel {
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.25) 25%,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 0.25) 75%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-  height: 81.4%;
-  transition: all 350ms ease-in-out, height 50ms ease-in-out;
-}
-
-.grid-4 > .episode-item:hover > .cover > img {
-  transform: scale(1.05);
-}
-
-.grid-4 > .episode-item:hover > .data > .judul {
-  color: var(--light);
-  text-decoration: underline;
-}
-/* end custom episode grid 4 columns */
 
 .pagination {
   width: 70%;
@@ -591,13 +479,6 @@ section.episodes-section > *.episodes-container {
 
   .grid-3 > .episode-item:hover > .gel {
     height: 80.3%;
-  }
-
-  .grid-4 > .episode-item > .gel {
-    height: 76.3%;
-  }
-  .grid-4 > .episode-item:hover > .gel {
-    height: 77.3%;
   }
 }
 

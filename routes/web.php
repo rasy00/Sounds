@@ -65,6 +65,11 @@ Route::get("/sounds/search/{data}",function($data,Request $request){
                             ]);
 });
 
+Route::get("/sounds/programs",function(){
+    return view("sub.programs",["id"=>"default",
+                                "type"=>"Programs"]);
+});
+
 $data = [
         [
             "cover" => "2.jpg",
