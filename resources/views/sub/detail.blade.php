@@ -5,25 +5,25 @@
       <section class="audio-player">
         <audio hidden>
            {{-- <source src="horse.ogg" type="audio/ogg" />  --}}
-          <source src="../../assets/resources/sounds/coba.mp3" type="audio/mpeg" />
+          <source src="{{$data["sound"]}}" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
         <div class="background"></div>
         <div class="hero-space detail d-flex">
           <div class="space mx-4"></div>
           <div class="detail-item fg-1">
-            <img class="float-end" src="https://ichef.bbci.co.uk/images/ic/320x320/p0cjyr4p.jpg" alt="" />
+            <img class="float-end" src="{{$data["cover"]}}" alt="" />
           </div>
           <div class="detail-item fg-2">
             <div class="my-3 ms-5 ps-2">
               <div class="judul">
-                <a href="#" class="link-none fs-4 fw-semibold">Gangster</a>
+                <a href="#" class="link-none fs-4 fw-semibold">{{$program}}</a>
               </div>
               <hr class="judul-rule" />
               <div class="descripsi">
-                <span class="fs-5 mb-1 d-inline-block">Gangster: The Story of Curtis Warren</span>
+                <span class="fs-5 mb-1 d-inline-block">{{$program}}</span>
               </div>
-              <p class="fs-6">Introducing Gangster: The Story of Curtis Warren</p>
+              <p class="fs-6">{{$data["judul"]}}</p>
             </div>
 
           </div>
@@ -133,27 +133,26 @@
             <button id="eps_btn">Episodes</button>
           </div>
           <div class="previous_next_container d-flex justify-content-between">
-            <a href="#" class="n_p previous_episode d-flex justify-content-start">
-              <img src="../../assets/resources/photos/tos.jpeg" height="200" width="200" alt="">
+            <a href="/sounds/play/{{Str::slug($data["prev"]["judul"])}}" class="n_p previous_episode d-flex justify-content-start">
+              <img src="{{$data["prev"]["cover"]}}" height="200" width="200" alt="">
               <div class="data">
-                <span class="judul">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, maiores.</span>
-                <span class="summary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia nobis architecto obcaecati iure explicabo magnam?</span>
+                <span class="judul">{{$data["prev"]["judul"]}}</span>
+                <span class="summary">{!!$data["prev"]["summ"]!!}</span>
               </div>
             </a>
-            <a href="#" class="n_p next_episode d-flex justify-content-start ">
-              <img src="../../assets/resources/photos/tos1.jpeg" height="200" width="200" alt="">
+            <a href="/sounds/play/{{Str::slug($data["next"]["judul"])}}" class="n_p next_episode d-flex justify-content-start ">
+              <img src="{{$data["next"]["cover"]}}" height="200" width="200" alt="">
               <div class="data">
-                <span class="judul">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, maiores.</span>
-                <span class="summary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia nobis architecto obcaecati iure explicabo magnam?</span>
+                <span class="judul">{{$data["next"]["judul"]}}</span>
+                <span class="summary">{!!$data["next"]["summ"]!!}</span>
               </div>
             </a>
           </div>
           <div class="description_episode_inner d-flex justify-content-between">
             <div class="description_inner">
-              <span class="realease">Released On : <span class="value_release">20 Juli 2022 - 14:37</span></span>
+              <span class="realease">Released On : <span class="value_release">{{$data["rilis"]}} - 14:37</span></span>
               <span class="summary">
-                <span class="jd">Gimana tuhh konflik yang sehat?</span>
-                <span class="isi">Kalo kalian sedang menghadapi masalah dalam hubungan, harus bisa yang namanya jadi pendengar yang baik, bisa diskusi tentang hal2 yang lebih dalam lagi dan usahakan selalu berkepala dingin saat ada konflik, jangan dua-dua nya sama-sama ga mau ngalah ya Podme Friends.</span>
+                <span class="jd">{!!$data["summ"]!!}</span>
               </span>
               <span class="presenter_producer">
                 <span class="presenter">Presenter : Lauren Laverne</span>

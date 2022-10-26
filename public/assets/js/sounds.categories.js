@@ -2,7 +2,8 @@
 (function (root, factory) {
   var define = define || {};
   if (typeof define === "function" && define.amd) define([], factory);
-  else if (typeof exports === "object" && typeof module === "object") module.exports = factory();
+  else if (typeof exports === "object" && typeof module === "object")
+    module.exports = factory();
   else if (typeof exports === "object") exports["FakeScroll"] = factory();
   else root.FakeScroll = factory();
 })(this, function () {
@@ -90,7 +91,12 @@
       on(elm, eName, cbName) {
         // to be able tp unbind the events, callback refferece must be saved somewhere
         eName.split(" ").forEach((e) => {
-          if (!(cbName in this.events.callbacks)) console.warn(cbName, " doesn't exist in Callbacks: ", this.events.callbacks);
+          if (!(cbName in this.events.callbacks))
+            console.warn(
+              cbName,
+              " doesn't exist in Callbacks: ",
+              this.events.callbacks
+            );
 
           this.listeners[e] = this.events.callbacks[cbName].bind(this);
           elm.addEventListener(e, this.listeners[e]);
@@ -100,7 +106,9 @@
       },
 
       off(elm, eName, cbName) {
-        eName.split(" ").forEach((e) => elm.removeEventListener(e, this.listeners[e]));
+        eName
+          .split(" ")
+          .forEach((e) => elm.removeEventListener(e, this.listeners[e]));
         return this.events;
       },
 
@@ -111,7 +119,8 @@
           .on.call(this, DOM.bar, "mousedown", "onBarMouseDown")
           .on.call(this, window, "resize", "onScrollResize");
 
-        if (this.settings.track) this.events.on.call(this, DOM.track, "click", "onTrackClick");
+        if (this.settings.track)
+          this.events.on.call(this, DOM.track, "click", "onTrackClick");
       },
 
       /**
@@ -120,17 +129,25 @@
        * @return {[type]}       [description]
        */
       drag(onOff) {
-        this.events[onOff].call(this, document, "mousemove", "onDrag")[onOff].call(this, document, "mouseup", "onStopDrag");
+        this.events[onOff]
+          .call(this, document, "mousemove", "onDrag")
+          [onOff].call(this, document, "mouseup", "onStopDrag");
       },
 
       callbacks: {
         onScrollResize() {
           this.moveBar.call(this);
-          this.DOM.scope.classList.toggle("fakeScroll--hasBar", this.state.ratio < 1);
+          this.DOM.scope.classList.toggle(
+            "fakeScroll--hasBar",
+            this.state.ratio < 1
+          );
 
           // debounce - get track bounds
           clearTimeout(this.listeners.timeout__resize);
-          this.listeners.timeout__resize = setTimeout(this.getTrackBounds.bind(this), 200);
+          this.listeners.timeout__resize = setTimeout(
+            this.getTrackBounds.bind(this),
+            200
+          );
         },
 
         onDrag(e) {
@@ -138,9 +155,13 @@
 
           raf(() => {
             var sTop = document.documentElement.scrollTop,
-              isDragWithinTrackBounds = e.pageY >= this.state.trackBounds.top + sTop && e.pageY <= this.state.trackBounds.bottom + sTop;
+              isDragWithinTrackBounds =
+                e.pageY >= this.state.trackBounds.top + sTop &&
+                e.pageY <= this.state.trackBounds.bottom + sTop;
 
-            if (isDragWithinTrackBounds) this.DOM.scrollContent.scrollTop = this.state.drag + delta / this.state.ratio;
+            if (isDragWithinTrackBounds)
+              this.DOM.scrollContent.scrollTop =
+                this.state.drag + delta / this.state.ratio;
             // update variables when mouse position is outside the Track bounds
             else {
               this.state.drag = this.DOM.scrollContent.scrollTop;
@@ -150,7 +171,9 @@
         },
 
         onStopDrag(e) {
-          [this.DOM.bar, document.body].map((el) => el.classList.remove("fakeScroll--grabbed"));
+          [this.DOM.bar, document.body].map((el) =>
+            el.classList.remove("fakeScroll--grabbed")
+          );
           this.events.drag.call(this, "off");
           setTimeout(() => {
             this.state.drag = false;
@@ -161,14 +184,20 @@
           this.state.drag = this.DOM.scrollContent.scrollTop;
           this.state.lastPageY = e.pageY;
 
-          [this.DOM.bar, document.body].map((el) => el.classList.add("fakeScroll--grabbed"));
+          [this.DOM.bar, document.body].map((el) =>
+            el.classList.add("fakeScroll--grabbed")
+          );
           this.events.drag.call(this, "on");
         },
 
         onTrackClick(e) {
           if (this.state.drag) return;
 
-          var perc = (e.clientY - this.state.trackBounds.top) / (this.state.trackBounds.height - this.state.trackBounds.topPad - this.state.trackBounds.bottomPad),
+          var perc =
+              (e.clientY - this.state.trackBounds.top) /
+              (this.state.trackBounds.height -
+                this.state.trackBounds.topPad -
+                this.state.trackBounds.bottomPad),
             scrollHeight = this.DOM.scrollContent.scrollHeight,
             ownHeight = this.DOM.scrollWrap.clientHeight,
             newScrollTop = perc * (scrollHeight - ownHeight);
@@ -204,7 +233,9 @@
         ownHeight = this.DOM.scrollWrap.clientHeight;
 
       this.state.ratio = this.DOM.track.clientHeight / scrollHeight;
-      this.state.scrollRatio = this.DOM.scrollContent.scrollTop / (_scrollContent.scrollHeight - ownHeight);
+      this.state.scrollRatio =
+        this.DOM.scrollContent.scrollTop /
+        (_scrollContent.scrollHeight - ownHeight);
 
       // update fake scrollbar location on the Y axis using requestAnimationFrame
       raf(() => {
@@ -213,9 +244,14 @@
 
         this.DOM.bar.style.cssText = `height  : ${height}%;
                                               top     : ${top}%;
-                                              display : ${scrollHeight <= ownHeight ? "none" : ""}`;
+                                              display : ${
+                                                scrollHeight <= ownHeight
+                                                  ? "none"
+                                                  : ""
+                                              }`;
 
-        this.settings.onChange && this.settings.onChange({ scrollRatio: this.state.scrollRatio });
+        this.settings.onChange &&
+          this.settings.onChange({ scrollRatio: this.state.scrollRatio });
       });
     },
   };
@@ -236,7 +272,9 @@ $(document).ready(function () {
   function initialWidth() {
     if (window.screen.width <= 360) {
       $(".grid-option-container").addClass("hidden");
-      const categoriesContainer = $(".categories-container > .episodes-container");
+      const categoriesContainer = $(
+        ".categories-container > .episodes-container"
+      );
       categoriesContainer.removeClass("grid-3");
       categoriesContainer.removeClass("grid-4");
       categoriesContainer.removeClass("grid-list");
@@ -271,7 +309,8 @@ $(document).ready(function () {
   const gridOptionBtn = $(".grid-option-container > button");
 
   gridOptionBtn.each(function () {
-    const btnActive = this.classList.contains("active") === true ? this : undefined;
+    const btnActive =
+      this.classList.contains("active") === true ? this : undefined;
     gridOptionBtn.btnActive = btnActive;
   });
 
@@ -360,5 +399,17 @@ $(document).ready(function () {
 
       this.classList.add("active");
     });
+  });
+
+  const categoriesItem = $(".categories-item");
+
+  categoriesItem.removeClass("active");
+  categoriesItem.each(function (index, item) {
+    const data = $(item).data("categories-val");
+
+    if ($(location).attr("pathname").includes(data)) {
+      $(this).addClass("active");
+      return 0;
+    }
   });
 });

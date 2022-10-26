@@ -956,6 +956,9 @@ input:checked + .slider:before {
   color: rgb(91, 100, 112);
   font-family: "Inter", sans-serif;
   font-size: 15px;
+  line-height: 150%;
+  height: 45px;
+  overflow: hidden;
 }
 
 .description_episode_inner > * {
@@ -979,6 +982,7 @@ input:checked + .slider:before {
 }
 .description_episode_inner > .description_inner > .summary > span.isi {
   text-align: justify;
+  line-height: 150%;
 }
 .description_episode_inner > .description_inner > .presenter_producer > span {
   display: block;
@@ -1094,6 +1098,7 @@ input:checked + .slider:before {
   height: 36px;
   color: #adadad;
   font-weight: 500;
+  line-height: 150%;
 }
 
 .recommend-container > .recommend-link > .recommend-item > .cover > .episodes {

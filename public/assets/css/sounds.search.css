@@ -208,6 +208,11 @@ table {
   justify-content: flex-end;
 }
 
+.info-section > .grid-option-container {
+  background-color: white;
+  border-radius: 2px;
+}
+
 .info-section > .grid-option-container > button {
   margin: 0;
   margin-left: -2.5px;
@@ -215,6 +220,7 @@ table {
   border: 0 solid transparent;
   border-radius: 2px;
   transition: color 300ms ease-in-out;
+  background-color: white;
 }
 
 .info-section > .grid-option-container > button.active {
@@ -250,15 +256,18 @@ table {
 
 .search_inner_recommend {
   width: 25%;
-  border: 1px solid white;
+  box-shadow: 0 0 0 0.9px black, 0 0 0 1.5px #333f44,
+    1.2px 1.2px 1px 1.5px #333f44;
   height: fit-content;
+  position: sticky;
+  top: 8.5%;
 }
 
 .recommend_sign {
   color: white;
   font-family: "Roboto Reguler", sans-serif;
   font-size: 20px;
-  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.8), 0 1.8px 0 0 #333f44;
   padding: 10px 0 10px 10px;
   width: 100%;
   display: block;
@@ -280,7 +289,14 @@ table {
 
 .recommend_item > .gel {
   position: absolute;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   width: 150px;
   height: 150px;
   border-radius: 5px;
@@ -295,6 +311,7 @@ table {
   display: block;
   font-size: 10px;
   width: 150px;
+  color: white;
 }
 
 .recommend_item .data .program_name {
@@ -327,11 +344,22 @@ table {
 }
 
 .recommend_item:hover .gel {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
 }
 
 .recommend_item:hover > .cover > img {
   transform: scale(1.05);
+}
+
+.recommend_item:hover .data .judul {
+  color: var(--light);
 }
 
 .episodes-container > *,
@@ -367,7 +395,14 @@ table {
   position: absolute;
   width: 180px;
   height: 180px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   border-radius: 4px;
   transition: all 350ms ease-in-out;
 }
@@ -403,7 +438,14 @@ table {
 }
 /* hover */
 .grid-list > .episode-item:hover > .gel {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
 }
 
 .grid-list > .episode-item:hover > .cover > img {
@@ -447,7 +489,14 @@ table {
   position: absolute;
   width: 100%;
   height: 78%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   border-radius: 4px;
   transition: all 350ms ease-in-out, height 150ms ease-in-out;
   top: 0;
@@ -474,7 +523,14 @@ table {
 }
 /* hover */
 .grid-3 > .episode-item:hover > .gel {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
   height: 79%;
   transition: all 350ms ease-in-out, height 50ms ease-in-out;
 }

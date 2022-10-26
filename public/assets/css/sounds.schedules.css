@@ -1,0 +1,107 @@
+body {
+  background-color: var(--black);
+}
+
+a {
+  text-decoration: none;
+}
+
+.info-section > .judul-section {
+  font-size: 26px;
+}
+
+.info-section > * {
+  width: fit-content;
+  color: white !important;
+  text-decoration: none;
+  transition: 150ms ease-in-out;
+}
+
+.info-section > .judul-section {
+  font-family: "Poppins Bold", sans-serif;
+  letter-spacing: -1px;
+  font-size: 28px;
+}
+
+.schedule-section {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.schedule-section > .schedule-container {
+  display: flex;
+  position: relative;
+  padding: 0;
+  justify-content: space-between;
+  column-gap: 10px;
+  row-gap: 40px;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.schedule-container > .schedule-item {
+  width: 48%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.schedule-item > .cover {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  width: 70%;
+  background-color: var(--no-active);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 100px;
+  font-weight: 600;
+}
+
+.photo > span {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+
+.schedule-item > .data {
+  width: 60%;
+  align-self: center;
+}
+
+.data > span {
+  display: block;
+}
+
+.judul {
+  font-family: "Roboto Medium", sans-serif;
+  font-size: 25px;
+  color: white;
+}
+
+.host,
+.view {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
+
+.view {
+  color: var(--light);
+}
+
+.view > svg {
+  height: 14px;
+  width: 14px;
+  margin: -2px 0 0 5px;
+}
+
+.host {
+  color: #686e6ce9;
+}

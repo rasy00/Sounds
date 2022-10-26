@@ -27,9 +27,16 @@
         <div class="categories-option_DD">
             <button>Choose one ></button>
             <ul class="dropdown_menu">
-                @for ($i = 1; $i <=20 ; $i++)
-                <li class="dd-item dropdown-item-{{$i}}"><a href="#" class="categories-item">Top Shows</a></li>
-                @endfor
+                <li class="dd-item dropdown-item">
+                    <a href="/sounds/categories/top-shows" class="categories-item" data-categories-val = "top-shows">
+                        <span class="value">Top Shows</span>
+                    </a>
+                </li>  
+                @foreach ($categories as $item)
+                <li class="dd-item dropdown-item">
+                    <a href="/sounds/categories/{{Str::slug($item)}}" class="categories-item" data-categories-val = "{{Str::slug($item)}}">{{$item}}</a>   
+                </li>  
+                @endforeach
         </ul>
         </div>
     </div>
@@ -38,9 +45,12 @@
 <section class="categories-section">
     <div class="categories-container">
         <div class="categories-scroll">
-            @for ($i = 1; $i <=100 ; $i++)
-             <a href="#" class="categories-item">Top Shows</a>   
-            @endfor
+            <a href="/sounds/categories/top-shows" class="categories-item" data-categories-val = "top-shows">
+                <span class="value">Top Shows</span>
+            </a>  
+            @foreach ($categories as $item)
+            <a href="/sounds/categories/{{Str::slug($item)}}" class="categories-item" data-categories-val = "{{Str::slug($item)}}">{{$item}}</a>   
+            @endforeach
         </div>
         <div class="episodes-container grid-list">
                 @for ($i = 1; $i <= 12; $i++)

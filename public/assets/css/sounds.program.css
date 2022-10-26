@@ -145,6 +145,8 @@ section.headline {
   font-family: "Inter", sans-serif;
   padding-top: 10px;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 section.headline > .headline-background {
   width: 100%;
@@ -154,7 +156,7 @@ section.headline > .headline-background {
 section.headline > .headline-background > img {
   object-fit: cover;
   width: 100%;
-  height: 22em;
+  height: 100%;
   object-position: 80% 70%;
 }
 
@@ -173,6 +175,7 @@ section.headline > .headline-background::after {
 section.headline > .headline-data {
   position: absolute;
   top: 0;
+  width: 100%;
 }
 
 section.headline > .headline-data > .info-section {
@@ -188,9 +191,15 @@ section.headline > .headline-data > .info-section {
 }
 .info-section > .judul-section > .available {
   font: inherit;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 100;
 }
+
+.info-section > .grid-option-container {
+  background-color: white;
+  border-radius: 2px;
+}
+
 .info-section > .grid-option-container > button {
   margin: 0;
   margin-left: -2.5px;
@@ -198,6 +207,7 @@ section.headline > .headline-data > .info-section {
   border: 0 solid transparent;
   border-radius: 2px;
   transition: color 300ms ease-in-out;
+  background-color: white;
 }
 
 .info-section > .grid-option-container > button.active {
@@ -238,6 +248,7 @@ section.headline > .headline-data > .info-section {
 .headline-container > .headline-text > .summ {
   color: #adadad;
   text-align: justify;
+  line-height: 150%;
 }
 
 .headline-container > .headline-cover {
@@ -276,6 +287,7 @@ section.episodes-section > * {
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.8), 0 2px 0 0 #333f44;
   padding-bottom: 5px;
   margin-bottom: 15px;
+  column-gap: 10px;
 }
 
 .grid-list > .episode-item > .cover {
@@ -292,7 +304,14 @@ section.episodes-section > * {
   position: absolute;
   width: 180px;
   height: 180px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   border-radius: 4px;
   transition: all 350ms ease-in-out;
 }
@@ -309,6 +328,14 @@ section.episodes-section > * {
   display: flex;
   flex-direction: column;
   padding-top: 10px;
+  max-width: 70%;
+}
+.grid-list > .episode-item > .data > * {
+  max-width: 70%;
+}
+.grid-list > .episode-item > .data > .summ {
+  max-width: 50%;
+  text-align: justify;
 }
 .grid-list > .episode-item > .data > .judul {
   font-family: "Roboto Medium", sans-serif;
@@ -321,14 +348,25 @@ section.episodes-section > * {
   font-size: 12px;
   color: #adadad;
   margin-bottom: 4px;
+  max-height: 55px;
+  line-height: 150%;
+  overflow: hidden;
 }
 .grid-list > .episode-item > .data > .duration-release {
   font-size: 13px;
   color: #adadad;
+  margin-top: 5px;
 }
 /* hover */
 .grid-list > .episode-item:hover > .gel {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
 }
 
 .grid-list > .episode-item:hover > .cover > img {
@@ -372,7 +410,14 @@ section.episodes-section > * {
   position: absolute;
   width: 100%;
   height: 83.5%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   border-radius: 4px;
   transition: all 350ms ease-in-out, height 150ms ease-in-out;
   top: 0;
@@ -399,7 +444,14 @@ section.episodes-section > * {
 }
 /* hover */
 .grid-3 > .episode-item:hover > .gel {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
   height: 84.3%;
   transition: all 350ms ease-in-out, height 50ms ease-in-out;
 }
@@ -545,22 +597,23 @@ section.episodes-section > *.episodes-container {
   }
 
   .grid-list > .episode-item > .data {
-    width: fit-content;
+    width: 50%;
   }
 
   .grid-list > .episode-item > .data > .judul {
     font-size: 16px;
     margin-bottom: 5px;
-    width: fit-content;
+    max-width: 100% !important;
   }
   .grid-list > .episode-item > .data > .summ {
     font-size: 11px;
     color: #adadad;
     margin-bottom: 4px;
-    width: 190px;
+    max-width: 100% !important;
   }
   .grid-list > .episode-item > .data > .duration-release {
     font-size: 11px;
+    max-width: 100% !important;
   }
 
   .pagination {

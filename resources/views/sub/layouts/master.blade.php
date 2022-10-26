@@ -24,6 +24,8 @@
         <link rel="stylesheet" href="../../assets/css/sounds.detail.css" />
     @elseif($type == "Programs")
         <link rel="stylesheet" href="../../assets/css/sounds.programs.css" />
+    @elseif($type == "Schedules")
+        <link rel="stylesheet" href="../../assets/css/sounds.schedules.css" />
     @endif
     
     <title>Sounds

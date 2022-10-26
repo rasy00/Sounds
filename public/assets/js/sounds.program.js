@@ -1,11 +1,20 @@
 $(document).ready(function () {
+  // const episodesLength = $(".episode-item").length;
+  // $(".available").html(`(${episodesLength} Available)`);
   function initialWidth() {
+    $("section.headline > .headline-background").height(
+      $("section.headline > .headline-data").height()
+    );
+
     if (window.screen.width === 360) {
       $(".grid-option-container").addClass("hidden");
-      const episodesContainer = $("section.episodes-section > .episodes-container");
+      const episodesContainer = $(
+        "section.episodes-section > .episodes-container"
+      );
       episodesContainer.removeClass("grid-3");
       episodesContainer.removeClass("grid-list");
       episodesContainer.addClass("grid-list");
+      $(".episode-item > .data > .summ").addClass("hidden");
       $(".episode-item > .data > .duration-release").removeClass("hidden");
     } else {
       $(".grid-option-container").removeClass("hidden");
@@ -22,13 +31,20 @@ $(document).ready(function () {
   $(window).resize(() => {
     $(".grid-option-container > button").removeClass("active");
     $(".grid-option-container > button").removeClass("hover");
+    setTimeout(() => {
+      const heightP = $(".cover > img").outerHeight();
+      const widthP = $(".cover > img").outerWidth();
+      $(".gel").innerHeight(heightP);
+      $(".gel").innerWidth(widthP);
+    }, 410);
     initialWidth();
   });
 
   const gridOptionBtn = $(".grid-option-container > button");
 
   gridOptionBtn.each(function () {
-    const btnActive = this.classList.contains("active") === true ? this : undefined;
+    const btnActive =
+      this.classList.contains("active") === true ? this : undefined;
     gridOptionBtn.btnActive = btnActive;
   });
 
@@ -43,6 +59,13 @@ $(document).ready(function () {
   });
 
   gridOptionBtn.on("mouseup", function () {
+    setTimeout(() => {
+      const heightP = $(".cover > img").outerHeight();
+      const widthP = $(".cover > img").outerWidth();
+      $(".gel").innerHeight(heightP);
+      $(".gel").innerWidth(widthP);
+    }, 400);
+
     function setActive(element) {
       $(element).addClass("active");
     }
@@ -50,7 +73,9 @@ $(document).ready(function () {
     gridOptionBtn.removeClass("active");
     setActive(this);
     gridOptionBtn.btnActive = this;
-    const episodesContainer = $("section.episodes-section > .episodes-container");
+    const episodesContainer = $(
+      "section.episodes-section > .episodes-container"
+    );
     episodesContainer.removeClass("grid-3");
     episodesContainer.removeClass("grid-list");
     if (this.dataset.grid === "list") {
@@ -58,6 +83,7 @@ $(document).ready(function () {
       $(".episode-item > .data > .duration-release").removeClass("hidden");
     } else if (this.dataset.grid === "tColoumns") {
       episodesContainer.addClass("grid-3");
+      $(".episode-item > .data > .summ").addClass("hidden");
       $(".episode-item > .data > .duration-release").addClass("hidden");
     }
   });

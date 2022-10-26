@@ -1,22 +1,23 @@
 @extends("sub.layouts.master")
 
 @section('konten')
-<section class="headline">
+ <section class="headline">
     <div class="headline-background">
-        <img src="../../assets/resources/photos/tos8.png"  alt="MG Radio Network" srcset="../../assets/resources/photos/tos8.png">
+        {{-- <img src="../../assets/resources/photos/tos8.png"  alt="MG Radio Network" srcset="../../assets/resources/photos/tos8.png"> --}}
+ <img src="{{$data["cover"]}}"  alt="{{$data["judul"]}}" srcset="{{$data["cover"]}}">
     </div>
     <div class="headline-data">
         <div class="headline-container">
         <div class="headline-text">
-            <span class="judul">MG Radio Network</span>
-            <span class="summ">Berkomitmen dalam terus memberikan inspirasi dan membuka wawasan seluruh lapisan masyarakat, MG Radio Network lahir sebagai pionir radio yang membawa nafas TV berita nasional pertama di Indonesia dalam bentuk audio dengan pengemasan konten news yang lebih light dan friendly.</span>
+            <span class="judul">{{$data["judul"]}}</span>
+            <span class="summ">{{$data["summ"]}}</span>
         </div>
         <div class="headline-cover">
-            <img src="../../assets/resources/photos/tos8.png" height="200" width="200" alt="MG Radio Network" srcset="../../assets/resources/photos/tos8.png">
+            <img src="{{$data["cover"]}}" height="200" width="200" alt="MG Radio Network" srcset="{{$data["cover"]}}">
         </div>
     </div>
     <div class="info-section">
-        <span class="judul-section">Episodes <span class="available">(12 Available)</span></span>
+        <span class="judul-section">Episodes <span class="available">({{$data["jumlahEpisode"]}} Available)</span></span>
         <div class="grid-option-container">
             <button class="grid-list active" data-grid='list'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
@@ -43,19 +44,19 @@
 </section>
 <section class="episodes-section">
     <div class="episodes-container grid-list">
-        @for ($i = 1; $i <= 12; $i++)
-            <a href="#" class="episode-item">
+        @foreach ($data["episodes"] as $episode)
+            <a href="/sounds/play/{{Str::slug($episode["judul"])}}" class="episode-item">
                 <div class="cover">
-                    <img src="../../assets/resources/photos/tos.jpeg" alt="jhsd" height="200" width="200" srcset="../../assets/resources/photos/tos.jpeg"> 
+                    <img src="{{$episode["cover"]}}" alt="{{$episode["judul"]}}" height="200" width="200" srcset="{{$episode["cover"]}}"> 
                 </div>
                 <div class="gel"></div>
                 <div class="data">
-                    <span class="judul">MG Radio Network</span>
-                    <span class="summ">Setelah Jokowi Bertemu Zelensky dan Putin, What Next?</span>
-                    <span class="duration-release">64 Min | 06 Jul 2022</span>
+                    <span class="judul">{{$episode["judul"]}}</span>
+                    <span class="summ">{!!$episode["summ"]!!}</span>
+                    <span class="duration-release">{{substr($episode["durasi"],0,2)}} Min | {{$episode["rilis"]}}</span>
                 </div>
             </a>
-        @endfor
+        @endforeach
     </div>
     <div class="pagination">
         <button class="first-page">
@@ -86,5 +87,5 @@
             </svg>
         </button>
     </div>
-</section>
+</section> 
 @endsection

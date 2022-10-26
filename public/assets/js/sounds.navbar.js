@@ -55,8 +55,15 @@ $(document).ready(function () {
     if (!searchNav.hasClass("focused")) {
       searchNav.addClass("focused");
     } else {
-      // go to url
-      $(location).prop("href", `http://localhost:8000/sounds/search/results?search_name=${search.eq(0).val()}`);
+      // go to urlphp
+      $(location).prop(
+        "href",
+        `${
+          window.location.protocol + "//" + window.location.host
+        }/sounds/search/results?search_name=${search.eq(0).val()}`
+      );
+
+      // console.log($(location).host());
     }
 
     ev.preventDefault();
@@ -65,13 +72,24 @@ $(document).ready(function () {
   $(".nav-item > .search > input").on("keyup", function (ev) {
     const search = $(".nav-item > .search > input");
     if (ev.keyCode == 13) {
-      $(location).prop("href", `http://localhost:8000/sounds/search/results?search_name=${search.eq(0).val()}`);
+      $(location).prop(
+        "href",
+        `http://localhost:8000/sounds/search/results?search_name=${search
+          .eq(0)
+          .val()}`
+      );
     }
   });
 
   $("body").on("mouseup", function (ev) {
     const search = $(".search");
-    const limit = [search[0].children[0], search[0].children[1], search[0].children[1].children[0], search[0].children[1].children[0].children[0], search[0].children[1].children[0].children[0].children[0]];
+    const limit = [
+      search[0].children[0],
+      search[0].children[1],
+      search[0].children[1].children[0],
+      search[0].children[1].children[0].children[0],
+      search[0].children[1].children[0].children[0].children[0],
+    ];
 
     if (!limit.includes(ev.target)) {
       if (!($(window).innerWidth() < 1200)) {

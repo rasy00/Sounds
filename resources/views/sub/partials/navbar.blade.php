@@ -5,9 +5,9 @@
         </a>
         <input type="checkbox" name="" id="" />
         <ul class="nav menu">
-            @if ($id == "programs")
+            @if ($type == "Programs")
                 <li class="nav-item">
-                    <a class="nav-link" href="/sounds/top-shows">
+                    <a class="nav-link" href="/sounds/categories/top-shows">
                         <i class="icon-nav icofont-star"></i>
                         <span>Top Shows</span>
                     </a>
@@ -20,7 +20,7 @@
                 </li>
             @elseif($id=="top-shows")
                 <li class="nav-item">
-                    <a class="nav-link active" href="/sounds/top-shows">
+                    <a class="nav-link active" href="/sounds/categories/top-shows">
                         <i class="icon-nav icofont-star"></i>
                         <span>Top Shows</span>
                     </a>
@@ -33,7 +33,7 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="/sounds/top-shows">
+                    <a class="nav-link" href="/sounds/categories/top-shows">
                         <i class="icon-nav icofont-star"></i>
                         <span>Top Shows</span>
                     </a>
