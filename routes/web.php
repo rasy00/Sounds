@@ -147,60 +147,148 @@ Route::get('/sounds/play/{slug}', function ($slug) {
             "jumlahEpisode" => "18",
             "episodes"=>[
                 [
-                    "cover" => "../../../assets/resources/photos/programs/ep4/1.jpg",
+                    "cover" => "../../../assets/resources/photos/programs/ep2/1.jpg",
                     "judul" => "Evan Loss Full Senyum",
                     "summ" => "Siapa yang pernah dengerin lagu Full Senyum Sayang? Evan Loss merupakan pencipta dan penyanyi lagu 'Full Senyum Sayang' yang kini viral di TikTok hingga reels Instagram. Seperti apa sosok Evan Loss dan perjalanan kariernya?",
                     "durasi" => "27:44",
-                    "rilis" => "09 Sep 2022"
+                    "rilis" => "09 Sep 2022",
+                    "sound" => "../../../assets/resources/photos/programs/ep1/sounds/1.mp3",
+                    "next" => [
+                        "cover" => "../../../assets/resources/photos/programs/ep2/2.jpg",
+                        "judul" => "Merdeka Berekspresi Lewat Fashion | Ft. Okky Asokawati", 
+                        "summ" => 'Jelang peringatan 77 tahun kemerdekaan Indonesia, apakah kita juga telah merdeka dalam hal berekspresi? Ngobras Spesial kali ini bakalan ngobrol seputar "Merdeka Berekespresi Lewat Fashion" bareng Okky Asokawati.',
+                    ],
+                    "prev" =>[
+                        "cover" => "../../../assets/resources/photos/programs/ep2/1.jpg",
+                        "judul" => "Evan Loss Full Senyum",
+                        "summ" => "Siapa yang pernah dengerin lagu Full Senyum Sayang? Evan Loss merupakan pencipta dan penyanyi lagu 'Full Senyum Sayang' yang kini viral di TikTok hingga reels Instagram. Seperti apa sosok Evan Loss dan perjalanan kariernya?",
+                    ]
                 ],
                 [
                     "cover" => "../../../assets/resources/photos/programs/ep2/2.jpg",
                     "judul" => "Merdeka Berekspresi Lewat Fashion | Ft. Okky Asokawati",
                     "summ" => 'Jelang peringatan 77 tahun kemerdekaan Indonesia, apakah kita juga telah merdeka dalam hal berekspresi? Ngobras Spesial kali ini bakalan ngobrol seputar "Merdeka Berekespresi Lewat Fashion" bareng Okky Asokawati.',
                     "durasi" => "24:15",
-                    "rilis" => "15 Aug 2022"
+                    "rilis" => "15 Aug 2022",
+                    "sound" => "../../../assets/resources/photos/programs/ep1/sounds/2.mp3",
+                    "next" => [
+                        "cover" => "../../../assets/resources/photos/programs/ep2/3.jpg",
+                        "judul" => "Behind Story of Jessica Mila",
+                        "summ" => 'Ngobras Spesial kedatangan aktris cantik Jessica Mila @jscmila. Film barunya bergenre horor "The Doll 3" baru saja tayang. Seperti apa cerita di balik filmnya ini dan fakta-fakta menarik tentang Jessica Mila?',
+                    ],
+                    "prev" =>[
+                        "cover" => "../../../assets/resources/photos/programs/ep2/1.jpg",
+                        "judul" => "Evan Loss Full Senyum",
+                        "summ" => "Siapa yang pernah dengerin lagu Full Senyum Sayang? Evan Loss merupakan pencipta dan penyanyi lagu 'Full Senyum Sayang' yang kini viral di TikTok hingga reels Instagram. Seperti apa sosok Evan Loss dan perjalanan kariernya?",
+                    ]
                 ],
                 [
                     "cover" => "../../../assets/resources/photos/programs/ep2/3.jpg",
                     "judul" => "Behind Story of Jessica Mila",
                     "summ" => 'Ngobras Spesial kedatangan aktris cantik Jessica Mila @jscmila. Film barunya bergenre horor "The Doll 3" baru saja tayang. Seperti apa cerita di balik filmnya ini dan fakta-fakta menarik tentang Jessica Mila?',
                     "durasi" => "18:04",
-                    "rilis" => "31 Mei 2022"
+                    "rilis" => "31 Mei 2022",
+                    "sound" => "../../../assets/resources/photos/programs/ep1/sounds/3.mp3",
+                    "next" => [
+                        "cover" => "../../../assets/resources/photos/programs/ep2/4.jpg",
+                        "judul" => "Semangat Berkarya Dudy Oris",
+                        "summ" => 'Masih ingat dengan Dudy Oris? Mantan vokalis Yovie n Nuno yang kini bersolo karier.</br>Di bulan Ramadan ini tak menghalangi Dudy untuk tetap berkarya. Seperti apa kegiatan Dudy Oris di bulan puasa ini dan karya-karya apa yang sudah tercipta?',
+                    ],
+                    "prev" =>[
+                        "cover" => "../../../assets/resources/photos/programs/ep2/2.jpg",
+                        "judul" => "Merdeka Berekspresi Lewat Fashion | Ft. Okky Asokawati",
+                        "summ" => 'Jelang peringatan 77 tahun kemerdekaan Indonesia, apakah kita juga telah merdeka dalam hal berekspresi? Ngobras Spesial kali ini bakalan ngobrol seputar "Merdeka Berekespresi Lewat Fashion" bareng Okky Asokawati.',
+                    ]
                 ],
                 [
                     "cover" => "../../../assets/resources/photos/programs/ep2/4.jpg",
                     "judul" => "Semangat Berkarya Dudy Oris",
                     "summ" => 'Masih ingat dengan Dudy Oris? Mantan vokalis Yovie n Nuno yang kini bersolo karier.</br>Di bulan Ramadan ini tak menghalangi Dudy untuk tetap berkarya. Seperti apa kegiatan Dudy Oris di bulan puasa ini dan karya-karya apa yang sudah tercipta?',
                     "durasi" => "22:25",
-                    "rilis" => "20 Mei 2022"
+                    "rilis" => "20 Mei 2022",
+                    "sound" => "../../../assets/resources/photos/programs/ep1/sounds/4.mp3",
+                    "next" => [
+                        "cover" => "../../../assets/resources/photos/programs/ep2/5.jpg",
+                        "judul" => "Risman Bintang MotoGP Mandalika",
+                        "summ" => 'Masih ingat dengan nama Risman saat perhelatan MotoGP Mandalika? Salah satu staf hotel di Mandalika, Lombok yang disebut namanya oleh pembalap Miguel Oliveira.<br/>Seperti apa sosoknya dan bagaimana cerita di balik MotoGP Mandalika?',
+                    ],
+                    "prev" =>[
+                        "cover" => "../../../assets/resources/photos/programs/ep2/3.jpg",
+                        "judul" => "Behind Story of Jessica Mila",
+                        "summ" => 'Ngobras Spesial kedatangan aktris cantik Jessica Mila @jscmila. Film barunya bergenre horor "The Doll 3" baru saja tayang. Seperti apa cerita di balik filmnya ini dan fakta-fakta menarik tentang Jessica Mila?',
+                    ]
                 ],
                 [
                     "cover" => "../../../assets/resources/photos/programs/ep2/5.jpg",
                     "judul" => "Risman Bintang MotoGP Mandalika",
                     "summ" => 'Masih ingat dengan nama Risman saat perhelatan MotoGP Mandalika? Salah satu staf hotel di Mandalika, Lombok yang disebut namanya oleh pembalap Miguel Oliveira.<br/>Seperti apa sosoknya dan bagaimana cerita di balik MotoGP Mandalika?',
                     "durasi" => "27:06",
-                    "rilis" => "31 Mar 2022"
+                    "rilis" => "31 Mar 2022",
+                    "sound" => "../../../assets/resources/photos/programs/ep1/sounds/5.mp3",
+                    "next" => [
+                        "cover" => "../../../assets/resources/photos/programs/ep2/6.jpg",
+                        "judul" => "Model Indonesia di Paris Fashion Week | Ft. Rizal Rama",
+                        "summ" => 'Belakangan ini, acara Paris Fashion Week 2022 ramai dibicarakan. Di tengah polemik tersebut, nama model Rizal Rama mencuat. Bagi kalian yang tidak tahu, ia adalah model asal Surabaya, Jawa Timur yang berhasil melenggang di Milan hingga ajang bergengsi di Paris itu.',
+                    ],
+                    "prev" =>[
+                        "cover" => "../../../assets/resources/photos/programs/ep2/4.jpg",
+                        "judul" => "Semangat Berkarya Dudy Oris",
+                        "summ" => 'Masih ingat dengan Dudy Oris? Mantan vokalis Yovie n Nuno yang kini bersolo karier.</br>Di bulan Ramadan ini tak menghalangi Dudy untuk tetap berkarya. Seperti apa kegiatan Dudy Oris di bulan puasa ini dan karya-karya apa yang sudah tercipta?',
+                    ]
                 ],
                 [
                     "cover" => "../../../assets/resources/photos/programs/ep2/6.jpg",
                     "judul" => "Model Indonesia di Paris Fashion Week | Ft. Rizal Rama",
                     "summ" => 'Belakangan ini, acara Paris Fashion Week 2022 ramai dibicarakan. Di tengah polemik tersebut, nama model Rizal Rama mencuat. Bagi kalian yang tidak tahu, ia adalah model asal Surabaya, Jawa Timur yang berhasil melenggang di Milan hingga ajang bergengsi di Paris itu.',
                     "durasi" => "34:20",
-                    "rilis" => "25 Mar 2022"
+                    "rilis" => "25 Mar 2022",
+                    "sound" => "../../../assets/resources/photos/programs/ep1/sounds/6.mp3",
+                    "next" => [
+                        "cover" => "../../../assets/resources/photos/programs/ep2/7.jpg",
+                        "judul" => "Sarah Azhari It's My Life",
+                        "summ" => 'Masih ingat dengan Sarah Azhari? Salah satu aktris yang namanya sempat bersinar di tahun 90-an. Sejumlah film layar lebar dan sinetron pernah ia bintangi. Selain akting, Sarah juga berkecimpung di dunia modelling dan juga tarik suara.<br/>Sudah lama tak terdengar kabarnya, rupanya Sarah kini menetap di Amerika. Seperti apa kegiatannya saat ini?',
+                    ],
+                    "prev" =>[
+                        "cover" => "../../../assets/resources/photos/programs/ep2/5.jpg",
+                        "judul" => "Risman Bintang MotoGP Mandalika",
+                        "summ" => 'Masih ingat dengan nama Risman saat perhelatan MotoGP Mandalika? Salah satu staf hotel di Mandalika, Lombok yang disebut namanya oleh pembalap Miguel Oliveira.<br/>Seperti apa sosoknya dan bagaimana cerita di balik MotoGP Mandalika?',
+                    ]
                 ],
                 [
                     "cover" => "../../../assets/resources/photos/programs/ep2/7.jpg",
                     "judul" => "Sarah Azhari It's My Life",
                     "summ" => 'Masih ingat dengan Sarah Azhari? Salah satu aktris yang namanya sempat bersinar di tahun 90-an. Sejumlah film layar lebar dan sinetron pernah ia bintangi. Selain akting, Sarah juga berkecimpung di dunia modelling dan juga tarik suara.<br/>Sudah lama tak terdengar kabarnya, rupanya Sarah kini menetap di Amerika. Seperti apa kegiatannya saat ini?',
                     "durasi" => "38:33",
-                    "rilis" => "14 Mar 2022 "
+                    "rilis" => "14 Mar 2022 ",
+                    "sound" => "../../../assets/resources/photos/programs/ep1/sounds/7.mp3",
+                    "next" => [
+                        "cover" => "../../../assets/resources/photos/programs/ep2/8.jpg",
+                        "judul" => "New Chapter Geisha",
+                        "summ" => 'Membuka lembaran baru dalam bermusik, grup band Geisha mengusung konsep dan warna yang berbeda dari sebelumnya. Citra itu dapat dirasakan dari lagu terbaru mereka yang berjudul Impas.',
+                    ],
+                    "prev" =>[
+                        "cover" => "../../../assets/resources/photos/programs/ep2/6.jpg",
+                        "judul" => "Model Indonesia di Paris Fashion Week | Ft. Rizal Rama",
+                        "summ" => 'Belakangan ini, acara Paris Fashion Week 2022 ramai dibicarakan. Di tengah polemik tersebut, nama model Rizal Rama mencuat. Bagi kalian yang tidak tahu, ia adalah model asal Surabaya, Jawa Timur yang berhasil melenggang di Milan hingga ajang bergengsi di Paris itu.',
+                    ]
                 ],
                 [
                     "cover" => "../../../assets/resources/photos/programs/ep2/8.jpg",
                     "judul" => "New Chapter Geisha",
                     "summ" => 'Membuka lembaran baru dalam bermusik, grup band Geisha mengusung konsep dan warna yang berbeda dari sebelumnya. Citra itu dapat dirasakan dari lagu terbaru mereka yang berjudul Impas.',
                     "durasi" => "39:39",
-                    "rilis" => "01 Mar 2022"
+                    "rilis" => "01 Mar 2022",
+                    "sound" => "../../../assets/resources/photos/programs/ep1/sounds/8.mp3",
+                    "next" => [
+                        "cover" => "../../../assets/resources/photos/programs/ep2/8.jpg",
+                        "judul" => "New Chapter Geisha",
+                        "summ" => 'Membuka lembaran baru dalam bermusik, grup band Geisha mengusung konsep dan warna yang berbeda dari sebelumnya. Citra itu dapat dirasakan dari lagu terbaru mereka yang berjudul Impas.',
+                    ],
+                    "prev" =>[
+                        "cover" => "../../../assets/resources/photos/programs/ep2/7.jpg",
+                        "judul" => "Sarah Azhari It's My Life",
+                        "summ" => 'Masih ingat dengan Sarah Azhari? Salah satu aktris yang namanya sempat bersinar di tahun 90-an. Sejumlah film layar lebar dan sinetron pernah ia bintangi. Selain akting, Sarah juga berkecimpung di dunia modelling dan juga tarik suara.<br/>Sudah lama tak terdengar kabarnya, rupanya Sarah kini menetap di Amerika. Seperti apa kegiatannya saat ini?',
+                    ]
                 ],
                 
             ]
@@ -375,6 +463,7 @@ Route::get('/sounds/play/{slug}', function ($slug) {
 
     $result = []; 
     $program = "";
+    $episodes = [];
 
     foreach ($data as $item) {
         foreach ($item["episodes"] as $value) {
@@ -386,6 +475,7 @@ Route::get('/sounds/play/{slug}', function ($slug) {
 
         if(sizeof($result) !=0){
             $program = $item["judul"];
+            $episodes = $item["episodes"];
             break;
         }
     }
@@ -397,7 +487,8 @@ Route::get('/sounds/play/{slug}', function ($slug) {
                                 "type"=>"Detail"
                                 ,"id"=>"default"
                                 ,"data" => $result,
-                                "program" => $program
+                                "program" => $program,
+                                "episodes"=> $episodes
                             ]);
     }
     

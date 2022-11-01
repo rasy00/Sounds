@@ -64,7 +64,7 @@
         <div class="live-container-inner">
             @for ($i = 1; $i <=10; $i++)
                 <div class="live-item {{$i === 2?"live-current":""}}">
-                    <a href="/sounds/play/2">
+                    <a href="/sounds/play/berantem-tapi-tetep-langgeng-ini-rahasianya-ft-shendy-amanda">
                         <div class="cover-item">
                             <div class="duration-ui">
                                 <img src="../../assets/resources/photos/tos{{$i>=8?$i+1:$i}}.jpeg" alt="" width="150" height="150" style="border-radius:50%">
@@ -101,7 +101,7 @@
     <div class="cover-container">
         
        @for ($i = 1; $i <= 10; $i++)
-        <a href="/sounds/play/1" class="cover-link">
+        <a href="/sounds/play/berantem-tapi-tetep-langgeng-ini-rahasianya-ft-shendy-amanda" class="cover-link">
            <div class="cover-item">
             <div class="cover"> 
                 <img src="../assets/resources/photos/cover/{{$i}}.jpg" alt="">

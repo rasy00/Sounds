@@ -162,15 +162,22 @@
             <div class="episode_inner">
               <span class="info">Daftar Episode</span>
               <div class="episodes" >
-                @for ($i = 1; $i <= 10; $i++)
-                  <a href="#" class="episode_item">
-                    <span class="nomor">{{$i}}.</span>
-                    <div class="data">
-                      <span class="judul">Lorem ipsum dolor sit.</span>
-                      <span class="author">Ninuninu</span>
-                    </div>
-                  </a>  
-                @endfor
+                @php
+                  $i = 1;
+                @endphp
+                @foreach ($episodes as $item)
+                  
+                    <a href="#" class="episode_item">
+                      <span class="nomor">{{$i}}.</span>
+                      <div class="data">
+                        <span class="judul">{{$item["judul"]}}</span>
+                        <span class="author">Ninuninu</span>
+                      </div>
+                    </a>
+                  @php
+                      $i += 1;
+                  @endphp 
+                @endforeach
               </div>
             </div>
           </div>
